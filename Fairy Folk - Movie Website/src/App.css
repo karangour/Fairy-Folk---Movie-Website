@@ -1,0 +1,169 @@
+html,
+body,
+#root {
+  box-sizing: border-box;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+}
+
+h1 {
+  display: inline-block;
+}
+
+.everything {
+  display: flex;
+  border: 1px solid red;
+}
+
+.poster-things {
+  display: flex;
+  width: 1000px;
+  height: 1290px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(0, 255, 200);
+}
+
+.poster {
+  position: fixed;
+  padding: 20px;
+  height: 90%;
+  z-index: 50;
+
+  background: #ffffff;
+  box-shadow: 0px 0px 30px 10px rgba(255, 255, 255, 0.25);
+  border-radius: 50px;
+}
+
+.share-button {
+  position: fixed;
+  width: 30px;
+  right: 80px;
+  top: 30px;
+}
+
+.menu-button {
+  position: fixed;
+  width: 30px;
+  right: 30px;
+  top: 30px;
+  border-radius: 5px;
+  background: white;
+}
+
+.parent-container {
+  display: flex;
+  flex-direction: row;
+  width: 61%;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid rgb(0, 4, 255);
+}
+
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* headings */
+
+.heading-thin {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 275;
+  font-size: 55px;
+  line-height: 66px;
+
+  color: #ffffff;
+}
+
+.heading-thick {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 55px;
+  line-height: 66px;
+  margin-left: 10px;
+
+  color: #ffffff;
+}
+
+.underline-heading {
+  width: 315px;
+  height: 0px;
+  margin-top: -35px;
+  margin-bottom: 40px;
+
+  border: 0.5px solid #ffffff;
+}
+
+.oswald {
+  font-family: "Oswald";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 37px;
+
+  letter-spacing: 0.05em;
+}
+
+.home-buttons {
+  display: flex;
+  flex-direction: row;
+  width: 800px;
+  justify-content: space-evenly;
+}
+
+/* need-button */
+
+.need-text {
+  width: 378px;
+  height: 44px;
+  display: inline;
+  margin-right: -515px;
+  margin-top: 2px;
+  z-index: 100;
+  color: #000000;
+}
+
+.need-button {
+  width: 274px;
+  height: 44px;
+
+  background: radial-gradient(
+    65.33% 561.23% at 50% 50%,
+    #ffffff 0%,
+    #000000 100%
+  );
+  box-shadow: 0px 0px 20px 10px rgba(72, 72, 72, 0.5);
+  border-radius: 15px;
+}
+
+/* have-password */
+
+.have-text {
+  width: 378px;
+  height: 44px;
+  display: inline;
+  margin-right: -515px;
+  margin-top: 2px;
+  z-index: 100;
+  color: #000000;
+}
+
+.have-button {
+  width: 274px;
+  height: 44px;
+
+  background: radial-gradient(
+    65.33% 561.23% at 50% 50%,
+    #ffffff 0%,
+    #000000 100%
+  );
+  box-shadow: 0px 0px 20px 10px rgba(72, 72, 72, 0.5);
+  border-radius: 15px;
+}
