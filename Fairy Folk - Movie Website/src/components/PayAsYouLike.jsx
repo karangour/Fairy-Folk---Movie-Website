@@ -32,6 +32,37 @@ export default function PayAsYouLike() {
         2. Receive a PASSWORD in your email. <br />
         3. Use it here for 48 hours.
       </p>
+
+      <div className="user-details">
+        <div className="name-email-amount">
+          <p className="name-text">Name </p>
+          <p className="optional-text">(optional)</p>
+          <p className="email-text"> Email </p>
+          <p className="amount-text">Amount </p>
+        </div>
+        <div className="inputs">
+          <input type="text" name="name" className="input-name input-format" />
+          <input
+            type="email"
+            name="email"
+            className="input-email input-format"
+          />
+          <input
+            type="number"
+            name="amount"
+            className="input-amount input-format"
+          />
+          <p className="contribution-zero">
+            (you can enter '0' if you don't feel like contributing at this
+            stage)
+          </p>
+        </div>
+      </div>
+      <div className="payasyoulike-button">
+        <h3 className="get-password-text oswald">GET PASSWORD</h3>
+        <button className="get-password-button" />
+      </div>
+      <div className="contri-cyl"></div>
     </div>
   );
 }

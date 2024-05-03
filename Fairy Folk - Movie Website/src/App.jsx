@@ -12,16 +12,16 @@ import PayAsYouLike from "./components/PayAsYouLike";
 export default function App() {
   return (
     <div className="everything">
+      <p className="rights-notice">
+          © 2024 EMPATHEIA FILMS ALL RIGHTS RESERVED
+        </p>
       <div className="poster-things">
         <img src={poster} className="poster" alt="Fairy Folk Poster" />
         <MenuElements />
+       <Home /> 
       </div>
 
       <div className="parent-container">
-        <p className="rights-notice">
-          © 2024 EMPATHEIA FILMS ALL RIGHTS RESERVED
-        </p>
-        <Home />
         <PayAsYouLike />
         {/* <WatchFilm />
         <About />
