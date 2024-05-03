@@ -17,7 +17,6 @@ h1 {
 .everything {
   display: flex;
   flex-direction: column;
-  
 }
 
 .poster-things {
@@ -27,15 +26,12 @@ h1 {
   height: 1290px;
   align-items: center;
   justify-content: space-evenly;
-  
 }
 
 .parent-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  
 }
 
 .poster {
@@ -406,7 +402,7 @@ h1 {
   height: 80px;
   margin-top: 80px;
 
-  background: #ffcaaf;
+  background: #000000;
   box-shadow: 0px 0px 25px 15px rgba(255, 255, 255, 0.2);
   z-index: 1;
 }
@@ -419,7 +415,7 @@ h1 {
   background: linear-gradient(
     90deg,
     rgba(255, 255, 255, 0) 0%,
-    rgba(250, 3, 3, 0.5) 100%
+    rgba(91, 0, 0, 0.5) 100%
   );
   z-index: 10;
   transform: rotate(-90deg);
@@ -432,7 +428,7 @@ h1 {
   background: linear-gradient(
     90deg,
     rgba(255, 255, 255, 0) 0%,
-    rgba(255, 99, 99, 0.5) 100%
+    rgba(144, 1, 1, 0.5) 100%
   );
   z-index: 10;
   transform: rotate(90deg);
@@ -479,7 +475,7 @@ h1 {
 }
 
 .budget-marker {
-  margin-top: -85px;
+  margin-top: -80px;
   margin-right: 138px;
   width: 80px;
   border: 1px solid rgb(255, 255, 255);
@@ -489,12 +485,11 @@ h1 {
 .contri-box {
   align-items: center;
   justify-content: center;
-  margin-top: 0px;
   margin-left: -571px;
   width: fit-content;
   padding-right: 7px;
   padding-left: 7px;
-  height: 40px;
+  height: 35px;
   border: 1px 1px 1px 1px;
   border-style: solid;
   background: #01ccff;
