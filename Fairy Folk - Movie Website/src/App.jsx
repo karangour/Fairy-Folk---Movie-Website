@@ -23,6 +23,7 @@ export default function App() {
 
       <div className="parent-container">
         <PayAsYouLike />
+        <div className="placeholder"></div>
         {/* <WatchFilm />
         <About />
         <Videos />

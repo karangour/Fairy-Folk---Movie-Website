@@ -63,7 +63,6 @@ h1 {
   background: white;
 }
 
-
 .rights-notice {
   position: fixed;
   bottom: -20px;
@@ -223,9 +222,9 @@ h1 {
   flex-direction: column;
   width: fit-content;
 
-  margin-top: 50px;
+  margin-top: 60px;
 
-  padding: 0px 30px;
+  padding: 0px 50px 120px 50px;
   background: #000000;
   box-shadow: 0px 0px 30px 10px rgba(255, 255, 255, 0.25);
   border-radius: 50px;
@@ -242,24 +241,24 @@ h1 {
   font-family: "Questrial";
   font-style: normal;
   font-weight: 400;
-  font-size: 25px;
-  line-height: 37px;
+  font-size: 22px;
+  line-height: 35px;
 
-  color: #ffffff;
+  color: #ffffffc0;
 }
 
 .thanks {
   font-family: "Oswald";
   font-style: normal;
   font-weight: 400;
-  font-size: 30px;
-  margin-top: -320px;
+  font-size: 28px;
+  margin-top: -355px;
   letter-spacing: 0.01em;
   color: #ffffff;
 }
 
 .division-description {
-  width: 856px;
+  width: 800px;
   height: 0px;
 
   margin-top: -10px;
@@ -290,7 +289,7 @@ h1 {
   border-style: solid;
   background-color: black;
   border-color: #ff7a00;
-  border-radius: 15px;
+  border-radius: 5px;
 }
 
 .user-details {
@@ -300,7 +299,9 @@ h1 {
   font-style: normal;
   font-weight: 400;
   font-size: 25px;
-  padding: 30px;
+  padding: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   display: flex;
   align-items: center;
   text-align: center;
@@ -358,7 +359,15 @@ h1 {
   margin: 15px;
   background-color: black;
   border: 0px;
+  color: white;
   border-bottom: 0.5px solid white;
+
+  -moz-appearance: textfield;
+}
+
+.input-format::-webkit-inner-spin-button,
+.input-format::-webkit-outer-spin-button {
+  -webkit-appearance: none;
 }
 
 .payasyoulike-button {
@@ -366,6 +375,7 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 50px;
 }
 
 .get-password-text {
@@ -392,10 +402,104 @@ h1 {
 }
 
 .contri-cyl {
-  width: 80%;
-  height: 100px;
-  margin-top: 180px;
+  width: 800px;
+  height: 80px;
+  margin-top: 80px;
 
   background: #ffcaaf;
-  box-shadow: 0px 0px 20px 15px rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 0px 25px 15px rgba(255, 255, 255, 0.2);
+  z-index: 1;
+}
+
+/* Tube Curve 1 */
+.tube-curve-top {
+  margin-bottom: -520px;
+  width: 80px;
+  height: 800px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(250, 3, 3, 0.5) 100%
+  );
+  z-index: 10;
+  transform: rotate(-90deg);
+}
+
+.tube-curve-bottom {
+  margin-top: -440px;
+  width: 80px;
+  height: 800px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 99, 99, 0.5) 100%
+  );
+  z-index: 10;
+  transform: rotate(90deg);
+}
+
+.contribution {
+  width: 10px;
+  height: 80px;
+  margin-top: -440px;
+  margin-left: -790px;
+  background: #01ccff;
+  z-index: 20;
+}
+
+.budget-box,
+.contri-box {
+  font-family: "Questrial";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+
+  display: flex;
+
+  color: #ffffff;
+}
+
+.budget-num,
+.contri-num {
+  font-size: 25px;
+  color: red;
+  margin-left: 7px;
+}
+
+.budget-box {
+  align-items: center;
+  justify-content: center;
+  margin-bottom: -360px;
+  margin-right: -579px;
+  width: 220px;
+  height: 40px;
+  border: 1px 1px 1px 1px;
+  border-style: solid;
+  border-color: white;
+}
+
+.budget-marker {
+  margin-top: -85px;
+  margin-right: 138px;
+  width: 80px;
+  border: 1px solid rgb(255, 255, 255);
+  transform: rotate(90deg);
+}
+
+.contri-box {
+  align-items: center;
+  justify-content: center;
+  margin-top: 0px;
+  margin-left: -555px;
+  width: fit-content;
+  padding-right: 7px;
+  padding-left: 7px;
+  height: 40px;
+  border: 1px 1px 1px 1px;
+  border-style: solid;
+  border-color: #01ccff;
+}
+
+.placeholder {
+  padding: 50px;
 }

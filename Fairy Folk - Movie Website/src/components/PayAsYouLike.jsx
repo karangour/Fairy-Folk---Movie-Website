@@ -62,7 +62,20 @@ export default function PayAsYouLike() {
         <h3 className="get-password-text oswald">GET PASSWORD</h3>
         <button className="get-password-button" />
       </div>
-      <div className="contri-cyl"></div>
+      <div className="budget-box">
+        <p className="budget-text">budget: </p>
+        <p className="budget-num">2,00,00,000</p>
+      </div>
+      <div className="tube-curve-top" />
+      <div className="contri-cyl" />
+      <div className="tube-curve-bottom" />
+
+      <div className="contribution"></div>
+      <div className="contri-box">
+        <p className="contri-text">contribution: </p>
+        <p className="contri-num">2,50,000</p>
+      </div>
+      <hr className="budget-marker" />
     </div>
   );
 }
