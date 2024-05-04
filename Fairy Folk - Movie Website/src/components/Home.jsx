@@ -10,9 +10,9 @@ export default function Home() {
       </div>
       <div className="home-buttons">
         <h3 className="need-text oswald">I NEED A PASSWORD</h3>
-        <button className="need-button" />
+        <button type='button' className="need-button button" />
         <h3 className="have-text oswald">I HAVE A PASSWORD</h3>
-        <button className="have-button" />
+        <button type='button' className="have-button button" />
       </div>
     </div>
   );

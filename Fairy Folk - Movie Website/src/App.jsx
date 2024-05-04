@@ -4,7 +4,7 @@ import MenuElements from "./components/MenuElements";
 import Home from "./components/Home";
 import poster from "./assets/FairyFolkWebsitePoster.png";
 import PayAsYouLike from "./components/PayAsYouLike";
-// import WatchFilm from "./components/WatchFilm";
+import WatchFilm from "./components/WatchFilm";
 // import About from "./components/About";
 // import Videos from "./components/Videos";
 // import Gallery from "./components/Gallery";
@@ -13,19 +13,20 @@ export default function App() {
   return (
     <div className="everything">
       <p className="rights-notice">
-          © 2024 EMPATHEIA FILMS ALL RIGHTS RESERVED
-        </p>
+        © 2024 EMPATHEIA FILMS ALL RIGHTS RESERVED
+      </p>
       <div className="poster-things">
         <img src={poster} className="poster" alt="Fairy Folk Poster" />
         <MenuElements />
-       <Home /> 
+        <Home />
       </div>
 
       <div className="parent-container">
         <PayAsYouLike />
-        <div className="placeholder"></div>
-        {/* <WatchFilm />
-        <About />
+        <WatchFilm />
+        <div className="placeholder" />
+        <button type='submit' className="placeholder-button button" />
+        {/* <About />
         <Videos />
         <Gallery /> */}
       </div>
