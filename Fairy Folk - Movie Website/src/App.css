@@ -361,12 +361,42 @@ h1 {
   color: white;
   border-bottom: 0.5px solid white;
 
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+
   -moz-appearance: textfield;
 }
 
 .input-format::-webkit-inner-spin-button,
 .input-format::-webkit-outer-spin-button {
   -webkit-appearance: none;
+}
+
+.input-amount {
+  width: 240px;
+  margin-left: 75px;
+}
+
+.currency-selector {
+  position: absolute;
+  width: 55px;
+  margin-left: 110px;
+  margin-top: 77px;
+  
+  
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+
+  transform: scaleY(1.3);
+ 
+  
+  background-color: black;
+  color: white;
+  border: 0.5px solid white;
 }
 
 .payasyoulike-button {
