@@ -443,7 +443,6 @@ h1 {
   width: 800px;
   height: 80px;
   position: relative;
-  
 }
 
 .contribution-fill {
@@ -459,28 +458,25 @@ h1 {
   /* margin-top: 80px; */
 
   flex-grow: 0;
-    /* flex-shrink: 0; */
-    flex-basis: 100%;
+  /* flex-shrink: 0; */
+  flex-basis: 100%;
 
   background: #000000;
   box-shadow: 0px 0px 25px 15px rgba(255, 255, 255, 0.2);
-  
 }
-
 
 .tube-curve-top {
   /* margin-bottom: -520px; */
   position: absolute;
   width: 100%;
   height: 100%;
-  
+
   background: linear-gradient(
     360deg,
     rgba(255, 255, 255, 0) 0%,
     rgba(84, 0, 0, 0.5) 100%
   );
   z-index: 10;
-  
 }
 
 .tube-curve-bottom {
@@ -488,18 +484,14 @@ h1 {
   width: 100%;
   height: 100%;
   background: linear-gradient(
-    
     rgba(255, 255, 255, 0) 0%,
     rgba(134, 1, 1, 0.5) 100%
   );
   z-index: 10;
-  
 }
 
-
-
 .budget-marker {
- margin-right: -100%;
+  margin-right: -100%;
   height: 100%;
   border: 1px solid white;
   z-index: 20;
@@ -542,19 +534,14 @@ h1 {
   justify-content: center;
   border: 1px solid white;
   padding: 0 10px;
-  margin-left: 497.5px; 
+  margin-left: 497.5px;
 }
 
 .budget-num,
 .contri-num {
-  
   color: red;
   margin-left: 7px;
 }
-
-
-
-
 
 .contri-box {
   align-items: center;
@@ -570,7 +557,8 @@ h1 {
   border-color: #01ccff;
 }
 
-.contri-text, .budget-text {
+.contri-text,
+.budget-text {
   font-size: 18px;
 }
 .contri-text {
@@ -719,4 +707,93 @@ h1 {
 button:active {
   opacity: 0.8;
   transition: opacity 0.1s ease;
+}
+
+/* About */
+
+.about {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: fit-content;
+
+  margin-top: 100px;
+
+  padding: 0px 50px 120px 50px;
+  background: #000000;
+  box-shadow: 0px 0px 30px 10px rgba(255, 255, 255, 0.25);
+  border-radius: 50px;
+}
+
+.underline-heading-about {
+  width: 183px;
+  height: 0px;
+  margin-left: 0px;
+  margin-top: -35px;
+  margin-bottom: 40px;
+
+  border: 0.5px solid #ffffff;
+}
+
+.logline {
+  width: 1050px;
+  margin-top: 10px;
+  font-family: "Oswald";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 28px;
+  line-height: 37px;
+
+  text-align: justify;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+
+  color: #ffffff;
+}
+
+.main-text-about {
+  width: 1158px;
+  height: 591px;
+  left: 1463px;
+  top: 167px;
+
+  text-align: justify;
+
+  font-family: "Questrial";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 35px;
+
+  color: #ffffffc0;
+}
+
+.credits {
+  display: inline;
+
+  width: 1158px;
+  height: 443px;
+  margin-top: -70px;
+
+  font-family: "Six Caps";
+  font-style: normal;
+  font-weight: 400;
+
+  line-height: 49px;
+  text-align: center;
+  text-transform: uppercase;
+
+  color: #ffffff;
+
+  opacity: 0.8;
+}
+
+.credits-large {
+  font-size: 40px;
+  display: inline;
+}
+
+.credits-small {
+  font-size: 22px;
+  display: inline;
 }
