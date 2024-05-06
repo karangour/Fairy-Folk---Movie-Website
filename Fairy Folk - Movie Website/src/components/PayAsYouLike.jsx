@@ -58,37 +58,40 @@ export default function PayAsYouLike() {
           </p>
         </div>
         <select className="currency-selector" name="Currencies">
-            <option value="INR">INR</option>
-            <option value="USD">USD</option>
-            <option value="EUR">EUR</option>
-            <option value="JPY">JPY</option>
-            <option value="GBP">GBP</option>
-            <option value="AUD">AUD</option>
-            <option value="CAD">CAD</option>
-            <option value="CHF">CHF</option>
-            <option value="CNH">CNH</option>
-            <option value="HKD">HKD</option>
-            <option value="NZD">NZD</option>
-          </select>
+          <option value="INR">INR</option>
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+          <option value="JPY">JPY</option>
+          <option value="GBP">GBP</option>
+          <option value="AUD">AUD</option>
+          <option value="CAD">CAD</option>
+          <option value="CHF">CHF</option>
+          <option value="CNH">CNH</option>
+          <option value="HKD">HKD</option>
+          <option value="NZD">NZD</option>
+        </select>
       </div>
       <div className="payasyoulike-button">
         <h3 className="get-password-text oswald">GET PASSWORD</h3>
         <button className="get-password-button" />
       </div>
-      <div className="budget-box">
-        <p className="budget-text">budget: </p>
-        <p className="budget-num">2,00,00,000</p>
+      <div className="contribution-section">
+        <div className="budget-box">
+          <p className="budget-text">budget: </p>
+          <p className="budget-num">₹2,00,00,000 / $200,000</p>
+        </div>
+        <div className="contribution-chart">
+          <div className="contribution-fill"></div>
+          <hr className="budget-marker" />
+          <div className="tube-curve-top" />
+          <div className="tube-curve-bottom" />
+          <div className="contri-cyl" />
+        </div>
+        <div className="contri-box">
+          <p className="contri-text">contribution: </p>
+          <p className="contri-num">₹2,50,000 / $25,000</p>
+        </div>
       </div>
-      <div className="tube-curve-top" />
-      <div className="contri-cyl" />
-      <div className="tube-curve-bottom" />
-
-      <div className="contribution"></div>
-      <div className="contri-box">
-        <p className="contri-text">contribution: </p>
-        <p className="contri-num">2,50,000</p>
-      </div>
-      <hr className="budget-marker" />
     </div>
   );
 }

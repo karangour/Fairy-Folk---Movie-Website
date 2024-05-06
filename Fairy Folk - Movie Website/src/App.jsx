@@ -5,7 +5,7 @@ import Home from "./components/Home";
 import poster from "./assets/FairyFolkWebsitePoster.png";
 import PayAsYouLike from "./components/PayAsYouLike";
 import WatchFilm from "./components/WatchFilm";
-// import About from "./components/About";
+import About from "./components/About";
 // import Videos from "./components/Videos";
 // import Gallery from "./components/Gallery";
 
@@ -24,10 +24,10 @@ export default function App() {
       <div className="parent-container">
         <PayAsYouLike />
         <WatchFilm />
+        
+        <About />
         <div className="placeholder" />
-        <button type='submit' className="placeholder-button button" />
-        {/* <About />
-        <Videos />
+        {/* <Videos />
         <Gallery /> */}
       </div>
     </div>
