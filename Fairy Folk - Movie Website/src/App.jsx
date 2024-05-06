@@ -6,7 +6,7 @@ import poster from "./assets/FairyFolkWebsitePoster.png";
 import PayAsYouLike from "./components/PayAsYouLike";
 import WatchFilm from "./components/WatchFilm";
 import About from "./components/About";
-// import Videos from "./components/Videos";
+import Videos from "./components/Videos";
 // import Gallery from "./components/Gallery";
 
 export default function App() {
@@ -25,9 +25,9 @@ export default function App() {
         <PayAsYouLike />
         <WatchFilm />
         <About />
+        <Videos />
         <div className="placeholder" />
-        {/* <Videos />
-        <Gallery /> */}
+        {/* <Gallery /> */}
       </div>
     </div>
   );

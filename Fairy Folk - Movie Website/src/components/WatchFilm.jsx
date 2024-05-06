@@ -15,7 +15,7 @@ export default function WatchFilm() {
         phone/iPad/laptop are connected to the same WiFi network.
       </p>
       <img src={cast} className="cast-icon" />
-      <div className="video-window"></div>
+      <div className="video-window-fairyfolk"></div>
       <div className="enter-pass">
         ENTER PASSWORD
         <div className="submit-button-div">
