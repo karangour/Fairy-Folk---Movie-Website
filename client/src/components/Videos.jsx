@@ -11,6 +11,7 @@ export default function Videos() {
     return <div className="videos">
       
       <div>
+        <div id="scroll-landing-videos" />
         <h1 className="heading-thin">VIDEOS</h1>
         <hr className="underline-heading-videos" />
         </div>

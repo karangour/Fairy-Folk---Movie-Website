@@ -3,6 +3,7 @@ import React, { useState } from "react";
 export default function About() {
   return (
     <div className="about">
+      <div id="scroll-landing-about" />
       <div>
         <h1 className="heading-thin">ABOUT</h1>
         <hr className="underline-heading-about" />

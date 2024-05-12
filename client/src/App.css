@@ -43,11 +43,45 @@ h1 {
   border-radius: 50px;
 }
 
+
+
 .share-button {
   position: fixed;
   width: 30px;
   right: 80px;
   top: 30px;
+  z-index: 1000;
+}
+
+.share-options-menu {
+  position: fixed;
+  top: 20px; /* Adjust this value to position it right below the share button */
+  right: 70px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+  background: rgb(0, 0, 0);
+  padding: 60px 10px 10px 10px;
+  background: #000000;
+  box-shadow: 0px 0px 30px 10px rgba(255, 255, 255, 0.25);
+  border-radius: 5px;
+  z-index: 999;
+
+  transform: translateY(-130%);
+  transition: transform 0.8s ease-in-out;
+}
+
+.share-options-visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.hovered {
+  transform: scale(1.2);
 }
 
 .menu-button {
@@ -58,28 +92,69 @@ h1 {
   top: 30px;
   border-radius: 5px;
   background: white;
+  z-index: 1002;
 }
 
 .menu {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-  
-    width: fit-content;
+  position: fixed;
+  top: -580px; /*Start hidden off-screen at the top */
+  height: 400px;
+  right: 20px;
+  transition: top 1s ease-in-out; /* Animate the top property */
 
-  
-    padding: 0px 50px 50px 50px;
-    background: #919191;
-    box-shadow: 0px 0px 30px 10px rgba(255, 255, 255, 0.25);
-    border-radius: 5px;
+  display: flex;
+  flex-direction: column;
 
+  align-items: center;
+  text-align: center;
+
+  width: fit-content;
+
+  padding: 70px 0px 10px 0px;
+  background: #000000;
+  box-shadow: 0px 0px 30px 10px rgba(255, 255, 255, 0.25);
+  border-radius: 5px;
+  z-index: 1001;
+}
+
+.menu.open {
+  top: 20px;
 }
 
 .menu-text {
   cursor: pointer;
-  margin: 10px 0px 10px 0px;
+  color: #000000;
+  transition: color 0.3s ease;
+
+  justify-content: center;
+  margin-bottom: 30px;
+  z-index: 20;
+
+  width: 100%;
+  font-family: "Oswald";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 25px;
+
+  letter-spacing: 0.02em;
+
+  padding: 0px 5px 2px 5px;
+
+  background: radial-gradient(
+    65.33% 561.23% at 50% 50%,
+    #ff7a00 0%,
+    #340000 100%
+  );
+
+  border: 0.5px solid black;
+  border-width: 100%;
+  border-radius: 5px;
+}
+
+.menu-text.highlight {
+  color: rgb(255, 255, 255);
+  transition: color 0.3s ease;
 }
 
 .rights-notice {
@@ -113,13 +188,11 @@ h1 {
   box-shadow: 0px 0px 30px 10px rgba(255, 255, 255, 0.25);
 
   border-radius: 50px;
-  
 }
 
 /* headings */
 
 .heading-thin {
-  
   font-family: "Lato";
   font-style: normal;
   font-weight: 275;
@@ -154,8 +227,6 @@ h1 {
 }
 
 .oswald {
-  
-
   font-family: "Oswald";
   font-style: normal;
   font-weight: 400;
@@ -170,13 +241,11 @@ h1 {
   flex-direction: row;
   width: 800px;
   justify-content: space-evenly;
-  
 }
 
 /* need-button */
 
 .need-text {
-
   width: 274px;
   height: 44px;
   display: inline;
@@ -187,7 +256,6 @@ h1 {
   color: #000000;
   position: relative;
   pointer-events: none;
- 
 }
 
 .need-button {
@@ -204,13 +272,12 @@ h1 {
   border: none;
   border-radius: 15px;
   position: relative;
-  
 }
 
 /* have-password */
 
 .have-text {
- pointer-events: none;
+  pointer-events: none;
   width: 274px;
   height: 44px;
   display: inline;
@@ -220,7 +287,6 @@ h1 {
   z-index: 10;
   color: #000000;
   /* border: 1px solid red; */
-  
 }
 
 .have-button {
@@ -410,8 +476,6 @@ h1 {
   font-style: normal;
   font-weight: 300;
   font-size: 20px;
-
-  -moz-appearance: textfield;
 }
 
 .input-format::-webkit-inner-spin-button,
@@ -557,12 +621,11 @@ h1 {
   color: #ffffff;
 }
 
-
 .budget-box {
-  flex-grow: 0; 
-  flex-shrink: 0; 
-  width: fit-content; 
-  min-width: 50px; 
+  flex-grow: 0;
+  flex-shrink: 0;
+  width: fit-content;
+  min-width: 50px;
   height: 40px;
   display: flex;
   align-items: center;
@@ -746,8 +809,11 @@ h1 {
 }
 
 button:active,
-a.button:active {
-  opacity: 0.8;
+a.button:active,
+.menu-button:active,
+.share-button:active,
+.arrow:active {
+  opacity: 0.5;
   transition: opacity 0.1s ease;
 }
 
@@ -765,6 +831,12 @@ a.button:active {
   background: #000000;
   box-shadow: 0px 0px 30px 10px rgba(255, 255, 255, 0.25);
   border-radius: 50px;
+}
+
+#scroll-landing-about {
+  margin-top: -38px;
+  margin-bottom: 38px;
+  /* border: 1px solid red; */
 }
 
 .underline-heading-about {
@@ -855,6 +927,12 @@ a.button:active {
   background: #000000;
   box-shadow: 0px 0px 30px 10px rgba(255, 255, 255, 0.25);
   border-radius: 50px;
+}
+
+#scroll-landing-videos {
+  margin-top: -50px;
+  margin-bottom: 50px;
+  /* border: 1px solid red; */
 }
 
 .underline-heading-videos {
@@ -950,6 +1028,12 @@ a.button:active {
   border-radius: 50px;
 }
 
+#scroll-landing-gallery {
+  margin-top: -50px;
+  margin-bottom: 50px;
+  /* border: 1px solid red; */
+}
+
 .underline-heading-gallery {
   width: 210px;
   height: 0px;
@@ -960,12 +1044,81 @@ a.button:active {
 }
 
 .gallery-window {
+  position: relative;
+  display: flex;
+  /* justify-content: center; */
+  flex-direction: column;
+  align-items: center;
   margin-top: 0px;
   margin-bottom: 40px;
 
   width: 1158px;
-  height: 900px;
+  height: 524px;
   background: #000000;
 
   box-shadow: 0px 0px 30px 2px rgba(255, 192, 130, 0.4);
+}
+
+.arrow-div {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.arrow {
+  cursor: pointer;
+  position: relative;
+  width: 50px;
+  background: rgb(0, 0, 0);
+  padding: 20px 0px 20px 0px;
+  border-width: 0.5px;
+
+  border-style: double;
+  border-color: white;
+
+  z-index: 1010;
+}
+
+.left-arrow {
+  border-radius: 0px 5px 5px 0px;
+  border-left: 0;
+}
+
+.right-arrow {
+  border-radius: 5px 0px 0px 5px;
+  border-right: 0;
+}
+
+.show-arrows {
+  opacity: 1;
+}
+
+.gallery-image {
+  max-width: 100%;
+  max-height: 100%;
+
+  object-fit: contain;
+}
+
+.insta-logo {
+  height: 30px;
+  width: auto;
+  margin-top: -4px;
+
+  cursor: pointer;
+  color: #000000;
+
+  justify-content: space-evenly;
+
+  z-index: 20;
+  transition: transform 0.3s ease;
+}
+
+.testing {
+  color: white;
 }
