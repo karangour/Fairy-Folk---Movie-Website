@@ -14,12 +14,14 @@ app.use((req, res, next) => {
 
 // This will setup a middleware to directly serve static image files directly via URLs like 'http://localhost:4000/assets/gallery/1.jpg'
 
-app.use("/assets/gallery", express.static("assets/gallery"));
+app.use("/assets/", express.static("assets/"));
 
 // This will send us to the router file. So app.use is the middleware here.
 
 //READ gallery images (id, img address)
 app.use("/assets/gallery", require("./routes/galleryData"));
+
+app.use("/assets/vid_thumbnails", require("./routes/videosData"))
 
 // This is to start the server when the run dev is started
 app.listen(port, () => {

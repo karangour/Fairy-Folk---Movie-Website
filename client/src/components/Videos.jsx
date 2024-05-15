@@ -1,22 +1,92 @@
-import React, { useState } from "react";
-import videos_data from '../videos_data.json';
-import VidThumbnail from './VidThumbnail.jsx'
+import React, { useState, useEffect } from "react";
+import VideoPlayer from "./VideoPlayer";
+import VidThumbnail from "./VidThumbnail";
 
 export default function Videos() {
-    
-    const videos = videos_data.map(video => {
-        return <VidThumbnail {...video} />
-    })
-    
-    return <div className="videos">
-      
+  console.log("Videos component rendering");
+  const [videoFiles, setVideoFiles] = useState([]);
+  const [activeTitle, setActiveTitle] = useState("");
+  const [activeSrc, setActiveSrc] = useState(
+    "https://www.youtube.com/watch?v=lfOxA7NPJDg"
+  );
+  const [activeThumbnail, setActiveThumbnail] = useState(""); // Add state for active thumbnail
+  const [firstTime, setFirstTime] = useState(true);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetch("http://localhost:4000/assets/vid_thumbnails")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Damn. Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setVideoFiles(data);
+        setActiveSrc(data[0].location);
+        setActiveThumbnail(data[0].thumbnail); // Set the thumbnail of the first video as active thumbnail
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching thumbnails:", error);
+        setError(error.message);
+        setLoading(false);
+      });
+  }, []);
+
+  const videoJsOptions = React.useMemo(
+    () => ({
+      techOrder: ["youtube"],
+      autoplay: false,
+      controls: true,
+      sources: [
+        {
+          src: activeSrc,
+          type: "video/youtube",
+        },
+      ],
+    }),
+    [activeSrc]
+  );
+
+  function mainVideoTitle(index) {
+    if (videoFiles.length > 0 && videoFiles[index]) {
+      setActiveTitle(videoFiles[index].title);
+      setActiveSrc(videoFiles[index].location);
+      setActiveThumbnail(videoFiles[index].thumbnail); // Set the active thumbnail
+      setFirstTime(false);
+    }
+  }
+
+  const videoThumbnails = videoFiles.map((video, idx) => {
+    return (
+      <VidThumbnail
+        key={video.id}
+        {...video}
+        thisTitle={() => mainVideoTitle(idx)}
+      />
+    );
+  });
+
+  console.log("active thumbnail:" + activeThumbnail);
+
+  return (
+    <div className="videos">
       <div>
         <div id="scroll-landing-videos" />
         <h1 className="heading-thin">VIDEOS</h1>
         <hr className="underline-heading-videos" />
-        </div>
-        <h1 className="title-main-video">OFFICIAL TRAILER 1</h1>
-        <div className="video-window-videos" />
-        <div className="video-thumbnails">{videos}</div>
-  </div>;
+      </div>
+      <h1 className="title-main-video">
+        {videoFiles.length > 0
+          ? firstTime
+            ? videoFiles[0].title
+            : activeTitle
+          : "Loading videos..."}
+      </h1>
+      <VideoPlayer options={videoJsOptions} activeThumbnail={activeThumbnail} firstTime={firstTime} />
+      <div className="video-thumbnails">{videoThumbnails}</div>
+    </div>
+  );
 }
