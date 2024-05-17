@@ -129,3 +129,5 @@ export default function VideoPlayer(props) {
     </div>
   );
 }
+
+//just make the selected thumbnail orange

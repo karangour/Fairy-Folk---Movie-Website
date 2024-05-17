@@ -23,13 +23,13 @@ const vid_thumbnails = [
   {
     id: 4,
     title: "EMERGENCY",
-    location: "",
+    location: "https://www.youtube.com/watch?v=rkEm7rBzApY",
     thumbnail: "http://localhost:4000/assets/vid_thumbnails/4.jpg",
   },
   {
     id: 5,
     title: "DRINK UP!",
-    location: "",
+    location: "https://www.youtube.com/watch?v=SYAOAwXyUvA",
     thumbnail: "http://localhost:4000/assets/vid_thumbnails/5.jpg",
   },
 ];
