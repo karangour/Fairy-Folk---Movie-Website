@@ -12,6 +12,8 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(express.json());
+
 // This will setup a middleware to directly serve static image files directly via URLs like 'http://localhost:4000/assets/gallery/1.jpg'
 
 app.use("/assets/", express.static("assets/"));
@@ -21,13 +23,22 @@ app.use("/assets/", express.static("assets/"));
 //READ gallery images (id, img address)
 app.use("/assets/gallery", require("./routes/galleryData"));
 
-app.use("/assets/vid_thumbnails", require("./routes/videosData"))
+//READ video_thumbnails, videos (id, location)
+app.use("/assets/vid_thumbnails", require("./routes/videosData"));
+
+//READ 'passwords.js' by mounting middleware
+app.use("/passwords", require("./routes/getPasswords"));
+
+//PUT 'passwords.js' by mounting middleware
+app.use("/passwords", require("./routes/setPassword"));
+
+//POST for finding and matching password at 'passwords.js' which is more secure than GET
+app.use("/passwords/verify", require("./routes/verifyPassword"));
 
 // This is to start the server when the run dev is started
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
 
-//READ videos_data.json (id, title, location, thunbnail location)
 //READ/WRITE passwords (email, password)
 //READ/WRITE contribution (everything that cashfree sends)

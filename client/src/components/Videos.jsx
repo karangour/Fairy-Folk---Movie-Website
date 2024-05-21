@@ -3,7 +3,7 @@ import VideoPlayer from "./VideoPlayer";
 import VidThumbnail from "./VidThumbnail";
 
 export default function Videos() {
-  console.log("Videos component rendering");
+  
   const [videoFiles, setVideoFiles] = useState([]);
   const [activeTitle, setActiveTitle] = useState("");
   const [activeSrc, setActiveSrc] = useState(

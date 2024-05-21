@@ -672,11 +672,11 @@ h1 {
   align-items: center;
   flex-direction: column;
   width: fit-content;
-  height: 800px;
+  height: 930px;
 
   margin-top: 100px;
 
-  padding: 0px 50px 50px 50px;
+  padding: 0px 50px 90px 50px;
   background: #000000;
   box-shadow: 0px 0px 30px 10px rgba(255, 255, 255, 0.25);
   border-radius: 50px;
@@ -717,15 +717,40 @@ h1 {
 
 .cast-icon {
   width: 30px;
-  margin-top: -95px;
-  margin-left: -745px;
+  margin-top: -130px;
+  margin-left: -684px;
+  cursor: pointer;
+}
+
+.no-app-notice {
+  position: absolute;
+  font-family: "Questrial";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 35px;
+
+  color: white;
+  margin-top: 148px;
+  background: rgb(255, 0, 0);
+  z-index: 2000;
+  width: fit-content;
+  height: fit-content;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  padding: 20px 10px 20px 10px;
 }
 
 .video-window-fairyfolk {
-  margin-top: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 130px;
 
   width: 1158px;
-  height: 524px;
+  height: 650px;
+
   background: #000000;
 
   box-shadow: 0px 0px 30px 2px rgba(255, 192, 130, 0.4);
@@ -734,9 +759,6 @@ h1 {
 .enter-pass {
   display: flex;
   flex-direction: column;
-
-  margin-top: -325px;
-  margin-bottom: 0px;
 
   font-family: "Questrial";
   font-style: normal;
@@ -811,7 +833,8 @@ a.button:active,
 .menu-button:active,
 .share-button:active,
 .arrow:active,
-.thumbnail-container:active {
+.thumbnail-container:active,
+.cast-icon:active {
   opacity: 0.5;
   transition: opacity 0.1s ease;
 }
@@ -979,10 +1002,7 @@ a.button:active,
   background: #000000;
 
   box-shadow: 0px 0px 30px 2px rgba(255, 192, 130, 0.4);
-
 }
-
-
 
 .video-player {
   width: 1158px;
@@ -1010,10 +1030,6 @@ a.button:active,
   box-shadow: 0px 0px 30px 2px rgba(255, 255, 255, 0.4);
   cursor: pointer;
   transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
-}
-
-.clicked-thumbnail {
-  box-shadow: 0px 0px 30px 2px rgba(255, 192, 130, 0.4);
 }
 
 .thumbnail-title {
