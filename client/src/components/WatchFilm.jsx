@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import cast from "./../assets/Cast.png";
+import poster from "./../assets/FairyFolkWebsitePoster.png"
+
 import VideoPlayer from "./VideoPlayer";
 
 export default function WatchFilm() {
-  const [noYoutubeApp, setNoyoutubeApp] = useState(false);
+  const [noYoutubeApp, setNoYouTubeApp] = useState(false);
   const [password, setPassword] = useState("");
   const [passValid, setPassValid] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [showErrorWindow, setShowErrorWindow] = useState(false);
+  
 
   function handleCast() {
     const videoUrl = "https://www.youtube.com/watch?v=lfOxA7NPJDg";
@@ -22,8 +25,7 @@ export default function WatchFilm() {
       document.body.removeChild(iframe);
       // Check if the page is still visible after the attempt
       if (document.visibilityState === "visible") {
-        setNoyoutubeApp(true);
-        setTimeout(() => setNoyoutubeApp(false), 3000);
+        setNoYouTubeApp(true);
       }
     }, 1000); // Timeout can be adjusted based on expected behavior
   }
@@ -59,9 +61,32 @@ export default function WatchFilm() {
         setErrorMessage(error.message);
         console.log("This is the error.message content:", error.message);
         setShowErrorWindow(true);
-        setTimeout(() => setShowErrorWindow(false), 5000);
       });
   };
+
+  function toggleNoYouTubeApp() {
+    setNoYouTubeApp((prevState) => !prevState);
+  }
+
+  function toggleShowErrorWindow() {
+    setShowErrorWindow((prevState) => !prevState);
+    setPassword("");
+  }
+
+  const videoJsOptions = React.useMemo(
+    () => ({
+      techOrder: ["youtube"],
+      autoplay: true,
+      controls: true,
+      sources: [
+        {
+          src: "https://www.youtube.com/watch?v=lfOxA7NPJDg",
+          type: "video/youtube",
+        },
+      ],
+    }),
+    []
+  );
 
   return (
     <div className="fairyfolkthefilm">
@@ -71,43 +96,49 @@ export default function WatchFilm() {
         <h1 className="heading-thick folk-text">FOLK</h1>
         <hr className="underline-heading-fairyfolk" />
       </div>
-      <h1
+      <div
         className="no-app-notice"
         style={{ display: noYoutubeApp ? "flex" : "none" }}
       >
-        Please install the YouTube app.
-      </h1>
-      <p
-        className="cast-instruct"
-        style={{ filter: noYoutubeApp ? "blur(3px)" : "" }}
-      >
-        Click this 'CAST' icon -
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- to watch the film on
-        your TV screen. Once the YouTube app launches automatically on your
-        phone, click the CAST icon found on the top-right of the YouTube video.
-        Ensure your phone and your TV have the YouTube app installed, and are on
-        the same WiFi network.
-      </p>
-      <img
-        src={cast}
-        className="cast-icon"
-        style={{ filter: noYoutubeApp ? "blur(3px)" : "" }}
-        onClick={handleCast}
-      />
-      {/* <VideoPlayer options={videoJsOptions} activeThumbnail={activeThumbnail} firstTime={firstTime} /> */}
+        <h1 onClick={toggleNoYouTubeApp}>Please install the YouTube app.</h1>
+      </div>
+      <div className={`casting ${passValid ? "casting-show" : ""}`}>
+        <p
+          className="cast-instruct"
+          style={{ filter: noYoutubeApp ? "blur(3px)" : "" }}
+        >
+          Click this 'CAST' icon -
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- to watch the film on
+          your TV screen. Once the YouTube app launches automatically on your
+          phone, click the CAST icon found on the top-right of the YouTube
+          video. Ensure your phone and your TV have the YouTube app installed,
+          and are on the same WiFi network.
+        </p>
+        <img
+          src={cast}
+          className={`cast-icon ${passValid && "cast-icon-active"}`}
+          style={{
+            filter: noYoutubeApp ? "blur(3px)" : "",
+            cursor: passValid ? "pointer" : "none",
+          }}
+          onClick={passValid ? handleCast : ""}
+        />
+      </div>
+      {passValid && <VideoPlayer options={videoJsOptions} activeThumbnail={poster} firstTime={true} />}
       <div
         className="video-window-fairyfolk"
         style={{ display: passValid ? "none" : "flex" }}
       >
-        <h1
+        <div
           className="no-app-notice"
           style={{
             display: showErrorWindow ? "flex" : "none",
             marginTop: "15px",
           }}
+          onClick={toggleShowErrorWindow}
         >
-          {errorMessage}
-        </h1>
+          <h1>{errorMessage}</h1>
+        </div>
         <div
           className="enter-pass"
           style={{ filter: showErrorWindow ? "blur(3px)" : "" }}

@@ -68,7 +68,7 @@ export default function MenuElements() {
             ? "share-options-menu share-options-visible"
             : "share-options-menu"
         }`}
-        onMouseLeave={handleShareMouseLeave}
+        // onMouseLeave={handleShareMouseLeave}
       >
         <a
           href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
@@ -126,22 +126,26 @@ export default function MenuElements() {
         />
       </div>
 
-      <img src={menu} className="menu-button" alt="Menu" onClick={toggleMenu} />
+      <img
+        src={menu}
+        className="menu-button"
+        alt="Menu"
+        onClick={() => {
+          toggleMenu();
+          isShareOpen && toggleShare();
+        }}
+      />
 
-      <div
-        className={`menu ${isOpen ? "open" : ""}`}
-        onMouseLeave={handleClose}
-        onClick={handleClose}
-      >
+      <div className={`menu ${isOpen ? "open" : ""}`}>
         <Link
           to="scroll-landing-home"
           spy={true}
           smooth={true}
           duration={1500}
-          onClick={handleClose}
           className={`menu-text ${hoveredIcon === "home" ? "highlight" : ""}`}
           onMouseOver={handleMouseOver("home")}
           onMouseOut={handleMouseOut}
+          onClick={handleClose}
         >
           HOME
         </Link>
