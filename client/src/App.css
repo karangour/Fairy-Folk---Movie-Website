@@ -96,7 +96,7 @@ h1 {
 .menu {
   position: fixed;
   top: -580px; /*Start hidden off-screen at the top */
-  height: 400px;
+  height: 450px;
   right: 20px;
   transition: top 1s ease-in-out; /* Animate the top property */
 
@@ -303,20 +303,6 @@ h1 {
 }
 
 /*Pay-As-You-Like*/
-
-.you-like-text {
-  margin-left: -10px;
-}
-
-.underline-heading-payasyoulike {
-  width: 416px;
-  height: 0px;
-  margin-left: 9px;
-  margin-top: -35px;
-  margin-bottom: 20px;
-  border: 0.5px solid #ffffff;
-}
-
 .payasyoulike {
   display: flex;
   align-items: center;
@@ -329,6 +315,19 @@ h1 {
   background: #000000;
   box-shadow: 0px 0px 30px 10px rgba(255, 255, 255, 0.25);
   border-radius: 50px;
+}
+
+.you-like-text {
+  margin-left: -10px;
+}
+
+.underline-heading-payasyoulike {
+  width: 416px;
+  height: 0px;
+  margin-left: 9px;
+  margin-top: -35px;
+  margin-bottom: 20px;
+  border: 0.5px solid #ffffff;
 }
 
 #scroll-landing-payasyoulike {
@@ -693,9 +692,9 @@ h1 {
 }
 
 .underline-heading-fairyfolk {
-  width: 293px;
+  width: 440px;
   height: 0px;
-  margin-left: 6px;
+
   margin-top: -35px;
   margin-bottom: 20px;
   border: 0.5px solid #ffffff;
@@ -846,16 +845,14 @@ h1 {
   color: #000000;
 }
 
-.placeholder {
-  padding: 35px;
-}
-
 button:active,
 a.button:active,
 .menu-button:active,
 .share-button:active,
 .arrow:active,
-.thumbnail-container:active {
+.thumbnail-container:active,
+.insta-logo:active,
+.menu-text:active {
   opacity: 0.5;
   transition: opacity 0.1s ease;
 }
@@ -1178,6 +1175,7 @@ a.button:active,
   height: 30px;
   width: auto;
   margin-top: -4px;
+  margin-bottom: 4px;
 
   cursor: pointer;
   color: #000000;
@@ -1188,6 +1186,134 @@ a.button:active,
   transition: transform 0.3s ease;
 }
 
-.testing {
-  color: white;
+/* GET IN TOUCH */
+
+.getintouch {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: fit-content;
+
+  margin-top: 100px;
+
+  padding: 0px 50px 60px 50px;
+  background: #000000;
+  box-shadow: 0px 0px 30px 10px rgba(255, 255, 255, 0.25);
+  border-radius: 50px;
+}
+
+#scroll-landing-getintouch {
+  margin-top: -50px;
+  margin-bottom: 50px;
+  /* border: 1px solid red; */
+}
+
+.underline-heading-getintouch {
+  width: 368px;
+  height: 0px;
+  margin-top: -35px;
+
+  border: 0.5px solid #ffffff;
+}
+
+#scroll-landing-getintouch {
+  margin-top: -50px;
+  margin-bottom: 50px;
+  border: 1px solid red;
+}
+
+.getintouch-description {
+  text-align: center;
+  margin-top: 30px;
+
+  font-family: "Questrial";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 35px;
+
+  color: #ffffffc0;
+}
+
+.message-box {
+  width: 500px;
+
+  font-family: "Questrial";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  padding: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  letter-spacing: 0.05em;
+
+  color: #ffffff;
+  border-width: 5px 30px 5px 30px;
+  border-style: solid;
+  border-color: #ff7b00;
+  box-shadow: 0px 0px 30px 5px rgba(255, 122, 0, 0.5);
+  border-radius: 20px;
+}
+
+.getintouch-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3px;
+  align-items: center;
+  justify-content: center;
+  text-align: right;
+  line-height: 10px;
+}
+
+.standard-flex {
+  display: flex;
+}
+
+.label {
+  margin-top: 34px;
+}
+
+.subject-getintouch {
+  margin-left: -20px;
+}
+
+.message-getintouch {
+  margin-left: -35px;
+  margin-top: 50px;
+}
+
+.message-input {
+  width: 300px;
+  height: 200px;
+  margin: 15px;
+  background-color: rgb(255, 255, 255);
+  border: 0px;
+  outline: none;
+  color: rgb(0, 0, 0);
+
+  border-radius: 5px;
+  padding: 5px;
+  resize: none;
+
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+
+  margin-top: 45px;
+}
+
+/* ---------------- */
+
+.placeholder {
+  padding: 35px;
+}
+
+.ruler {
+  width: 300px;
+  margin-bottom: -400px;
+  margin-left: 80px;
+
+  transform: rotate(90deg);
 }

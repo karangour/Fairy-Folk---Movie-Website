@@ -35,7 +35,7 @@ export default function WatchFilm() {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("inside handleSubmit");
-    const data = { password }; //this creates a key called 'password' with what is stored in password as its value. Important for server things.
+    const data = { password }; //this creates an object called 'data' that holds a key called 'password' with what is stored in password as its value. Important for server things.
 
     fetch("http://localhost:4000/passwords/verify", {
       method: "POST", // Because we're handling sensitive passwords, POST is preferred over GET
@@ -92,8 +92,8 @@ export default function WatchFilm() {
     <div className="fairyfolkthefilm">
       <div id="scroll-landing-watchfilm" />
       <div>
-        <h1 className="heading-thin">FAIRY</h1>{" "}
-        <h1 className="heading-thick folk-text">FOLK</h1>
+        <h1 className="heading-thin">WATCH THE </h1>{" "}
+        <h1 className="heading-thick folk-text">FILM</h1>
         <hr className="underline-heading-fairyfolk" />
       </div>
       <div

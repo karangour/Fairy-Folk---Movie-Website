@@ -8,6 +8,7 @@ import WatchFilm from "./components/WatchFilm";
 import About from "./components/About";
 import Videos from "./components/Videos";
 import Gallery from "./components/Gallery";
+import GetInTouch from "./components/GetInTouch"
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
         <About />
         <Videos />
         <Gallery />
+        <GetInTouch />
         <div className="placeholder" />
       </div>
     </div>

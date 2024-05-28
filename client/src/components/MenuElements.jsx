@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link, animateScroll as scroll } from "react-scroll";
 import insta_logo from "./../assets/Instagram.png";
 import facebook_logo from "./../assets/Facebook.png";
+import letterboxd_logo from "./../assets/letterboxd.png";
+import imdb_logo from "./../assets/imdb.png";
 import gmail_logo from "./../assets/Gmail.png";
 import mail_logo from "./../assets/Mail.png";
 import copy_logo from "./../assets/Copy.png";
@@ -215,6 +217,20 @@ export default function MenuElements() {
         >
           GALLERY
         </Link>
+        <Link
+          to="scroll-landing-getintouch"
+          spy={true}
+          smooth={true}
+          duration={1500}
+          className={`menu-text ${
+            hoveredIcon === "getintouch" ? "highlight" : ""
+          }`}
+          onMouseOver={handleMouseOver("getintouch")}
+          onMouseOut={handleMouseOut}
+          onClick={handleClose}
+        >
+          GET IN TOUCH
+        </Link>
         <div>
           <a
             href="https://www.instagram.com/fairy_folk_thefilm/"
@@ -232,18 +248,33 @@ export default function MenuElements() {
               onMouseOut={handleMouseOut}
             />
           </a>
-          &nbsp;&nbsp;
+          &nbsp;
           <a
-            href="https://www.facebook.com/groups/674303900328137/user/100082873045238/"
-            className="facebook-button"
+            href="https://letterboxd.com/film/fairy-folk/"
+            className="letterboxd-button"
             target="_blank"
             rel="noopener noreferrer"
             onClick={handleClose}
           >
             <img
-              src={facebook_logo}
-              className={`insta-logo ${hoveredIcon === "fb" ? "hovered" : ""}`}
-              onMouseOver={handleMouseOver("fb")}
+              src={letterboxd_logo}
+              className={`insta-logo ${hoveredIcon === "letterboxd" ? "hovered" : ""}`}
+              onMouseOver={handleMouseOver("letterboxd")}
+              onMouseOut={handleMouseOut}
+            />
+          </a>
+          &nbsp;
+          <a
+            href="https://www.imdb.com/title/tt20202992/"
+            className="imdb-button"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={handleClose}
+          >
+            <img
+              src={imdb_logo}
+              className={`insta-logo ${hoveredIcon === "imdb" ? "hovered" : ""}`}
+              onMouseOver={handleMouseOver("imdb")}
               onMouseOut={handleMouseOut}
             />
           </a>

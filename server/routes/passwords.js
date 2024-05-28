@@ -13,7 +13,6 @@ function getPasswords() {
 
 // Function to update the passwords and save them to the file
 function setPassword(newPasswordsArray) {
-  console.log("Updating passwords data:", newPasswordsArray[0].expired);
   fs.writeFileSync(filePath, JSON.stringify(newPasswordsArray), "utf-8"); // 'utf-8' isn't necessary but it's good to add so that we're sure that the file is written in unicode that includes a wide array of characters from various languages. Node.js may default to utf-8 but this is to make sure.
 }
 

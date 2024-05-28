@@ -1,6 +1,8 @@
 const express = require("express");
 const cors = require("cors");
-const dotenv = require("dotenv").config();
+const dotenv = require("dotenv").config(); // To access environment variables
+
+
 
 const app = express();
 const port = process.env.PORT || 4001;
@@ -11,6 +13,8 @@ app.use((req, res, next) => {
   res.set("Cache-Control", "no-cache, no-store, must-revalidate"); //Cache-control middleware to force browser not to cache the page and recall browser each time
   next();
 });
+
+
 
 app.use(express.json());
 
@@ -26,14 +30,11 @@ app.use("/assets/gallery", require("./routes/galleryData"));
 //READ video_thumbnails, videos (id, location)
 app.use("/assets/vid_thumbnails", require("./routes/videosData"));
 
-//READ 'passwords.js' by mounting middleware
-app.use("/passwords", require("./routes/getPasswords"));
-
-//PUT 'passwords.js' by mounting middleware
-app.use("/passwords", require("./routes/setPassword"));
-
 //POST for finding and matching password at 'passwords.js' which is more secure than GET
 app.use("/passwords/verify", require("./routes/verifyPassword"));
+
+//POST for sending contact form from GetInTouch
+app.use("/getintouch", require("./routes/getInTouch"))
 
 // This is to start the server when the run dev is started
 app.listen(port, () => {
