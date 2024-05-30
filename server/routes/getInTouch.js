@@ -23,7 +23,7 @@ router.route("/").post((req, res) => {
     from: process.env.USER,
     to: "karangour@gmail.com",
     subject: "GetInTouch from fairyfolkthefilm.com",
-    html: `From ${form.name}, email: ${form.email}, subject: ${form.subject}, message: ${form.message}`,
+    html: `FROM: ${form.name}<br>EMAIL: ${form.email}<br>SUBJECT: ${form.subject}<br>MESSAGE: ${form.message}`
   };
 
   const sendMail = async (transporter, mailOptions) => {

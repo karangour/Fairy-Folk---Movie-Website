@@ -7,7 +7,9 @@ export default function GetInTouch() {
     subject: "",
     message: "",
   });
-  let sent = false;
+  const [sent, setSent] = useState(false);
+
+  const [messageExists, setMessageExists] = useState(false);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -20,19 +22,33 @@ export default function GetInTouch() {
       .then((response) => response.json())
       .then((data) => {
         console.log(data.message);
-        sent = true;
+        setSent(true);
+        setTimeout(() => {
+          setSent(false);
+          setForm({
+            name: "",
+            email: "",
+            subject: "",
+            message: "",
+          });
+          setMessageExists(false);
+        }, 3000);
       })
       .catch((error) => console.log("Error:", error.message));
   }
 
   function handleChange(event) {
     const { name, value } = event.target;
+
     setForm((prev) => {
       return {
         ...prev,
         [name]: value,
       };
     });
+    if (name === "message") {
+      setMessageExists(value.trim().length > 0);
+    }
   }
 
   return (
@@ -48,8 +64,22 @@ export default function GetInTouch() {
         Need support? Loved the film? Not so much? We'd love to know:
       </p>
 
-      <div className="message-box">
-        <form className="getintouch-form" onSubmit={handleSubmit}>
+      <form
+        className="getintouch-form"
+        onSubmit={(event) => messageExists && handleSubmit(event)}
+      >
+        <div
+          className={`msg-sent-notice ${sent ? "msg-sent-notice-show" : ""}`}
+        >
+          <h1>Message sent!</h1>
+        </div>
+        <div
+          className="message-box"
+          style={{
+            filter: sent ? "blur(3px)" : "",
+            transition: "filter 1s ease",
+          }}
+        >
           <label className="standard-flex">
             <p className="label">Name</p>
             <input
@@ -77,8 +107,13 @@ export default function GetInTouch() {
               value={form.subject}
             />
           </label>
-          <label className="standard-flex">
-            <p className="label message-getintouch">Message</p>
+          <label className="message-body">
+            <p
+              className="label message-getintouch"
+              style={{ display: messageExists ? "none" : "" }}
+            >
+              Message
+            </p>
             <textarea
               className="message-input"
               name="message"
@@ -86,11 +121,23 @@ export default function GetInTouch() {
               value={form.message}
             />
           </label>
-          <button type="submit" className="getintouch-submit">
-            SEND
-          </button>
-        </form>
-      </div>
+        </div>
+        <button
+          type="submit"
+          className={`getintouch-submit-button ${
+            messageExists
+              ? "getintouch-submit-button-show getintouch-submit-button-active"
+              : ""
+          }`}
+          disabled={!messageExists}
+          style={{
+            filter: sent ? "blur(3px)" : "",
+            transition: "filter 1s ease",
+          }}
+        >
+          SEND
+        </button>
+      </form>
     </div>
   );
 }
