@@ -1,0 +1,31 @@
+[
+  {
+    "userInfo": {
+      "name": "Karan",
+      "email": "karangour@gmail.com",
+      "currency": "INR",
+      "amount": "2000"
+    },
+    "key": "rzp_test_WYHXygDLGuRvGM",
+    "amount": 200000,
+    "currency": "INR",
+    "name": "Empatheia Films",
+    "description": "Test Transaction",
+    "image": "",
+    "order_id": "order_OHfrfY6ISpR3L1",
+    "prefill": {
+      "name": "Karan",
+      "email": "karangour@gmail.com",
+      "contact": "9999999999"
+    },
+    "notes": {
+      "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+      "color": "#F37254"
+    },
+    "razorpay_payment_id": "pay_OHfrlVRzfEBGiX",
+    "razorpay_order_id": "order_OHfrfY6ISpR3L1",
+    "razorpay_signature": "fb1553be2f3265fd831790e038bc927e5db5381b459b9cf744017186688106af"
+  }
+]

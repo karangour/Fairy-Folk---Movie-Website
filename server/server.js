@@ -1,20 +1,19 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv").config(); // To access environment variables
-
-
+const Razorpay = require("razorpay");
+const bodyParser = require("body-parser");
 
 const app = express();
 const port = process.env.PORT || 4001;
 
+app.use(bodyParser.json());
 app.use(cors()); //security feature and is critical
 
 app.use((req, res, next) => {
   res.set("Cache-Control", "no-cache, no-store, must-revalidate"); //Cache-control middleware to force browser not to cache the page and recall browser each time
   next();
 });
-
-
 
 app.use(express.json());
 
@@ -34,12 +33,26 @@ app.use("/assets/vid_thumbnails", require("./routes/videosData"));
 app.use("/passwords/verify", require("./routes/verifyPassword"));
 
 //POST for sending contact form from GetInTouch
-app.use("/getintouch", require("./routes/getInTouch"))
+app.use("/getintouch", require("./routes/getInTouch"));
+
+//POST for contribution amount
+app.use("/contribution", require("./routes/contributionTotal"));
+
+//POST for razorpay create order
+app.use('/razorpay', require('./routes/razorPay'))
+
+app.get('/razorpay/key', (req, res) => {
+  res.send({ key: process.env.RAZORPAY_KEY_ID })
+})
+
+
+
+
+
 
 // This is to start the server when the run dev is started
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
 
-//READ/WRITE passwords (email, password)
-//READ/WRITE contribution (everything that cashfree sends)
+

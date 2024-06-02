@@ -7,14 +7,24 @@ const filePath = path.join(__dirname, "passwords.json"); //path.join() from the 
 
 
 function getPasswords() {
-  const data = fs.readFileSync(filePath, "utf-8"); // 'readFileSync' is an fs method for reading a file. The utf-8 is for reading it in human-readable format
-  return JSON.parse(data); // parse is to convert a JSON string into JSON object so it can be manipulated in our code. It always needs to be stored back as a string because that's how JSON is stored (using JSON.stringify())
+  try {
+    const data = fs.readFileSync(filePath, "utf-8"); // 'readFileSync' is an fs method for reading a file. The utf-8 is for reading it in human-readable format
+    return JSON.parse(data); // parse is to convert a JSON string into JSON object so it can be manipulated in our code. It always needs to be stored back as a string because that's how JSON is stored (using JSON.stringify())
+  } 
+  catch (error) {
+    console.error("Failed to read passwords file:", error)
+    
+  }
 }
 
 // Function to update the passwords and save them to the file
 function setPassword(newPasswordsArray) {
-  fs.writeFileSync(filePath, JSON.stringify(newPasswordsArray), "utf-8"); // 'utf-8' isn't necessary but it's good to add so that we're sure that the file is written in unicode that includes a wide array of characters from various languages. Node.js may default to utf-8 but this is to make sure.
-}
+  try {
+    fs.writeFileSync(filePath, JSON.stringify(newPasswordsArray), "utf-8"); // 'utf-8' isn't necessary but it's good to add so that we're sure that the file is written in unicode that includes a wide array of characters from various languages. Node.js may default to utf-8 but this is to make sure.
+  }
+  catch (error) {
+    console.error('Failed to write to passwords file:', error)
+}}
 
 module.exports = {
   getPasswords,
