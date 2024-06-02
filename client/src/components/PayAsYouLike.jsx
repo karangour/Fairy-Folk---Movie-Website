@@ -100,6 +100,31 @@ export default function PayAsYouLike() {
     // update the chart with contribution amount
   }
 
+  function storeContributionTotal(newTotal) {
+    console.log(newTotal)
+    fetch("http://localhost:4000/contribution", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({newTotal}),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          return response.json().then((error) => {
+            throw new Error(error.message);
+          });
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Success:", data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   async function handlePayment() {
     // Send order to Razorpay, verify payment, store payment, update contribution chart
 
@@ -130,9 +155,10 @@ export default function PayAsYouLike() {
 
           if (paymentVerification.data.status === "success") {
             alert("Payment Successful!");
-            console.log('I am here!')
-            setTotalContributions((prevTotal) => prevTotal + parseInt(amount));
+           const newTotal = totalContributions + parseInt(amount)
+            setTotalContributions(newTotal);
             // Send a POST call for updating contributionTotal.json as well.
+            storeContributionTotal(newTotal);
 
             // Send payment details to server for storage
             await axios.post("http://localhost:4000/razorpay/payment-details", {
@@ -170,15 +196,8 @@ export default function PayAsYouLike() {
 
     if (userInfo.amount > 0) {
       handlePayment();
-      //send a POST call to server to store just user info like password and all, generate a password, time, etc, and send it to their email.
-    } else {
-      //only do the sending a POST call to server to store user info like password and all, generate a password, time, etc, and send it to their email.
     }
-    //Take acknowledgement (if amount <=0, then there is no acknowledgement and only take userInfo), AND userInfo and Fetch http://localhost:4000/paid with a POST.
-    //POST userInfo, alongwith password, time, amount, etc into password.json. POST paid.json with userInfo.id (which is in password.json), and userInfo.email, and acknowledgement details.
-    //If userInfo.email already exists, use the same ID and regenerate new password, time, add old amount with new amount, etc. Else, create a new id.
-    //Send email with userInfo.password to userInfo.email.
-    //RES with a "Thank you! Check your email for the password.".
+    //send a POST call to server to store just user info like password and all, generate a password, time, etc, and send it to their email.
   }
 
   return (
