@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { getPasswords, setPassword } = require("./passwords");
 
-router.route("/").post((req, res) => {
+router.route("/verify").post((req, res) => {
   console.log(req.body);
   const { password } = req.body; //save the password gotten from the request from the client
   const passwords = getPasswords(); //to GET the passwords array from the file in JSON object format

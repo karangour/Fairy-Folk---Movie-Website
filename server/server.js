@@ -30,7 +30,11 @@ app.use("/assets/gallery", require("./routes/galleryData"));
 app.use("/assets/vid_thumbnails", require("./routes/videosData"));
 
 //POST for finding and matching password at 'passwords.js' which is more secure than GET
-app.use("/passwords/verify", require("./routes/verifyPassword"));
+app.use("/passwords", require("./routes/verifyPassword"));
+//POST for creating a password and updating 'passwords.js' with new user data.
+app.use("/passwords", require('./routes/createPassword'));
+
+
 
 //POST for sending contact form from GetInTouch
 app.use("/getintouch", require("./routes/getInTouch"));

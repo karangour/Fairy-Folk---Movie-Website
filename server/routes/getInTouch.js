@@ -26,6 +26,8 @@ router.route("/").post((req, res) => {
     html: `FROM: ${form.name}<br>EMAIL: ${form.email}<br>SUBJECT: ${form.subject}<br>MESSAGE: ${form.message}`
   };
 
+  console.log('Mail options prepared:', mailOptions);
+
   const sendMail = async (transporter, mailOptions) => {
     try {
       await transporter.sendMail(mailOptions);

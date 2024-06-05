@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 
 export default function PayAsYouLike() {
@@ -12,6 +12,11 @@ export default function PayAsYouLike() {
   const [contriInrUsd, setContriInrUsd] = useState("₹1 / $1");
   const [totalBudget, setTotalBudget] = useState(`₹2,10,00,000 / $1`);
   const [razorpayKey, setRazorpayKey] = useState("");
+  const [usdToInr, setUsdToInr] = useState(1);
+  const [contriFillWidth, setContriFillWidth] = useState(0);
+  const [paid, setPaid] = useState(false);
+
+  let newTotal = 1;
 
   const formatINR = new Intl.NumberFormat("en-IN", {
     style: "currency",
@@ -70,6 +75,7 @@ export default function PayAsYouLike() {
         return response.json();
       })
       .then((data) => {
+        setUsdToInr(data.conversion_rates.INR);
         const contriINR = formatINR.format(totalContributions);
         const contriUSD = formatUSD.format(
           totalContributions / data.conversion_rates.INR
@@ -79,7 +85,7 @@ export default function PayAsYouLike() {
         );
         setContriInrUsd(`${contriINR} / ${contriUSD}`);
         setTotalBudget(`₹2,10,00,000 / ${budgetUSD}`);
-        updateContributionChart(totalContributions);
+        setContriFillWidth((totalContributions / 21000000) * 100);
       })
       .catch((error) => {
         console.error(error.result);
@@ -96,18 +102,14 @@ export default function PayAsYouLike() {
     });
   }
 
-  function updateContributionChart(contributions) {
-    // update the chart with contribution amount
-  }
-
   function storeContributionTotal(newTotal) {
-    console.log(newTotal)
+    console.log(newTotal);
     fetch("http://localhost:4000/contribution", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({newTotal}),
+      body: JSON.stringify({ newTotal }),
     })
       .then((response) => {
         if (!response.ok) {
@@ -154,11 +156,26 @@ export default function PayAsYouLike() {
           });
 
           if (paymentVerification.data.status === "success") {
-            alert("Payment Successful!");
-           const newTotal = totalContributions + parseInt(amount)
+            setPaid(true);
+            setTimeout(() => {
+              setPaid(false);
+              setUserInfo({
+                name: "",
+                email: "",
+                currency: "INR",
+                amount: "",
+              });
+              setMessageExists(false);
+            }, 3500);
+            if (currency === "USD") {
+              const inrAmount = amount * usdToInr;
+              newTotal = totalContributions + parseInt(inrAmount);
+            } else {
+              newTotal = totalContributions + parseInt(amount);
+            }
             setTotalContributions(newTotal);
-            // Send a POST call for updating contributionTotal.json as well.
-            storeContributionTotal(newTotal);
+
+            storeContributionTotal(newTotal); // Send a POST call for updating contributionTotal.json as well.
 
             // Send payment details to server for storage
             await axios.post("http://localhost:4000/razorpay/payment-details", {
@@ -198,114 +215,151 @@ export default function PayAsYouLike() {
       handlePayment();
     }
     //send a POST call to server to store just user info like password and all, generate a password, time, etc, and send it to their email.
+    fetch("http://localhost:4000/passwords/create", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(userInfo)
+    })
+      .then((response) => {
+        if (!response.ok) {
+        return response.json().then((err) => {throw new Error(err.message || "Could not reach the server!")})
+        }
+        return response.json()
+      })
+      .then((data) => {
+      console.log(data.message)
+      })
+      .catch((error) => {
+      console.log(error)
+    })
   }
 
   return (
-    <div className="payasyoulike">
-      <div id="scroll-landing-payasyoulike" />
-      <div>
-        <h1 className="heading-thin">PAY-AS-</h1>{" "}
-        <h1 className="heading-thick you-like-text">YOU-LIKE</h1>
-        <hr className="underline-heading-payasyoulike" />
+    <div className="payasyoulike-container">
+      <div className={`msg-paid-notice ${paid ? "msg-paid-notice-show" : ""}`}>
+        <h1>
+          THANK YOU VERY MUCH!
+          <br />
+          You'll find your password in your email.
+        </h1>
       </div>
+      <div
+        className="payasyoulike"
+        style={{
+          filter: paid ? "blur(3px)" : "",
+          transition: "filter 1s ease",
+        }}
+      >
+        <div id="scroll-landing-payasyoulike" />
+        <div>
+          <h1 className="heading-thin">PAY-AS-</h1>{" "}
+          <h1 className="heading-thick you-like-text">YOU-LIKE</h1>
+          <hr className="underline-heading-payasyoulike" />
+        </div>
 
-      <p className="main-text">
-        As fun as our film 'Fairy Folk' was to make, the challenges we faced as
-        a truly independent production ranged from testing to downright
-        crippling. But we somehow made it through, only to confront the beast of
-        all beasts - distribution. While we managed a limited theatrical release
-        in March 2024, the film unfortunately had to be pulled from cinemas just
-        as word of mouth was gaining momentum. Additionally (and more
-        importantly), as of 2024, digital platforms aren’t considering
-        independent films like ours any more. It’s not just tough getting their
-        attention; it's impossible. So, here we are - on our own little website,
-        distributing our film at any price YOU feel is right. 
-      </p>
-      <p className="thanks">
-        Thank you for considering supporting our little film; it means the world
-        to us!
-      </p>
-      <hr className="division-description" />
+        <p className="main-text">
+          As fun as our film 'Fairy Folk' was to make, the challenges we faced
+          as a truly independent production ranged from testing to downright
+          crippling. But we somehow made it through, only to confront the beast
+          of all beasts - distribution. While we managed a limited theatrical
+          release in March 2024, the film unfortunately had to be pulled from
+          cinemas just as word of mouth was gaining momentum. Additionally (and
+          more importantly), as of 2024, digital platforms aren’t considering
+          independent films like ours any more. It’s not just tough getting
+          their attention; it's impossible. So, here we are - on our own little
+          website, distributing our film at any price YOU feel is right. 
+        </p>
+        <p className="thanks">
+          Thank you for considering supporting our little film; it means the
+          world to us!
+        </p>
+        <hr className="division-description" />
 
-      <p className="password-instructions instruction-box">
-        1. Fill in the details below. <br />
-        2. Receive a PASSWORD in your email. <br />
-        3. Copy and use it here for 48 hours.
-      </p>
-      <form className="payasyoulike-form" onSubmit={handleSubmit}>
-        <div className="user-details">
-          <div className="name-email-amount">
-            <p className="name-text">Name </p>
-            <p className="optional-text">(optional)</p>
-            <p className="email-text"> Email </p>
-            <p className="amount-text">Amount </p>
+        <p className="password-instructions instruction-box">
+          1. Fill in the details below. <br />
+          2. Receive a PASSWORD in your email. <br />
+          3. Copy and use it here for 48 hours.
+        </p>
+        <form className="payasyoulike-form" onSubmit={handleSubmit}>
+          <div className="user-details">
+            <div className="name-email-amount">
+              <p className="name-text">Name </p>
+              <p className="optional-text">(optional)</p>
+              <p className="email-text"> Email </p>
+              <p className="amount-text">Amount </p>
+            </div>
+            <div className="inputs">
+              <input
+                type="text"
+                name="name"
+                value={userInfo.name}
+                onChange={handleChange}
+                className="input-name input-format"
+              />
+              <input
+                type="email"
+                name="email"
+                value={userInfo.email}
+                onChange={handleChange}
+                className="input-email input-format"
+              />
+              <input
+                type="number"
+                name="amount"
+                value={userInfo.amount}
+                onChange={handleChange}
+                className="input-amount input-format"
+              />
+              <p className="contribution-zero">
+                (you can enter '0' if you don't feel like contributing at this
+                stage)
+              </p>
+            </div>
+            <select
+              className="currency-selector"
+              name="currency"
+              value={userInfo.currency}
+              onChange={handleChange}
+            >
+              <option value="INR">INR</option>
+              <option value="USD">USD</option>
+              <option value="EUR">EUR</option>
+              <option value="JPY">JPY</option>
+              <option value="GBP">GBP</option>
+              <option value="AUD">AUD</option>
+              <option value="CAD">CAD</option>
+              <option value="CHF">CHF</option>
+              <option value="CNH">CNH</option>
+              <option value="HKD">HKD</option>
+              <option value="NZD">NZD</option>
+            </select>
           </div>
-          <div className="inputs">
-            <input
-              type="text"
-              name="name"
-              value={userInfo.name}
-              onChange={handleChange}
-              className="input-name input-format"
-            />
-            <input
-              type="email"
-              name="email"
-              value={userInfo.email}
-              onChange={handleChange}
-              className="input-email input-format"
-            />
-            <input
-              type="number"
-              name="amount"
-              value={userInfo.amount}
-              onChange={handleChange}
-              className="input-amount input-format"
-            />
-            <p className="contribution-zero">
-              (you can enter '0' if you don't feel like contributing at this
-              stage)
-            </p>
+          <div className="payasyoulike-button">
+            <h3 className="get-password-text oswald">GET PASSWORD</h3>
+            <button className="get-password-button" />
           </div>
-          <select
-            className="currency-selector"
-            name="currency"
-            value={userInfo.currency}
-            onChange={handleChange}
-          >
-            <option value="INR">INR</option>
-            <option value="USD">USD</option>
-            <option value="EUR">EUR</option>
-            <option value="JPY">JPY</option>
-            <option value="GBP">GBP</option>
-            <option value="AUD">AUD</option>
-            <option value="CAD">CAD</option>
-            <option value="CHF">CHF</option>
-            <option value="CNH">CNH</option>
-            <option value="HKD">HKD</option>
-            <option value="NZD">NZD</option>
-          </select>
-        </div>
-        <div className="payasyoulike-button">
-          <h3 className="get-password-text oswald">GET PASSWORD</h3>
-          <button className="get-password-button" />
-        </div>
-      </form>
-      <div className="contribution-section">
-        <div className="budget-box">
-          <p className="budget-text">budget: </p>
-          <p className="budget-num">{totalBudget}</p>
-        </div>
-        <div className="contribution-chart">
-          <div className="contribution-fill"></div>
-          <hr className="budget-marker" />
-          <div className="tube-curve-top" />
-          <div className="tube-curve-bottom" />
-          <div className="contri-cyl" />
-        </div>
-        <div className="contri-box">
-          <p className="contri-text">contribution: </p>
-          <p className="contri-num">{contriInrUsd}</p>
+        </form>
+        <div className="contribution-section">
+          <div className="budget-box">
+            <p className="budget-text">budget: </p>
+            <p className="budget-num">{totalBudget}</p>
+          </div>
+          <div className="contribution-chart">
+            <div
+              className="contribution-fill"
+              style={{ width: `${contriFillWidth}%` }}
+            />
+            <hr className="budget-marker" />
+            <div className="tube-curve-top" />
+            <div className="tube-curve-bottom" />
+            <div className="contri-cyl" />
+          </div>
+          <div className="contri-box">
+            <p className="contri-text">contributions: </p>
+            <p className="contri-num">{contriInrUsd}</p>
+          </div>
         </div>
       </div>
     </div>

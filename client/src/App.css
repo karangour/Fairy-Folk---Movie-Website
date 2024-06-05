@@ -315,6 +315,7 @@ h1 {
   background: #000000;
   box-shadow: 0px 0px 30px 10px rgba(255, 255, 255, 0.25);
   border-radius: 50px;
+  position: relative;
 }
 
 .you-like-text {
@@ -555,9 +556,9 @@ h1 {
 }
 
 .contribution-fill {
-  width: 10px;
+  width: 5%;
   height: 100%;
-  background: #01ccff;
+  background: #ffffff;
   z-index: 20;
 }
 
@@ -649,7 +650,7 @@ h1 {
   border: 1px 1px 1px 1px;
   border-style: solid;
   background: #ffffff;
-  border-color: #01ccff;
+  border-color: #ffffff;
 }
 
 .contri-text,
@@ -1364,11 +1365,30 @@ button:disabled {
   transition: opacity 1s ease;
 }
 
-.msg-sent-notice-show {
+.payasyoulike-container {
+  position: relative;
+}
+
+
+.msg-paid-notice {
+  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  z-index: 2000;
+  width: fit-content;
+  height: fit-content;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.msg-sent-notice-show, .msg-paid-notice-show {
   opacity: 1;
 }
 
-.msg-sent-notice > h1 {
+.msg-sent-notice > h1, .msg-paid-notice > h1 {
   font-family: "Questrial";
   font-style: normal;
   font-weight: 400;
@@ -1378,7 +1398,10 @@ button:disabled {
   background: rgb(50, 182, 2);
   border-radius: 5px 5px 5px 5px;
   padding: 20px 10px 20px 10px;
+  text-align: center;
 }
+
+
 
 /* ---------------- */
 
