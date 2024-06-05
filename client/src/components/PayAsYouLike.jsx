@@ -15,6 +15,10 @@ export default function PayAsYouLike() {
   const [usdToInr, setUsdToInr] = useState(1);
   const [contriFillWidth, setContriFillWidth] = useState(0);
   const [paid, setPaid] = useState(false);
+  const [passwordReadyForEmail, setPasswordReadyForEmail] = useState(false);
+  const isFirstRender = useRef(true);
+
+  let updatedUserInfo = {};
 
   let newTotal = 1;
 
@@ -30,6 +34,29 @@ export default function PayAsYouLike() {
     minimumFractionDigits: 0,
     maximumFractionDigits: 0,
   });
+
+  //testing
+
+  useEffect(() => {
+  // if (isFirstRender.current) {
+  //   isFirstRender.current = false;
+  //   return;
+  // }
+
+    console.log('inside useEffect')
+    fetch("http://localhost:4000/email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ password: "hohoho", email: "karangour@gmail.com", test: "data" })
+    })
+      .then(response => response.json())
+      .then(data => console.log("Test fetch response:", data))
+      .catch(error => console.error("Test fetch error:", error));
+  }, [passwordReadyForEmail]);
+
+  //testing
 
   useEffect(() => {
     // Fetch Razorpay key from server
@@ -159,13 +186,14 @@ export default function PayAsYouLike() {
             setPaid(true);
             setTimeout(() => {
               setPaid(false);
+              setPasswordReadyForEmail(false);
               setUserInfo({
                 name: "",
                 email: "",
                 currency: "INR",
                 amount: "",
               });
-              setMessageExists(false);
+              
             }, 3500);
             if (currency === "USD") {
               const inrAmount = amount * usdToInr;
@@ -208,13 +236,39 @@ export default function PayAsYouLike() {
     }
   }
 
+
+
+  // function emailPassword(updatedUserInfo) {
+  //   console.log('Calling emailPassword with:', updatedUserInfo)
+  //   fetch("http://localhost:4000/email", {
+  //   method: "POST",
+  //   body: JSON.stringify(updatedUserInfo),
+  //   headers: {
+  //     "Content-Type": "application/json"
+  //   },
+    
+  // })
+  //   .then((response) => {
+  //     console.log("Fetch response status:", response.status);
+  // console.log("Fetch response statusText:", response.statusText);
+  //     if (!response.ok) {
+  //       return response.json().then((err) => { throw new Error(err.message) })
+  //     }
+  //     return response.json()
+  //   })
+  //   .then((data) => console.log(data.message))
+  // .catch ((error) => console.log(error))
+    
+  // }
+
   function handleSubmit(event) {
     event.preventDefault();
 
     if (userInfo.amount > 0) {
       handlePayment();
     }
-    //send a POST call to server to store just user info like password and all, generate a password, time, etc, and send it to their email.
+    
+    // Send a POST call to server to store just user info like password and all, generate a password, time, etc.
     fetch("http://localhost:4000/passwords/create", {
       method: "POST",
       headers: {
@@ -229,11 +283,24 @@ export default function PayAsYouLike() {
         return response.json()
       })
       .then((data) => {
-      console.log(data.message)
+        updatedUserInfo = data;
+        console.log('We are inside /passwords/create and updatedUserInfo is:', updatedUserInfo)
+        // Send password to their email using getInTouch because email isn't working otherwise.
+        // emailPassword(updatedUserInfo);
+        setPasswordReadyForEmail(true);
+        console.log('Password Ready For Email:', passwordReadyForEmail)
       })
       .catch((error) => {
       console.log(error)
-    })
+      })
+    
+    
+
+    
+    
+
+    
+
   }
 
   return (

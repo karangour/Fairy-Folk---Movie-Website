@@ -30,8 +30,10 @@ export default function MenuElements() {
   }
 
   function handleCopyLink() {
-    navigator.clipboard
-      .writeText(window.location.href)
+    const textToCopy = `🎥✨ PAY-AS-YOU-LIKE and experience the magic of "Fairy Folk" as Ritika (Rasika Dugal) and Mohit (Mukul Chadda) encounter a mysterious being that transforms their lives! Directed by Karan Gour, this critically acclaimed film masterfully blends fantasy and deep emotional storytelling. Don't miss this unique cinematic journey! 🌟🧚‍♀️\n\n#FairyFolkTheFilm #MustWatch #Magic #Fantasy #IndieFilm #Cinema\n\nCheck out the film here: https://www.fairyfolkthefilm.com`;
+
+  navigator.clipboard
+    .writeText(textToCopy)
       .then(() => {
         setCopySuccess(true);
         setTimeout(() => setCopySuccess(false), 5000);
@@ -73,9 +75,7 @@ export default function MenuElements() {
         // onMouseLeave={handleShareMouseLeave}
       >
         <a
-          href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-            window.location.href
-          )}`}
+          href={`https://www.facebook.com/sharer/sharer.php?u=https://www.fairyfolkthefilm.com`}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -90,8 +90,8 @@ export default function MenuElements() {
           />
         </a>
         <a
-          href={`https://mail.google.com/mail/?view=cm&fs=1&tf=1&su=Page Title&body=${encodeURIComponent(
-            window.location.href
+          href={`https://mail.google.com/mail/?view=cm&fs=1&tf=1&su=Watch 'Fairy Folk' - the film!&body=${encodeURIComponent(
+            `🎥✨ PAY-AS-YOU-LIKE and experience the magic of "Fairy Folk" as Ritika (Rasika Dugal) and Mohit (Mukul Chadda) encounter a mysterious being that transforms their lives! Directed by Karan Gour, this critically acclaimed film masterfully blends fantasy and deep emotional storytelling. Don't miss this unique cinematic journey! 🌟🧚‍♀️\n\n#FairyFolkTheFilm #MustWatch #Magic #Fantasy #IndieFilm #Cinema\n\nCheck out the film here: https://www.fairyfolkthefilm.com`
           )}`}
           target="_blank"
           rel="noopener noreferrer"
@@ -105,8 +105,8 @@ export default function MenuElements() {
           />
         </a>
         <a
-          href={`mailto:?subject=Page Title&body=Check out this page: ${encodeURIComponent(
-            window.location.href
+          href={`mailto:?subject=Watch 'Fairy Folk' - the film!&body=${encodeURIComponent(
+            `🎥✨ PAY-AS-YOU-LIKE and experience the magic of "Fairy Folk" as Ritika (Rasika Dugal) and Mohit (Mukul Chadda) encounter a mysterious being that transforms their lives! Directed by Karan Gour, this critically acclaimed film masterfully blends fantasy and deep emotional storytelling. Don't miss this unique cinematic journey! 🌟🧚‍♀️\n\n#FairyFolkTheFilm #MustWatch #Magic #Fantasy #IndieFilm #Cinema\n\nCheck out the film here: https://www.fairyfolkthefilm.com`
           )}`}
         >
           <img
@@ -258,7 +258,9 @@ export default function MenuElements() {
           >
             <img
               src={letterboxd_logo}
-              className={`insta-logo ${hoveredIcon === "letterboxd" ? "hovered" : ""}`}
+              className={`insta-logo ${
+                hoveredIcon === "letterboxd" ? "hovered" : ""
+              }`}
               onMouseOver={handleMouseOver("letterboxd")}
               onMouseOut={handleMouseOut}
             />
@@ -273,7 +275,9 @@ export default function MenuElements() {
           >
             <img
               src={imdb_logo}
-              className={`insta-logo ${hoveredIcon === "imdb" ? "hovered" : ""}`}
+              className={`insta-logo ${
+                hoveredIcon === "imdb" ? "hovered" : ""
+              }`}
               onMouseOver={handleMouseOver("imdb")}
               onMouseOut={handleMouseOut}
             />

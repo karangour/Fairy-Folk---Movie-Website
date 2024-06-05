@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 export default function GetInTouch() {
   const [form, setForm] = useState({
@@ -14,7 +14,7 @@ export default function GetInTouch() {
   function handleSubmit(event) {
     event.preventDefault();
 
-    fetch("http://localhost:4000/getintouch", {
+    fetch("http://localhost:4000/email", {
       method: "POST",
       body: JSON.stringify(form),
       headers: { "Content-Type": "application/json" },

@@ -8,7 +8,12 @@ const app = express();
 const port = process.env.PORT || 4001;
 
 app.use(bodyParser.json());
-app.use(cors()); //security feature and is critical
+app.use(cors({
+  origin: 'http://localhost:3000',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+})); //security feature and is critical
 
 app.use((req, res, next) => {
   res.set("Cache-Control", "no-cache, no-store, must-revalidate"); //Cache-control middleware to force browser not to cache the page and recall browser each time
@@ -36,8 +41,20 @@ app.use("/passwords", require('./routes/createPassword'));
 
 
 
-//POST for sending contact form from GetInTouch
-app.use("/getintouch", require("./routes/getInTouch"));
+//POST for sending emails (GetInTouch (contact form), PayAsYouLike (password))
+app.use("/email", cors({
+  origin: 'http://localhost:3000',
+  methods: ['POST'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+}), require("./routes/email"));
+
+// Middleware to log incoming requests.
+// app.use((req, res, next) => {
+//   console.log(`Incoming request: ${req.method} ${req.url}`);
+//   next();
+// });
+
 
 //POST for contribution amount
 app.use("/contribution", require("./routes/contributionTotal"));
