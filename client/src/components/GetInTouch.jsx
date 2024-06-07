@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./css/GetInTouch.css"
 
 export default function GetInTouch() {
   const [form, setForm] = useState({

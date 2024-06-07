@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import VideoPlayer from "./VideoPlayer";
 import VidThumbnail from "./VidThumbnail";
+import "./css/Videos.css"
 
 export default function Videos() {
   

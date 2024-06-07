@@ -43,7 +43,7 @@ app.use("/passwords", require('./routes/createPassword'));
 
 //POST for sending emails (GetInTouch (contact form), PayAsYouLike (password))
 app.use("/email", cors({
-  origin: 'http://localhost:3000',
+  origin: '*',
   methods: ['POST'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true

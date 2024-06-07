@@ -1,0 +1,114 @@
+/* MenuElements */
+
+.share-button {
+  cursor: pointer;
+  position: fixed;
+  width: 30px;
+  right: 80px;
+  top: 30px;
+  z-index: 1000;
+}
+
+.share-options-menu {
+  position: fixed;
+  top: 20px; /* Adjust this value to position it right below the share button */
+  right: 70px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+  background: rgb(0, 0, 0);
+  padding: 60px 10px 10px 10px;
+  background: #000000;
+  box-shadow: 0px 0px 30px 10px rgba(255, 255, 255, 0.25);
+  border-radius: 5px;
+  z-index: 999;
+
+  transform: translateY(-130%);
+  transition: transform 0.8s ease-in-out;
+}
+
+.share-options-visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.hovered {
+  transform: scale(1.2);
+}
+
+.menu-button {
+  cursor: pointer;
+  position: fixed;
+  width: 30px;
+  right: 30px;
+  top: 30px;
+  border-radius: 5px;
+  background: white;
+  z-index: 1002;
+}
+
+.menu {
+  position: fixed;
+  top: -580px; /*Start hidden off-screen at the top */
+  height: 450px;
+  right: 20px;
+  transition: top 1s ease-in-out; /* Animate the top property */
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  text-align: center;
+
+  width: fit-content;
+
+  padding: 70px 0px 10px 0px;
+  background: #000000;
+  box-shadow: 0px 0px 30px 10px rgba(255, 255, 255, 0.25);
+  border-radius: 5px;
+  z-index: 1001;
+}
+
+.menu.open {
+  top: 20px;
+}
+
+.menu-text {
+  cursor: pointer;
+  color: #000000;
+  transition: color 0.3s ease;
+
+  justify-content: center;
+  margin-bottom: 30px;
+  z-index: 20;
+
+  width: 100%;
+  font-family: "Oswald";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 25px;
+
+  letter-spacing: 0.02em;
+
+  padding: 0px 5px 2px 5px;
+
+  background: radial-gradient(
+    65.33% 561.23% at 50% 50%,
+    #ff7a00 0%,
+    #340000 100%
+  );
+
+  border: 0.5px solid black;
+  border-width: 100%;
+  border-radius: 5px;
+}
+
+.menu-text.highlight {
+  color: rgb(255, 255, 255);
+  transition: color 0.3s ease;
+}

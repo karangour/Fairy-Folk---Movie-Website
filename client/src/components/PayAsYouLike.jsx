@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
+import "./css/PayAsYouLike.css"
 
 export default function PayAsYouLike() {
   const [userInfo, setUserInfo] = useState({
@@ -37,24 +38,24 @@ export default function PayAsYouLike() {
 
   //testing
 
-  useEffect(() => {
-  // if (isFirstRender.current) {
-  //   isFirstRender.current = false;
-  //   return;
-  // }
+  // useEffect(() => {
+  // // if (isFirstRender.current) {
+  // //   isFirstRender.current = false;
+  // //   return;
+  // // }
 
-    console.log('inside useEffect')
-    fetch("http://localhost:4000/email", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ password: "hohoho", email: "karangour@gmail.com", test: "data" })
-    })
-      .then(response => response.json())
-      .then(data => console.log("Test fetch response:", data))
-      .catch(error => console.error("Test fetch error:", error));
-  }, [passwordReadyForEmail]);
+  //   console.log('inside useEffect')
+  //   fetch("http://localhost:4000/email", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json"
+  //     },
+  //     body: JSON.stringify({ password: "hohoho", email: "karangour@gmail.com", test: "data" })
+  //   })
+  //     .then(response => response.json())
+  //     .then(data => console.log("Test fetch response:", data))
+  //     .catch(error => console.error("Test fetch error:", error));
+  // }, [passwordReadyForEmail]);
 
   //testing
 
@@ -193,7 +194,6 @@ export default function PayAsYouLike() {
                 currency: "INR",
                 amount: "",
               });
-              
             }, 3500);
             if (currency === "USD") {
               const inrAmount = amount * usdToInr;
@@ -236,30 +236,28 @@ export default function PayAsYouLike() {
     }
   }
 
-
-
-  // function emailPassword(updatedUserInfo) {
-  //   console.log('Calling emailPassword with:', updatedUserInfo)
-  //   fetch("http://localhost:4000/email", {
-  //   method: "POST",
-  //   body: JSON.stringify(updatedUserInfo),
-  //   headers: {
-  //     "Content-Type": "application/json"
-  //   },
-    
-  // })
-  //   .then((response) => {
-  //     console.log("Fetch response status:", response.status);
-  // console.log("Fetch response statusText:", response.statusText);
-  //     if (!response.ok) {
-  //       return response.json().then((err) => { throw new Error(err.message) })
-  //     }
-  //     return response.json()
-  //   })
-  //   .then((data) => console.log(data.message))
-  // .catch ((error) => console.log(error))
-    
-  // }
+  function emailPassword(updatedUserInfo) {
+    console.log("Calling emailPassword with:", updatedUserInfo);
+    fetch("http://localhost:4000/email", {
+      method: "POST",
+      body: JSON.stringify(updatedUserInfo),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        console.log("Fetch response status:", response.status);
+        console.log("Fetch response statusText:", response.statusText);
+        if (!response.ok) {
+          return response.json().then((err) => {
+            throw new Error(err.message);
+          });
+        }
+        return response.json();
+      })
+      .then((data) => console.log(data.message))
+      .catch((error) => console.log(error));
+  }
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -267,40 +265,36 @@ export default function PayAsYouLike() {
     if (userInfo.amount > 0) {
       handlePayment();
     }
-    
+
     // Send a POST call to server to store just user info like password and all, generate a password, time, etc.
     fetch("http://localhost:4000/passwords/create", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(userInfo)
+      body: JSON.stringify(userInfo),
     })
       .then((response) => {
         if (!response.ok) {
-        return response.json().then((err) => {throw new Error(err.message || "Could not reach the server!")})
+          return response.json().then((err) => {
+            throw new Error(err.message || "Could not reach the server!");
+          });
         }
-        return response.json()
+        return response.json();
       })
       .then((data) => {
         updatedUserInfo = data;
-        console.log('We are inside /passwords/create and updatedUserInfo is:', updatedUserInfo)
+        console.log(
+          "We are inside /passwords/create and updatedUserInfo is:",
+          updatedUserInfo
+        );
         // Send password to their email using getInTouch because email isn't working otherwise.
-        // emailPassword(updatedUserInfo);
-        setPasswordReadyForEmail(true);
-        console.log('Password Ready For Email:', passwordReadyForEmail)
+        emailPassword(updatedUserInfo);
+        // setPasswordReadyForEmail(true);
       })
       .catch((error) => {
-      console.log(error)
-      })
-    
-    
-
-    
-    
-
-    
-
+        console.log(error);
+      });
   }
 
   return (

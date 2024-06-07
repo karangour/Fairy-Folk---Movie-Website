@@ -1,8 +1,8 @@
 import React, { useState, useMemo } from "react";
 import cast from "./../assets/Cast.png";
 import poster from "./../assets/FairyFolkWebsitePoster.png"
-
 import VideoPlayer from "./VideoPlayer";
+import "./css/WatchFilm.css"
 
 export default function WatchFilm() {
   const [noYoutubeApp, setNoYouTubeApp] = useState(false);

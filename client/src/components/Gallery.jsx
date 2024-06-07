@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import right from "./../assets/RightArrow.png";
 import left from "./../assets/LeftArrow.png";
+import "./css/Gallery.css"
 
 export default function Gallery() {
   const [images, setImages] = useState([]);

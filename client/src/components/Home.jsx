@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Link, animateScroll as scroll } from "react-scroll";
+import "./css/Home.css";
 
 export default function Home() {
   return (
     <div className="home">
       <div>
         <h1 className="heading-thin">WATCH</h1>{" "}
-        <h1 className="heading-thick film-text">FILM</h1>
+        <h1 className="heading-thick film-text">&nbsp;FILM</h1>
         <hr className="underline-heading-home" />
       </div>
       <div className="home-buttons">

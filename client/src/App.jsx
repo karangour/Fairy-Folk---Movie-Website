@@ -3,6 +3,7 @@ import "./App.css";
 import MenuElements from "./components/MenuElements";
 import Home from "./components/Home";
 import poster from "./assets/FairyFolkWebsitePoster.png";
+import poster2 from "./assets/FairyFolkIntegratedPoster.jpg"
 import PayAsYouLike from "./components/PayAsYouLike";
 import WatchFilm from "./components/WatchFilm";
 import About from "./components/About";
@@ -13,26 +14,30 @@ import GetInTouch from "./components/GetInTouch";
 export default function App() {
   return (
     <div className="everything" id="scroll-landing-home">
-      <a
-        className="privacy-policy"
-        href="/privacy-policy.pdf"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        -PRIVACY POLICY-
-      </a>
+      <div className="footers">
+        <div className="footer-width-control">
+          <a
+            className="privacy-policy"
+            href="/privacy-policy.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            -PRIVACY POLICY-
+          </a>
 
-      <p className="rights-notice">
-        © 2024 EMPATHEIA FILMS ALL RIGHTS RESERVED
-      </p>
-      <a
-        className="terms-of-use"
-        href="/terms-of-use.pdf"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        -TERMS OF USE-
-      </a>
+          <p className="rights-notice">
+            © 2024 EMPATHEIA FILMS ALL RIGHTS RESERVED
+          </p>
+          <a
+            className="terms-of-use"
+            href="/terms-of-use.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            -TERMS OF USE-
+          </a>
+        </div>
+      </div>
       <div className="poster-things">
         <img src={poster} className="poster" alt="Fairy Folk Poster" />
         <MenuElements />

@@ -8,7 +8,7 @@ const crypto = require("crypto");
 const { getPasswords, setPassword } = require("./passwords");
 
 router.route("/create").post((req, res) => {
-  console.log("1. Request received at /create with body:", req.body);
+  
 
   const userInfo = req.body;
   let updatedUserInfo = {};
@@ -21,7 +21,7 @@ router.route("/create").post((req, res) => {
     user.date = new Date();
     user.expired = false;
     user.amount = Number(userInfo.amount) + Number(user.amount);
-    console.log("4. Creating password info..");
+
     return user;
   }
 
@@ -30,7 +30,7 @@ router.route("/create").post((req, res) => {
       current = createPassword(current);
       entryFound = true;
       updatedUserInfo = current;
-      console.log("2. Entry was found and updated:", current);
+      
     }
     return current;
   });
@@ -38,7 +38,7 @@ router.route("/create").post((req, res) => {
   if (entryFound) {
     setPassword(newInfo);
   } else {
-    console.log("3. Entry was not found.");
+    
     let newUser = createPassword(userInfo);
     newUser.id = allInfo.length + 1;
     allInfo.push(newUser);
@@ -47,7 +47,7 @@ router.route("/create").post((req, res) => {
     console.log("New user created and added:", newUser);
   }
 
-  console.log("5. Updated passwords data:", allInfo);
+  
   res.json({ ...updatedUserInfo, message: "Password created." });
 });
 
