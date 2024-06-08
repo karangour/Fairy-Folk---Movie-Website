@@ -15,6 +15,11 @@
     border-radius: 50px;
     position: relative;
   }
+
+  .solver {
+    color: white;
+    background: red;
+  }
   
   .you-like-text {
     margin-left: -10px;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import "./css/PayAsYouLike.css"
+import "./css/PayAsYouLike.css";
 
 export default function PayAsYouLike() {
   const [userInfo, setUserInfo] = useState({
@@ -18,6 +18,7 @@ export default function PayAsYouLike() {
   const [paid, setPaid] = useState(false);
   const [passwordReadyForEmail, setPasswordReadyForEmail] = useState(false);
   const isFirstRender = useRef(true);
+  const updatedUserInfoRef = useRef(null);
 
   let updatedUserInfo = {};
 
@@ -36,28 +37,54 @@ export default function PayAsYouLike() {
     maximumFractionDigits: 0,
   });
 
-  //testing
+  // Testing
 
-  // useEffect(() => {
-  // // if (isFirstRender.current) {
-  // //   isFirstRender.current = false;
-  // //   return;
-  // // }
+  const [showSolver, setShowSolver] = useState(false);
+  const [arithmeticProblem, setArithmeticProblem] = useState("");
+  const [userAnswer, setUserAnswer] = useState("");
+  const [correctAnswer, setCorrectAnswer] = useState(null);
 
-  //   console.log('inside useEffect')
-  //   fetch("http://localhost:4000/email", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json"
-  //     },
-  //     body: JSON.stringify({ password: "hohoho", email: "karangour@gmail.com", test: "data" })
-  //   })
-  //     .then(response => response.json())
-  //     .then(data => console.log("Test fetch response:", data))
-  //     .catch(error => console.error("Test fetch error:", error));
-  // }, [passwordReadyForEmail]);
+  function generateArithmeticProblem() {
+    const num1 = Math.floor(Math.random() * 10) + 1;
+    const num2 = Math.floor(Math.random() * 10) + 1;
+    const operation = ["+", "-", "*"][Math.floor(Math.random() * 3)];
+    const problem = `${num1} ${operation} ${num2}`;
 
-  //testing
+    setArithmeticProblem(problem);
+    setCorrectAnswer(eval(problem));
+  }
+
+  function handleAnswerChange(event) {
+    setUserAnswer(event.target.value);
+  }
+
+  function checkAnswer() {
+    if (parseInt(userAnswer) === correctAnswer) {
+      console.log("UpdatedUserInfo right before sendMail:", updatedUserInfo);
+      sendMail();
+    } else {
+      alert("Incorrect answer, please try again.");
+    }
+  }
+
+  function sendMail() {
+    console.log(
+      "Inside PayAsYouLike -> sendMail for form:",
+      updatedUserInfoRef.current
+    );
+    fetch("http://localhost:4000/email", {
+      method: "POST",
+      body: JSON.stringify(updatedUserInfoRef.current),
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data.message);
+      })
+      .catch((error) => console.log("Error:", error.message));
+  }
+
+  // Testing end
 
   useEffect(() => {
     // Fetch Razorpay key from server
@@ -236,28 +263,28 @@ export default function PayAsYouLike() {
     }
   }
 
-  function emailPassword(updatedUserInfo) {
-    console.log("Calling emailPassword with:", updatedUserInfo);
-    fetch("http://localhost:4000/email", {
-      method: "POST",
-      body: JSON.stringify(updatedUserInfo),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => {
-        console.log("Fetch response status:", response.status);
-        console.log("Fetch response statusText:", response.statusText);
-        if (!response.ok) {
-          return response.json().then((err) => {
-            throw new Error(err.message);
-          });
-        }
-        return response.json();
-      })
-      .then((data) => console.log(data.message))
-      .catch((error) => console.log(error));
-  }
+  // function emailPassword(updatedUserInfo) {
+  //   console.log("Calling emailPassword with:", updatedUserInfo);
+  //   fetch("http://localhost:4000/email", {
+  //     method: "POST",
+  //     body: JSON.stringify(updatedUserInfo),
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   })
+  //     .then((response) => {
+  //       console.log("Fetch response status:", response.status);
+  //       console.log("Fetch response statusText:", response.statusText);
+  //       if (!response.ok) {
+  //         return response.json().then((err) => {
+  //           throw new Error(err.message);
+  //         });
+  //       }
+  //       return response.json();
+  //     })
+  //     .then((data) => console.log(data.message))
+  //     .catch((error) => console.log(error));
+  // }
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -283,14 +310,18 @@ export default function PayAsYouLike() {
         return response.json();
       })
       .then((data) => {
-        updatedUserInfo = data;
+        updatedUserInfoRef.current = data;
+
         console.log(
           "We are inside /passwords/create and updatedUserInfo is:",
-          updatedUserInfo
+          updatedUserInfoRef.current
         );
         // Send password to their email using getInTouch because email isn't working otherwise.
-        emailPassword(updatedUserInfo);
+        setShowSolver(true);
+        generateArithmeticProblem();
+        // emailPassword(updatedUserInfo);
         // setPasswordReadyForEmail(true);
+        // props.updateUserInfo(updatedUserInfo)
       })
       .catch((error) => {
         console.log(error);
@@ -299,6 +330,17 @@ export default function PayAsYouLike() {
 
   return (
     <div className="payasyoulike-container">
+      {showSolver && (
+        <div className="solver">
+          <h3>Solve this problem to continue:</h3>
+          <p>{arithmeticProblem}</p>
+          <input type="text" value={userAnswer} onChange={handleAnswerChange} />
+          <button className="button" onClick={checkAnswer}>
+            Submit Answer
+          </button>
+        </div>
+      )}
+
       <div className={`msg-paid-notice ${paid ? "msg-paid-notice-show" : ""}`}>
         <h1>
           THANK YOU VERY MUCH!

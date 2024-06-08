@@ -41,7 +41,7 @@ router.route("/").post((req, res) => {
         form.name || form.email
       }, <br><br>Your PASSWORD: <h3 style="display:inline;">${
         form.password
-      }</h3><br><i>Expiry:</i> <h4 style="display:inline;">${passwordValidity.toLocaleDateString('en-US', options)}</h4><br><br> Thanks again for making the time to watch our film. We hope you enjoy watching the film as much as we enjoyed making it! <br><br><b>P.S. It would mean a lot if you could share the film, leave a review, or just shout about it from your balcony...anything to spread the word. We're counting on you!</b> `,
+      }</h3><br><i>Expiry:</i> <h4 style="display:inline;">${passwordValidity.toLocaleDateString('en-US', options)}</h4><br><br> Thanks again for making the time for our film. We hope you enjoy watching it as much as we enjoyed making it! <br><br><b>P.S. It would mean a lot if you could share the film, leave a review, or just shout about it from your balcony...anything to spread the word. We're counting on you!</b> `,
     };
   } else {
     mailOptions = {
