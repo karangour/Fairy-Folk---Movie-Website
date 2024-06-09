@@ -171,31 +171,29 @@
     opacity: 0;
     transition: opacity 1s ease;
   }
-  
-  .payasyoulike-container {
-    position: relative;
-  }
-  
-  .msg-paid-notice {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  
-    z-index: 2000;
-    width: fit-content;
-    height: fit-content;
-    opacity: 0;
-    transition: opacity 1s ease;
-  }
-  
-  .msg-sent-notice-show,
-  .msg-paid-notice-show {
+
+  .msg-sent-notice-show {
     opacity: 1;
   }
+
+  .loading {
+    flex-direction: column;
+    position: absolute;
   
-  .msg-sent-notice > h1,
-  .msg-paid-notice > h1 {
+    z-index: -5;
+    width: 50%;
+    height: 37.5%;
+    opacity: 0;
+    transition: opacity 1s ease;
+    border-radius: 5px;
+  }
+
+  .loading-show {
+    opacity: 1;
+    z-index: 2000;
+  }
+
+  .msg-sent-notice > h1 {
     font-family: "Questrial";
     font-style: normal;
     font-weight: 400;
@@ -206,4 +204,7 @@
     border-radius: 5px 5px 5px 5px;
     padding: 20px 10px 20px 10px;
     text-align: center;
+
   }
+  
+  

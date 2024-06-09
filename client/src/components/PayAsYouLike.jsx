@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import "./css/PayAsYouLike.css";
+import load_animation from "./../assets/loading.gif";
 
 export default function PayAsYouLike() {
   const [userInfo, setUserInfo] = useState({
@@ -16,8 +17,14 @@ export default function PayAsYouLike() {
   const [usdToInr, setUsdToInr] = useState(1);
   const [contriFillWidth, setContriFillWidth] = useState(0);
   const [paid, setPaid] = useState(false);
-  const [passwordReadyForEmail, setPasswordReadyForEmail] = useState(false);
-  const isFirstRender = useRef(true);
+  const [showSolver, setShowSolver] = useState(false);
+  const [arithmeticProblem, setArithmeticProblem] = useState("");
+  const [userAnswer, setUserAnswer] = useState("");
+  const [correctAnswer, setCorrectAnswer] = useState(null);
+  const [wrongAnswer, setWrongAnswer] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [userExists, setUserExists] = useState(false);
+
   const updatedUserInfoRef = useRef(null);
 
   let updatedUserInfo = {};
@@ -37,12 +44,7 @@ export default function PayAsYouLike() {
     maximumFractionDigits: 0,
   });
 
-  // Testing
-
-  const [showSolver, setShowSolver] = useState(false);
-  const [arithmeticProblem, setArithmeticProblem] = useState("");
-  const [userAnswer, setUserAnswer] = useState("");
-  const [correctAnswer, setCorrectAnswer] = useState(null);
+  console.log(showSolver);
 
   function generateArithmeticProblem() {
     const num1 = Math.floor(Math.random() * 10) + 1;
@@ -61,9 +63,11 @@ export default function PayAsYouLike() {
   function checkAnswer() {
     if (parseInt(userAnswer) === correctAnswer) {
       console.log("UpdatedUserInfo right before sendMail:", updatedUserInfo);
+      setLoading(true);
       sendMail();
     } else {
-      alert("Incorrect answer, please try again.");
+      // alert("Incorrect answer, please try again.");
+      setWrongAnswer(true);
     }
   }
 
@@ -80,11 +84,21 @@ export default function PayAsYouLike() {
       .then((response) => response.json())
       .then((data) => {
         console.log(data.message);
+        setUserInfo({
+          name: "",
+          email: "",
+          amount: "",
+        });
+        setUserAnswer("");
+        setLoading(false);
+        setShowSolver(false);
+        setPaid(true);
+        setTimeout(() => {
+          setPaid(false);
+        }, 4000);
       })
       .catch((error) => console.log("Error:", error.message));
   }
-
-  // Testing end
 
   useEffect(() => {
     // Fetch Razorpay key from server
@@ -155,6 +169,11 @@ export default function PayAsYouLike() {
         [name]: value,
       };
     });
+    if (name === "email" && value.trim().length > 0) {
+      if (name === "amount" && value.trim().length > 0) {
+        setUserExists(true);
+      }
+    }
   }
 
   function storeContributionTotal(newTotal) {
@@ -319,9 +338,6 @@ export default function PayAsYouLike() {
         // Send password to their email using getInTouch because email isn't working otherwise.
         setShowSolver(true);
         generateArithmeticProblem();
-        // emailPassword(updatedUserInfo);
-        // setPasswordReadyForEmail(true);
-        // props.updateUserInfo(updatedUserInfo)
       })
       .catch((error) => {
         console.log(error);
@@ -329,22 +345,61 @@ export default function PayAsYouLike() {
   }
 
   return (
-    <div className="payasyoulike-container">
+    <div
+      className="payasyoulike-container"
+      style={{ position: paid ? "relative" : "static" }}
+    >
       {showSolver && (
-        <div className="solver">
-          <h3>Solve this problem to continue:</h3>
-          <p>{arithmeticProblem}</p>
-          <input type="text" value={userAnswer} onChange={handleAnswerChange} />
-          <button className="button" onClick={checkAnswer}>
-            Submit Answer
-          </button>
+        <div className="solver-overlay">
+          {loading ? (
+            <img className="loading-animation" src={load_animation} />
+          ) : (
+            <div className={`solver ${showSolver ? "solver-show" : ""}`}>
+              <h1>
+                <b>{arithmeticProblem} = &nbsp;</b>
+              </h1>
+
+              <input
+                className="input-solver"
+                type="text"
+                value={userAnswer}
+                onChange={handleAnswerChange}
+                onClick={() => setWrongAnswer(false)}
+              />
+              <br />
+              {wrongAnswer && (
+                <>
+                  <br />
+                  <br />
+                  Wrong answer. Try again.
+                  <br />
+                  <br />
+                </>
+              )}
+              <button className="solver-button oswald" onClick={checkAnswer}>
+                SUBMIT
+              </button>
+              <button
+                className="solver-button-cancel oswald"
+                onClick={() => {
+                  setShowSolver(false);
+                  setUserAnswer("");
+                  setWrongAnswer(false);
+                }}
+              >
+                CANCEL
+              </button>
+            </div>
+          )}
         </div>
       )}
 
-      <div className={`msg-paid-notice ${paid ? "msg-paid-notice-show" : ""}`}>
+      <div
+        className={`msg-paid-notice ${paid ? "msg-paid-notice-show" : ""}`}
+        onClick={() => setPaid(false)}
+      >
         <h1>
-          THANK YOU VERY MUCH!
-          <br />
+          {userInfo.amount > 0 && "THANK YOU <br />"}
           You'll find your password in your email.
         </h1>
       </div>
@@ -440,8 +495,24 @@ export default function PayAsYouLike() {
             </select>
           </div>
           <div className="payasyoulike-button">
-            <h3 className="get-password-text oswald">GET PASSWORD</h3>
-            <button className="get-password-button" />
+            {/* <h3 className="get-password-text oswald">GET PASSWORD</h3> */}
+            <button className={`oswald get-password-button ${
+                  userExists
+                    ? "get-password-button-show get-password-button-active"
+                    : ""
+                }`}
+                disabled={!userExists}
+                >GET PASSWORD </button>
+            {/* className={`oswald get-password-button ${
+                  userExists
+                    ? "get-password-button-show get-password-button-active"
+                    : ""
+                }`}
+                disabled={!userExists}
+                style={{
+                  filter: sent ? "blur(3px)" : "",
+                  transition: "filter 1s ease",
+                }} */}
           </div>
         </form>
         <div className="contribution-section">

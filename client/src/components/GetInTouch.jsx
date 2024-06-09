@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./css/GetInTouch.css"
+import load_animation from "./../assets/loading.gif";
 
 export default function GetInTouch() {
   const [form, setForm] = useState({
@@ -11,6 +12,7 @@ export default function GetInTouch() {
   const [sent, setSent] = useState(false);
 
   const [messageExists, setMessageExists] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -24,6 +26,7 @@ export default function GetInTouch() {
       .then((data) => {
         console.log(data.message);
         setSent(true);
+        setLoading(false);
         setTimeout(() => {
           setSent(false);
           setForm({
@@ -69,6 +72,7 @@ export default function GetInTouch() {
         className="getintouch-form"
         onSubmit={(event) => messageExists && handleSubmit(event)}
       >
+        <img className={`loading ${loading ? "loading-show" : ""}`} src={load_animation} />
         <div
           className={`msg-sent-notice ${sent ? "msg-sent-notice-show" : ""}`}
         >
@@ -77,7 +81,7 @@ export default function GetInTouch() {
         <div
           className="message-box"
           style={{
-            filter: sent ? "blur(3px)" : "",
+            filter: (sent || loading) ? "blur(3px)" : "",
             transition: "filter 1s ease",
           }}
         >
@@ -132,9 +136,10 @@ export default function GetInTouch() {
           }`}
           disabled={!messageExists}
           style={{
-            filter: sent ? "blur(3px)" : "",
+            filter: (sent || loading) ? "blur(3px)" : "",
             transition: "filter 1s ease",
           }}
+          onClick={() => setLoading(true)}
         >
           SEND
         </button>
