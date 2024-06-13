@@ -24,6 +24,8 @@ export default function PayAsYouLike() {
   const [wrongAnswer, setWrongAnswer] = useState(false);
   const [loading, setLoading] = useState(false);
   const [userExists, setUserExists] = useState(false);
+  const [emailExists, setEmailExists] = useState(true);
+  const [amountExists, setAmountExists] = useState(false);
 
   const updatedUserInfoRef = useRef(null);
 
@@ -43,8 +45,6 @@ export default function PayAsYouLike() {
     minimumFractionDigits: 0,
     maximumFractionDigits: 0,
   });
-
-  console.log(showSolver);
 
   function generateArithmeticProblem() {
     const num1 = Math.floor(Math.random() * 10) + 1;
@@ -131,10 +131,8 @@ export default function PayAsYouLike() {
   }, []);
 
   useEffect(() => {
-    // Fetch USD/INR rate from API, update budget USD and contribution USD, all for an update on contribution chart
-    fetch(
-      "https://v6.exchangerate-api.com/v6/8754ac39dfd66aa10bf5b1c0/latest/USD"
-    )
+    // Fetch USD/INR rate from server file usdConversion.json, update budget USD and contribution USD, all for an update on contribution chart
+    fetch("http://localhost:4000/conversionrate")
       .then((response) => {
         if (!response.ok) {
           return response.json().then((err) => {
@@ -153,8 +151,8 @@ export default function PayAsYouLike() {
           21000000 / data.conversion_rates.INR
         );
         setContriInrUsd(`${contriINR} / ${contriUSD}`);
-        setTotalBudget(`₹2,10,00,000 / ${budgetUSD}`);
-        setContriFillWidth((totalContributions / 21000000) * 100);
+        setTotalBudget(`₹2,01,24,526 / ${budgetUSD}`);
+        setContriFillWidth((totalContributions / 20124526) * 100);
       })
       .catch((error) => {
         console.error(error.result);
@@ -169,11 +167,10 @@ export default function PayAsYouLike() {
         [name]: value,
       };
     });
-    if (name === "email" && value.trim().length > 0) {
-      if (name === "amount" && value.trim().length > 0) {
-        setUserExists(true);
-      }
-    }
+
+    if (name === "amount" && value.trim().length > 0) {
+      setUserExists(true);
+    } else setUserExists(false);
   }
 
   function storeContributionTotal(newTotal) {
@@ -282,66 +279,58 @@ export default function PayAsYouLike() {
     }
   }
 
-  // function emailPassword(updatedUserInfo) {
-  //   console.log("Calling emailPassword with:", updatedUserInfo);
-  //   fetch("http://localhost:4000/email", {
-  //     method: "POST",
-  //     body: JSON.stringify(updatedUserInfo),
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   })
-  //     .then((response) => {
-  //       console.log("Fetch response status:", response.status);
-  //       console.log("Fetch response statusText:", response.statusText);
-  //       if (!response.ok) {
-  //         return response.json().then((err) => {
-  //           throw new Error(err.message);
-  //         });
-  //       }
-  //       return response.json();
-  //     })
-  //     .then((data) => console.log(data.message))
-  //     .catch((error) => console.log(error));
-  // }
-
   function handleSubmit(event) {
     event.preventDefault();
 
-    if (userInfo.amount > 0) {
-      handlePayment();
-    }
-
-    // Send a POST call to server to store just user info like password and all, generate a password, time, etc.
-    fetch("http://localhost:4000/passwords/create", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(userInfo),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          return response.json().then((err) => {
-            throw new Error(err.message || "Could not reach the server!");
-          });
-        }
-        return response.json();
-      })
-      .then((data) => {
-        updatedUserInfoRef.current = data;
-
-        console.log(
-          "We are inside /passwords/create and updatedUserInfo is:",
-          updatedUserInfoRef.current
-        );
-        // Send password to their email using getInTouch because email isn't working otherwise.
-        setShowSolver(true);
-        generateArithmeticProblem();
-      })
-      .catch((error) => {
-        console.log(error);
+    if (userInfo.email === "") {
+      setEmailExists(false);
+      setUserInfo((prev) => {
+        return {
+          ...prev,
+          amount: "",
+        };
       });
+      setUserExists(false);
+      setTimeout(() => {
+        setEmailExists(true);
+        return;
+      }, 2000);
+    } else {
+      if (userInfo.amount > 0) {
+        handlePayment();
+      }
+
+      // Send a POST call to server to store just user info like password and all, generate a password, time, etc.
+      fetch("http://localhost:4000/passwords/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userInfo),
+      })
+        .then((response) => {
+          if (!response.ok) {
+            return response.json().then((err) => {
+              throw new Error(err.message || "Could not reach the server!");
+            });
+          }
+          return response.json();
+        })
+        .then((data) => {
+          updatedUserInfoRef.current = data;
+
+          console.log(
+            "We are inside /passwords/create and updatedUserInfo is:",
+            updatedUserInfoRef.current
+          );
+          // Send password to their email using getInTouch because email isn't working otherwise.
+          setShowSolver(true);
+          generateArithmeticProblem();
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   }
 
   return (
@@ -399,14 +388,20 @@ export default function PayAsYouLike() {
         onClick={() => setPaid(false)}
       >
         <h1>
-          {userInfo.amount > 0 && "THANK YOU <br />"}
+          {userInfo.amount > 0 && "THANK YOU FOR YOUR CONTRIBUTION!<br />"}
           You'll find your password in your email.
         </h1>
       </div>
       <div
+        className={`email-notice ${!emailExists ? "email-notice-show" : ""}`}
+        onClick={() => setEmailExists(true)}
+      >
+        <h1>Enter a valid email address.</h1>
+      </div>
+      <div
         className="payasyoulike"
         style={{
-          filter: paid ? "blur(3px)" : "",
+          filter: paid || !emailExists ? "blur(3px)" : "",
           transition: "filter 1s ease",
         }}
       >
@@ -496,23 +491,16 @@ export default function PayAsYouLike() {
           </div>
           <div className="payasyoulike-button">
             {/* <h3 className="get-password-text oswald">GET PASSWORD</h3> */}
-            <button className={`oswald get-password-button ${
-                  userExists
-                    ? "get-password-button-show get-password-button-active"
-                    : ""
-                }`}
-                disabled={!userExists}
-                >GET PASSWORD </button>
-            {/* className={`oswald get-password-button ${
-                  userExists
-                    ? "get-password-button-show get-password-button-active"
-                    : ""
-                }`}
-                disabled={!userExists}
-                style={{
-                  filter: sent ? "blur(3px)" : "",
-                  transition: "filter 1s ease",
-                }} */}
+            <button
+              className={`oswald get-password-button ${
+                userExists
+                  ? "get-password-button-show get-password-button-active"
+                  : ""
+              }`}
+              disabled={!userExists}
+            >
+              GET PASSWORD{" "}
+            </button>
           </div>
         </form>
         <div className="contribution-section">

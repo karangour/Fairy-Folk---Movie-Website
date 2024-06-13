@@ -60,13 +60,17 @@ export default function MenuElements() {
 
   return (
     <div className="menu-elements">
+     
       <img
         src={share}
         className="share-button"
         alt="Share"
         onClick={toggleShare}
       />
-
+      <div className="buttons-shading" />
+      
+      {/* {SHARE options} */}
+      
       <div
         className={`${
           isShareOpen
@@ -129,6 +133,8 @@ export default function MenuElements() {
         />
       </div>
 
+      {/* {MENU options} */}
+      
       <img
         src={menu}
         className="menu-button"
@@ -284,7 +290,9 @@ export default function MenuElements() {
             />
           </a>
         </div>
-      </div>
+        </div>
+
+      
     </div>
   );
 }

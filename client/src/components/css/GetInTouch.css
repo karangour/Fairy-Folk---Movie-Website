@@ -1,210 +1,206 @@
-
 /* GET IN TOUCH */
 
 .getintouch {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: fit-content;
-  
-    margin-top: 100px;
-  
-    padding: 0px 50px 60px 50px;
-    background: #000000;
-    box-shadow: 0px 0px 30px 10px rgba(255, 255, 255, 0.25);
-    border-radius: 50px;
-  }
-  
-  #scroll-landing-getintouch {
-    margin-top: -50px;
-    margin-bottom: 50px;
-    /* border: 1px solid red; */
-  }
-  
-  .underline-heading-getintouch {
-    width: 368px;
-    height: 0px;
-    margin-top: -35px;
-  
-    border: 0.5px solid #ffffff;
-  }
-  
-  .getintouch-description {
-    text-align: center;
-    margin-top: 30px;
-  
-    font-family: "Questrial";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 22px;
-    line-height: 35px;
-  
-    color: #ffffffc0;
-  }
-  
-  .getintouch-form {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-    align-items: center;
-    justify-content: center;
-  
-    line-height: 10px;
-    position: relative;
-  }
-  
-  .message-box {
-    display: flex;
-    flex-direction: column;
-    width: 500px;
-  
-    font-family: "Questrial";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    align-items: center;
-    justify-content: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
-  
-    letter-spacing: 0.05em;
-  
-    color: #ffffff;
-    border-width: 5px 30px 5px 30px;
-    border-style: solid;
-    border-color: #ff7b00;
-    box-shadow: 0px 0px 30px 5px rgba(255, 122, 0, 0.5);
-    border-radius: 20px;
-  }
-  
-  .standard-flex {
-    display: flex;
-  }
-  
-  .label {
-    margin-top: 34px;
-  }
-  
-  .subject-getintouch {
-    margin-left: -20px;
-  }
-  
-  .message-body {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  
-    width: 500px;
-    margin-top: 30px;
-    margin-bottom: 15px;
-  }
-  
-  .message-getintouch {
-    position: absolute;
-    z-index: 10;
-    color: rgb(255, 255, 255);
-    align-content: center;
-  }
-  
-  .message-input {
-    width: 90%;
-    height: 200px;
-  
-    background-color: rgb(0, 0, 0);
-    border: 0px;
-    outline: none;
-    color: rgb(255, 255, 255);
-    border: 1px solid white;
-  
-    border-radius: 10px;
-    padding: 5px;
-    resize: none;
-  
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 300;
-    font-size: 18px;
-  }
-  
-  .getintouch-submit-button {
-    width: 130px;
-    height: px;
-    font-size: 20px;
-    text-align: center;
-    margin-top: 25px;
-  
-    font-family: "Oswald";
-    font-style: normal;
-    font-weight: 400;
-  
-    letter-spacing: 0.05em;
-  
-    background: radial-gradient(
-      65.33% 561.23% at 50% 50%,
-      #ffffff 0%,
-      #000000 100%
-    );
-    box-shadow: 0px 0px 20px 10px rgba(72, 72, 72, 0.5);
-    border: none;
-    border-radius: 15px;
-    opacity: 0.3;
-  }
-  
-  .getintouch-submit-button-show {
-    cursor: pointer;
-    opacity: 1;
-  }
-  
-  .getintouch-submit-button-active:active {
-    opacity: 0.5;
-    transition: opacity 0.1s ease;
-  }
-  
-  .msg-sent-notice {
-    flex-direction: column;
-    position: absolute;
-  
-    z-index: 2000;
-    width: fit-content;
-    height: fit-content;
-    opacity: 0;
-    transition: opacity 1s ease;
-  }
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: fit-content;
 
-  .msg-sent-notice-show {
-    opacity: 1;
-  }
+  margin-top: 100px;
 
-  .loading {
-    flex-direction: column;
-    position: absolute;
-  
-    z-index: -5;
-    width: 50%;
-    height: 37.5%;
-    opacity: 0;
-    transition: opacity 1s ease;
-    border-radius: 5px;
-  }
+  padding: 0px 50px 60px 50px;
+  background: #000000;
+  box-shadow: 0px 0px 30px 10px rgba(255, 255, 255, 0.25);
+  border-radius: 50px;
+}
 
-  .loading-show {
-    opacity: 1;
-    z-index: 2000;
-  }
+#scroll-landing-getintouch {
+  margin-top: -50px;
+  margin-bottom: 50px;
+  /* border: 1px solid red; */
+}
 
-  .msg-sent-notice > h1 {
-    font-family: "Questrial";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 35px;
-    color: white;
-    background: rgb(50, 182, 2);
-    border-radius: 5px 5px 5px 5px;
-    padding: 20px 10px 20px 10px;
-    text-align: center;
+.underline-heading-getintouch {
+  width: 368px;
+  height: 0px;
+  margin-top: -35px;
 
-  }
-  
-  
+  border: 0.5px solid #ffffff;
+}
+
+.getintouch-description {
+  text-align: center;
+  margin-top: 30px;
+
+  font-family: "Questrial";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 35px;
+
+  color: #ffffffc0;
+}
+
+.getintouch-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  align-items: center;
+  justify-content: center;
+
+  line-height: 10px;
+  position: relative;
+}
+
+.message-box {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+
+  font-family: "Questrial";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  letter-spacing: 0.05em;
+
+  color: #ffffff;
+  border-width: 5px 30px 5px 30px;
+  border-style: solid;
+  border-color: #ff7b00;
+  box-shadow: 0px 0px 30px 5px rgba(255, 122, 0, 0.5);
+  border-radius: 20px;
+}
+
+.standard-flex {
+  display: flex;
+}
+
+.label {
+  margin-top: 34px;
+}
+
+.subject-getintouch {
+  margin-left: -20px;
+}
+
+.message-body {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 500px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.message-getintouch {
+  position: absolute;
+  z-index: 10;
+  color: rgb(255, 255, 255);
+  align-content: center;
+}
+
+.message-input {
+  width: 90%;
+  height: 200px;
+
+  background-color: rgb(0, 0, 0);
+  border: 0px;
+  outline: none;
+  color: rgb(255, 255, 255);
+  border: 1px solid white;
+
+  border-radius: 10px;
+  padding: 5px;
+  resize: none;
+
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+}
+
+.getintouch-submit-button {
+  width: 130px;
+  height: px;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 25px;
+
+  font-family: "Oswald";
+  font-style: normal;
+  font-weight: 400;
+
+  letter-spacing: 0.05em;
+
+  background: radial-gradient(
+    65.33% 561.23% at 50% 50%,
+    #ffffff 0%,
+    #000000 100%
+  );
+  box-shadow: 0px 0px 20px 10px rgba(72, 72, 72, 0.5);
+  border: none;
+  border-radius: 15px;
+  opacity: 0.3;
+}
+
+.getintouch-submit-button-show {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.getintouch-submit-button-active:active {
+  opacity: 0.5;
+  transition: opacity 0.1s ease;
+}
+
+.msg-sent-notice {
+  flex-direction: column;
+  position: absolute;
+
+  z-index: 2000;
+  width: fit-content;
+  height: fit-content;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.msg-sent-notice-show {
+  opacity: 1;
+}
+
+.loading {
+  flex-direction: column;
+  position: absolute;
+
+  z-index: -5;
+  width: 50%;
+  height: 37.5%;
+  opacity: 0;
+  transition: opacity 1s ease;
+  border-radius: 5px;
+}
+
+.loading-show {
+  opacity: 1;
+  z-index: 2000;
+}
+
+.msg-sent-notice > h1 {
+  font-family: "Questrial";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 35px;
+  color: white;
+  background: rgb(50, 182, 2);
+  border-radius: 5px 5px 5px 5px;
+  padding: 20px 10px 20px 10px;
+  text-align: center;
+}

@@ -12,18 +12,7 @@ import Gallery from "./components/Gallery";
 import GetInTouch from "./components/GetInTouch";
 
 export default function App() {
-  // // Testing
-  // const [userInfo, setUserInfo] = useState({})
-  // const [emailReadyToSend, setEmailReadyToSend] = useState(false)
 
-  // function updateUserInfo(user) {
-  //   console.log('Inside App.jsx and this is the userInfo returned from payasyoulike:',user)
-  //   setUserInfo(user)
-  //   setEmailReadyToSend(prev => !prev)
-  // }
-
-  
-  //  // Testing End
   return (
     <div className="everything" id="scroll-landing-home">
       <div className="footers">
@@ -52,6 +41,7 @@ export default function App() {
       </div>
       <div className="poster-things">
         <img src={poster} className="poster" alt="Fairy Folk Poster" />
+        <img src={poster2} className="poster2" alt="Fairy Folk Poster 2" />
         <MenuElements />
         <Home/>
       </div>

@@ -91,17 +91,4 @@
   object-fit: contain;
 }
 
-.insta-logo {
-  height: 30px;
-  width: auto;
-  margin-top: -4px;
-  margin-bottom: 4px;
 
-  cursor: pointer;
-  color: #000000;
-
-  justify-content: space-evenly;
-
-  z-index: 20;
-  transition: transform 0.3s ease;
-}
