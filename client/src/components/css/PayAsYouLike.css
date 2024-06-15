@@ -12,7 +12,6 @@
   background: #000000;
   box-shadow: 0px 0px 30px 10px rgba(255, 255, 255, 0.25);
   border-radius: 50px;
-
 }
 
 .you-like-text {
@@ -29,9 +28,12 @@
 }
 
 #scroll-landing-payasyoulike {
-  margin-top: -30px;
-  margin-bottom: 30px;
-  /*border: 1px solid red; */
+  width: 10px;
+  height: 10px;
+  margin-top: -20px;
+  margin-bottom: -30px;
+
+  /* border: 1px solid red; */
 }
 
 .main-text {
@@ -214,16 +216,6 @@
   margin-bottom: 50px;
 }
 
-/* .get-password-text {
-  cursor: pointer;
-  justify-self: center;
-  align-content: center;
-
-  z-index: 10;
-  color: #000000;
-  pointer-events: none;
-} */
-
 .get-password-button {
   cursor: pointer;
   width: 274px;
@@ -310,29 +302,28 @@
   box-shadow: 0px 0px 25px 15px rgba(255, 255, 255, 0.2);
 }
 
-.tube-curve-top {
+.tube-curve-top,
+.tube-curve-bottom {
   /* margin-bottom: -520px; */
   position: absolute;
   width: 100%;
   height: 100%;
+  z-index: 10;
+}
 
+.tube-curve-top {
   background: linear-gradient(
     360deg,
     rgba(255, 255, 255, 0) 0%,
     rgba(84, 0, 0, 0.5) 100%
   );
-  z-index: 10;
 }
 
 .tube-curve-bottom {
-  position: absolute;
-  width: 100%;
-  height: 100%;
   background: linear-gradient(
     rgba(255, 255, 255, 0) 0%,
     rgba(134, 1, 1, 0.5) 100%
   );
-  z-index: 10;
 }
 
 .budget-marker {
@@ -355,29 +346,19 @@
 }
 
 .budget-box {
-  flex-grow: 0;
-  flex-shrink: 0;
-  width: fit-content;
-  min-width: 50px;
-  height: 40px;
-  display: flex;
   align-items: center;
   justify-content: center;
+  width: fit-content;
+  height: 40px;
+  display: flex;
   border: 1px solid white;
   padding: 0 10px;
   margin-left: 497.5px;
 }
 
-.budget-num,
-.contri-num {
-  color: red;
-  margin-left: 7px;
-}
-
 .contri-box {
   align-items: center;
   justify-content: center;
-  /* margin-left: -508px; */
   width: fit-content;
   padding-right: 7px;
   padding-left: 7px;
@@ -386,6 +367,12 @@
   border-style: solid;
   background: #ffffff;
   border-color: #ffffff;
+}
+
+.budget-num,
+.contri-num {
+  color: red;
+  margin-left: 7px;
 }
 
 .contri-text,
@@ -401,7 +388,6 @@
 }
 
 .payasyoulike-container {
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -423,7 +409,6 @@
 }
 
 .solver {
- 
   width: fit-content;
   height: fit-content;
   opacity: 0;
@@ -443,10 +428,7 @@
   width: 200px;
   height: 150px;
   border-radius: 5px;
-
 }
-
-
 
 .solver > h1 {
   margin-top: 15px;
@@ -526,14 +508,13 @@
 }
 
 .email-notice {
-position: absolute;
+  position: absolute;
   z-index: 3000;
   width: fit-content;
   height: fit-content;
   opacity: 0;
   transition: opacity 1s ease;
 }
-
 
 .email-notice-show {
   opacity: 1;
@@ -560,7 +541,8 @@ position: absolute;
   opacity: 1;
 }
 
-.msg-paid-notice > h1, .email-notice > h1 {
+.msg-paid-notice > h1,
+.email-notice > h1 {
   font-family: "Questrial";
   font-style: normal;
   font-weight: 400;
@@ -571,4 +553,642 @@ position: absolute;
   border-radius: 5px 5px 5px 5px;
   padding: 20px 10px 20px 10px;
   text-align: center;
+}
+
+/* --------------------------------------------------------------------- */
+
+@media (max-width: 1620px) {
+  #scroll-landing-payasyoulike {
+    width: 10px;
+    height: 10px;
+    margin-top: -30px;
+    margin-bottom: -20px;
+
+    /* border: 1px solid red; */
+  }
+
+  .underline-heading-payasyoulike {
+    width: 340px;
+    margin-left: 6px;
+    margin-top: -35px;
+    margin-bottom: 20px;
+  }
+
+  .main-text {
+    width: 1000px;
+    height: 570px;
+
+    font-size: 20px;
+    line-height: 33px;
+  }
+
+  .thanks {
+    font-size: 26px;
+    letter-spacing: 0.01em;
+  }
+
+  .division-description {
+    width: 735px;
+    margin-top: -15px;
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 1220px) {
+  #scroll-landing-payasyoulike {
+    width: 10px;
+    height: 10px;
+    margin-top: -140px;
+    margin-bottom: -20px;
+
+    /* border: 1px solid red; */
+  }
+
+  .underline-heading-payasyoulike {
+    width: 295px;
+    margin-left: 4px;
+    margin-top: -35px;
+    margin-bottom: 17px;
+  }
+
+  .main-text {
+    width: 850px;
+    height: 570px;
+
+    font-size: 18px;
+    line-height: 30px;
+  }
+
+  .thanks {
+    font-size: 24px;
+    letter-spacing: 0.01em;
+  }
+
+  .division-description {
+    width: 680px;
+    margin-top: -15px;
+    margin-bottom: 25px;
+  }
+}
+
+@media (max-width: 1025px) {
+  #scroll-landing-payasyoulike {
+    width: 10px;
+    height: 10px;
+    margin-top: -250px;
+    margin-bottom: -30px;
+
+    /* border: 1px solid red; */
+  }
+
+  .underline-heading-payasyoulike {
+    width: 264px;
+    margin-left: 4px;
+    margin-top: -35px;
+    margin-bottom: 17px;
+  }
+
+  .main-text {
+    width: 600px;
+    height: 570px;
+
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .thanks {
+    font-size: 21px;
+    letter-spacing: 0.01em;
+  }
+
+  .division-description {
+    width: 595px;
+    margin-top: -15px;
+    margin-bottom: 25px;
+  }
+
+  .contribution-chart {
+    width: 600px;
+    height: 60px;
+  }
+
+  .budget-box {
+    height: 40px;
+    width: 281px;
+
+    margin-left: 297px;
+  }
+}
+
+@media (max-width: 769px) {
+  #scroll-landing-payasyoulike {
+    width: 10px;
+    height: 10px;
+    margin-top: -520px;
+    margin-bottom: -40px;
+
+    /* border: 1px solid red; */
+  }
+
+  .payasyoulike {
+    padding: 0px 30px 50px 30px;
+  }
+
+  .you-like-text {
+    margin-left: -8px;
+  }
+
+  .underline-heading-payasyoulike {
+    width: 227px;
+    margin-left: 4px;
+    margin-top: -35px;
+    margin-bottom: 14px;
+  }
+
+  .main-text {
+    width: 450px;
+    height: 570px;
+
+    font-size: 13px;
+    line-height: 22px;
+    margin-bottom: 6px;
+  }
+
+  .thanks {
+    font-size: 16px;
+    letter-spacing: 0.01em;
+    margin-bottom: 20px;
+  }
+
+  .division-description {
+    width: 453px;
+    margin-top: -15px;
+    margin-bottom: 25px;
+  }
+
+  .contribution-chart {
+    width: 450px;
+    height: 60px;
+  }
+
+  .budget-box {
+    height: 40px;
+    width: fit-content;
+    margin-left: 214px;
+  }
+
+  .contri-text,
+  .budget-text {
+    font-size: 14px;
+  }
+
+  .budget-box,
+  .contri-box {
+    font-size: 15px;
+  }
+
+  /* ****************************************** */
+
+  .password-instructions {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: -1px;
+  }
+
+  .user-details {
+    font-size: 18px;
+    padding: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    letter-spacing: 0.03em;
+
+    border-width: 3px 20px 3px 20px;
+    border-style: solid;
+    border-color: #ff7b00;
+    box-shadow: 0px 0px 30px 5px rgba(255, 122, 0, 0.5);
+    border-radius: 20px;
+  }
+
+  .name-email-amount {
+    margin-top: -1px;
+  }
+
+  .name-text {
+    margin-top: -15px;
+  }
+
+  .optional-text {
+    margin-top: -18px;
+    font-size: 10px;
+  }
+
+  .email-text {
+    margin-top: 10px;
+  }
+
+  .amount-text {
+    margin-top: 9px;
+  }
+
+  .contribution-zero {
+    font-size: 13px;
+    width: 262px;
+    line-height: 17px;
+    margin-left: 9px;
+    margin-top: 0px;
+  }
+
+  .input-format {
+    width: 260px;
+    height: 25px;
+    margin: 10px;
+    font-size: 20px;
+  }
+
+  .input-amount {
+    width: 201px;
+    margin-left: 68px;
+  }
+
+  .currency-selector {
+    position: absolute;
+    width: 50px;
+    margin-left: 78px;
+    margin-top: 52px;
+    padding-top: 2px;
+    font-size: 13px;
+  }
+
+  .payasyoulike-button {
+    margin-bottom: 35px;
+  }
+
+  .oswald {
+    font-size: 19px;
+  }
+
+  .get-password-button {
+    width: 170px;
+    height: 32px;
+    margin-top: 25px;
+
+    background: radial-gradient(
+      65.33% 561.23% at 50% 50%,
+      #ffffff 0%,
+      #000000 100%
+    );
+    box-shadow: 0px 0px 20px 10px rgba(72, 72, 72, 0.5);
+    border: none;
+    border-radius: 15px;
+  }
+}
+
+@media (max-width: 481px) {
+  #scroll-landing-payasyoulike {
+    width: 10px;
+    height: 10px;
+    margin-top: -20px;
+    margin-bottom: 0px;
+
+    /* border: 1px solid red; */
+  }
+
+  .payasyoulike {
+    margin-top: 0px;
+    padding: 0px 20px 40px 20px;
+  }
+
+  .you-like-text {
+    margin-left: -6px;
+  }
+
+  .underline-heading-payasyoulike {
+    width: 167px;
+    margin-left: 2px;
+    margin-top: -35px;
+    margin-bottom: 10px;
+  }
+
+  .main-text {
+    width: 300px;
+    height: 570px;
+
+    font-size: 12px;
+    line-height: 19px;
+    margin-bottom: 50px;
+  }
+
+  .thanks {
+    font-weight: 250;
+    font-size: 12px;
+    letter-spacing: 0em;
+    margin-bottom: 20px;
+  }
+
+  .division-description {
+    width: 302px;
+    margin-top: -15px;
+    margin-bottom: 15px;
+    border: 0.5px solid #ffffff;
+  }
+
+  .contribution-chart {
+    width: 300px;
+    height: 40px;
+  }
+
+  .budget-box {
+    height: 25px;
+    width: fit-content;
+    margin-left: 120px;
+  }
+
+  .contri-box {
+    height: 20px;
+  }
+
+  .contri-text,
+  .budget-text {
+    font-size: 10px;
+  }
+
+  .budget-box,
+  .contri-box {
+    font-size: 11px;
+  }
+
+  /* ****************************************** */
+
+  .password-instructions {
+    font-weight: 300;
+    font-size: 11px;
+    line-height: 17px;
+    margin-bottom: -1px;
+  }
+
+  .user-details {
+    font-size: 13px;
+    padding: 10px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+
+    letter-spacing: 0.01em;
+
+    border-width: 3px 10px 3px 10px;
+    border-style: solid;
+    border-color: #ff7b00;
+    box-shadow: 0px 0px 30px 5px rgba(255, 122, 0, 0.5);
+    border-radius: 15px;
+  }
+
+  .name-email-amount {
+    margin-top: -11px;
+  }
+
+  .name-text {
+    margin-top: -8px;
+  }
+
+  .optional-text {
+    margin-top: -11px;
+    font-size: 10px;
+  }
+
+  .email-text {
+    margin-top: 3px;
+  }
+
+  .amount-text {
+    margin-top: 11px;
+  }
+
+  .contribution-zero {
+    font-size: 10px;
+    width: 200px;
+    line-height: 14px;
+    margin-left: 9px;
+    margin-top: 0px;
+  }
+
+  .input-format {
+    width: 200px;
+    height: 17px;
+    margin: 10px;
+    margin-top: 8px;
+    font-size: 14px;
+  }
+
+  .input-amount {
+    width: 157px;
+    margin-left: 53px;
+  }
+
+  .currency-selector {
+    position: absolute;
+    width: 37px;
+    margin-left: 57px;
+    margin-top: 39px;
+    padding-top: 2px;
+    font-size: 8px;
+  }
+
+  .payasyoulike-button {
+    margin-bottom: 35px;
+  }
+
+  .oswald {
+    font-size: 13px;
+  }
+
+  .get-password-button {
+    width: 130px;
+    height: 28px;
+    margin-top: 20px;
+    margin-bottom: -10px;
+
+    background: radial-gradient(
+      65.33% 561.23% at 50% 50%,
+      #ffffff 0%,
+      #000000 100%
+    );
+    box-shadow: 0px 0px 20px 10px rgba(72, 72, 72, 0.5);
+    border: none;
+    border-radius: 15px;
+  }
+}
+
+@media (max-width: 361px) {
+  #scroll-landing-payasyoulike {
+    width: 10px;
+    height: 10px;
+    margin-top: -20px;
+    margin-bottom: 0px;
+
+    /* border: 1px solid red; */
+  }
+
+  .payasyoulike {
+    margin-top: 0px;
+    padding: 0px 20px 40px 20px;
+  }
+
+  .you-like-text {
+    margin-left: -6px;
+  }
+
+  .underline-heading-payasyoulike {
+    width: 167px;
+    margin-left: 2px;
+    margin-top: -35px;
+    margin-bottom: 10px;
+  }
+
+  .main-text {
+    width: 300px;
+    height: 570px;
+
+    font-size: 12px;
+    line-height: 19px;
+    margin-bottom: 50px;
+  }
+
+  .thanks {
+    font-weight: 250;
+    font-size: 12px;
+    letter-spacing: 0em;
+    margin-bottom: 20px;
+  }
+
+  .division-description {
+    width: 302px;
+    margin-top: -15px;
+    margin-bottom: 15px;
+    border: 0.5px solid #ffffff;
+  }
+
+  .contribution-chart {
+    width: 300px;
+    height: 40px;
+  }
+
+  .budget-box {
+    height: 25px;
+    width: fit-content;
+    margin-left: 120px;
+  }
+
+  .contri-box {
+    height: 20px;
+  }
+
+  .contri-text,
+  .budget-text {
+    font-size: 10px;
+  }
+
+  .budget-box,
+  .contri-box {
+    font-size: 11px;
+  }
+
+  /* ****************************************** */
+
+  .password-instructions {
+    font-weight: 300;
+    font-size: 11px;
+    line-height: 17px;
+    margin-bottom: -1px;
+  }
+
+  .user-details {
+    font-size: 13px;
+    padding: 10px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+
+    letter-spacing: 0.01em;
+
+    border-width: 3px 10px 3px 10px;
+    border-style: solid;
+    border-color: #ff7b00;
+    box-shadow: 0px 0px 30px 5px rgba(255, 122, 0, 0.5);
+    border-radius: 15px;
+  }
+
+  .name-email-amount {
+    margin-top: -11px;
+  }
+
+  .name-text {
+    margin-top: -8px;
+  }
+
+  .optional-text {
+    margin-top: -11px;
+    font-size: 10px;
+  }
+
+  .email-text {
+    margin-top: 3px;
+  }
+
+  .amount-text {
+    margin-top: 11px;
+  }
+
+  .contribution-zero {
+    font-size: 10px;
+    width: 200px;
+    line-height: 14px;
+    margin-left: 9px;
+    margin-top: 0px;
+  }
+
+  .input-format {
+    width: 200px;
+    height: 17px;
+    margin: 10px;
+    margin-top: 8px;
+    font-size: 14px;
+  }
+
+  .input-amount {
+    width: 157px;
+    margin-left: 53px;
+  }
+
+  .currency-selector {
+    position: absolute;
+    width: 37px;
+    margin-left: 57px;
+    margin-top: 39px;
+    padding-top: 2px;
+    font-size: 8px;
+  }
+
+  .payasyoulike-button {
+    margin-bottom: 35px;
+  }
+
+  .oswald {
+    font-size: 13px;
+  }
+
+  .get-password-button {
+    width: 130px;
+    height: 28px;
+    margin-top: 20px;
+    margin-bottom: -10px;
+
+    background: radial-gradient(
+      65.33% 561.23% at 50% 50%,
+      #ffffff 0%,
+      #000000 100%
+    );
+    box-shadow: 0px 0px 20px 10px rgba(72, 72, 72, 0.5);
+    border: none;
+    border-radius: 15px;
+  }
 }

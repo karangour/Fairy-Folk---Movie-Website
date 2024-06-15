@@ -54,9 +54,10 @@ export default function Gallery() {
 
   return (
     <div className="gallery">
-      <div id="scroll-landing-gallery" />
+      <div className='all-page-headings'>
       <h1 className="heading-thin">GALLERY</h1>
-      <hr className="underline-heading-gallery" />
+        <hr className="underline-heading-gallery" />
+        </div>
       <div
         className="gallery-window"
         onMouseOver={handleArrowShowing}

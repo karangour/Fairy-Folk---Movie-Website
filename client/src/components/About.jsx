@@ -4,8 +4,8 @@ import "./css/About.css"
 export default function About() {
   return (
     <div className="about">
-      <div id="scroll-landing-about" />
-      <div>
+      
+      <div className='all-page-headings'> 
         <h1 className="heading-thin">ABOUT</h1>
         <hr className="underline-heading-about" />
       </div>

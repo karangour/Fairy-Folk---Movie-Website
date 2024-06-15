@@ -47,12 +47,18 @@ export default function App() {
       </div>
 
       <div className="parent-container">
+      <div id="scroll-landing-payasyoulike" />
         <PayAsYouLike />
+        {/* <div id="scroll-landing-watchfilm" />
         <WatchFilm />
+        <div id="scroll-landing-about" />
         <About />
+        <div id="scroll-landing-videos" />
         <Videos />
+        <div id="scroll-landing-gallery" />
         <Gallery />
-        <GetInTouch />
+        <div id="scroll-landing-getintouch" />
+        <GetInTouch /> */}
         <div className="placeholder" />
       </div>
     </div>

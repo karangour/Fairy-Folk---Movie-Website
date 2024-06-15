@@ -58,8 +58,8 @@ export default function GetInTouch() {
   return (
     <div className="getintouch">
       {/* <hr className="ruler" /> */}
-      <div>
-        <div id="scroll-landing-getintouch" />
+      <div className='all-page-headings'>
+        
         <h1 className="heading-thin">GET IN</h1>
         <h1 className="heading-thick">&nbsp;TOUCH</h1>
         <hr className="underline-heading-getintouch" />

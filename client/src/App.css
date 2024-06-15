@@ -19,12 +19,19 @@ h1 {
   flex-direction: column;
 }
 
+.all-page-headings {
+  margin-top: 0px;
+}
+
+
+
 .poster-things {
   display: flex;
   width: 100%;
   height: 1290px;
   align-items: center;
   justify-content: space-evenly;
+  
 }
 
 .poster {
@@ -102,6 +109,7 @@ h1 {
   line-height: 66px;
 
   color: #ffffff;
+
 }
 
 .heading-thick {
@@ -156,9 +164,11 @@ button:disabled {
   transform: rotate(90deg);
 }
 
-/* MEDIA QUERY */
+/*-------------------------------------------------------------------------------------------------*/
 
-@media (max-width: 1810px) {
+
+@media (max-width: 1620px) {
+  
   .heading-thin {
     font-size: 45px;
   }
@@ -167,13 +177,8 @@ button:disabled {
     font-size: 45px;
   }
 
-  .oswald {
-    font-size: 20px;
-    letter-spacing: 0.03em;
-  }
-}
-
-@media (max-width: 1620px) {
+  
+  
   .poster-things {
     position: relative;
   }
@@ -187,9 +192,16 @@ button:disabled {
     display: block;
     z-index: 0;
   }
+
+  .footer-width-control {
+    width: 80%;
+  }
 }
 
 @media (max-width: 1220px) {
+  
+  
+  
   .poster2 {
     position: absolute;
     display: block;
@@ -244,8 +256,12 @@ button:disabled {
 @media (max-width: 769px) {
   .poster2 {
     padding: 15px;
-    height: 65%;
+    height: 50%;
     top: 6%;
+  }
+
+  .all-page-headings {
+    margin-top: -8px;
   }
 
   .heading-thin {
@@ -255,17 +271,45 @@ button:disabled {
   .heading-thick {
     font-size: 30px;
   }
-}
-
-@media (max-width: 481px) {
-  .footers {
-    bottom: 0px;
-    width: 100%;
-    height: 25px;
-  }
 
   .footer-width-control {
     width: 100%;
+    margin: 0 auto; /* Center the inner container */
+  }
+}
+
+@media (max-width: 481px) {
+  
+  .poster-things {
+    display: flex;
+    width: 100%;
+    height: 600px;
+    align-items: center;
+    /* border: 1px solid red; */
+  }
+
+  .poster2 {
+    top: 10%;
+    padding: 10px;
+    height: 80%;
+   
+  }
+  
+  .all-page-headings {
+    margin-top: -8px;
+  }
+
+
+
+  
+  .footers {
+    bottom: 0px;
+    width: 100%;
+    height: 30px;
+  }
+
+  .footer-width-control {
+    width: 90%;
     margin: 0 auto; /* Center the inner container */
   }
 
@@ -275,17 +319,14 @@ button:disabled {
     font-size: 7px;
   }
 
-  .poster2 {
-    padding: 12px;
-    height: 38%;
-  }
+
 
   .heading-thin {
-    font-size: 18px;
+    font-size: 22px;
   }
 
   .heading-thick {
-    font-size: 18px;
+    font-size: 22px;
   }
 }
 

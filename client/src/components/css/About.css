@@ -16,8 +16,10 @@
   }
   
   #scroll-landing-about {
-    margin-top: -38px;
-    margin-bottom: 38px;
+    width: 10px;
+  height: 10px;
+  margin-top: 10px;
+  margin-bottom: -60px;
     /* border: 1px solid red; */
   }
   

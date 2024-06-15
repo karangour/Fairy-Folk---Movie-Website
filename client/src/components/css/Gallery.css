@@ -15,8 +15,10 @@
 }
 
 #scroll-landing-gallery {
-  margin-top: -50px;
-  margin-bottom: 50px;
+  width: 10px;
+  height: 10px;
+  margin-top: -20px;
+  margin-bottom: -30px;
   /* border: 1px solid red; */
 }
 

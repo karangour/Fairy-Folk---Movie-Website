@@ -16,8 +16,10 @@
 }
 
 #scroll-landing-watchfilm {
-  margin-top: -60px;
-  margin-bottom: 60px;
+  width: 10px;
+  height: 10px;
+  margin-top: -20px;
+  margin-bottom: -30px;
   /* border: 1px solid red; */
 }
 

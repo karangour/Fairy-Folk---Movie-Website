@@ -90,8 +90,8 @@ export default function WatchFilm() {
 
   return (
     <div className="fairyfolkthefilm">
-      <div id="scroll-landing-watchfilm" />
-      <div>
+     
+      <div className='all-page-headings'>
         <h1 className="heading-thin">WATCH THE </h1>{" "}
         <h1 className="heading-thick folk-text">FILM</h1>
         <hr className="underline-heading-fairyfolk" />

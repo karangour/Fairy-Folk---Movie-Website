@@ -405,9 +405,9 @@ export default function PayAsYouLike() {
           transition: "filter 1s ease",
         }}
       >
-        <div id="scroll-landing-payasyoulike" />
-        <div>
-          <h1 className="heading-thin">PAY-AS-</h1>{" "}
+        
+        <div className='all-page-headings'>
+          <h1 className="heading-thin ">PAY-AS-</h1>{" "}
           <h1 className="heading-thick you-like-text">YOU-LIKE</h1>
           <hr className="underline-heading-payasyoulike" />
         </div>
