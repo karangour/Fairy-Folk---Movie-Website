@@ -232,30 +232,6 @@
   border-radius: 15px;
 }
 
-.getintouch-submit-button {
-  width: 130px;
-  height: px;
-  font-size: 20px;
-  text-align: center;
-  margin-top: 25px;
-
-  font-family: "Oswald";
-  font-style: normal;
-  font-weight: 400;
-
-  letter-spacing: 0.05em;
-
-  background: radial-gradient(
-    65.33% 561.23% at 50% 50%,
-    #ffffff 0%,
-    #000000 100%
-  );
-  box-shadow: 0px 0px 20px 10px rgba(72, 72, 72, 0.5);
-  border: none;
-  border-radius: 15px;
-  opacity: 0.3;
-}
-
 .get-password-button-show {
   cursor: pointer;
   opacity: 1;
@@ -804,7 +780,7 @@
     width: 260px;
     height: 25px;
     margin: 10px;
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .input-amount {
@@ -842,6 +818,52 @@
     box-shadow: 0px 0px 20px 10px rgba(72, 72, 72, 0.5);
     border: none;
     border-radius: 15px;
+  }
+
+  /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+  .solver-button {
+    width: 62px;
+    height: 25px;
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: #000000;
+
+    background: radial-gradient(
+      65.33% 561.23% at 50% 50%,
+      #d4d4d4 0%,
+      #959595 100%
+    );
+
+    border: none;
+    border-radius: 5px;
+  }
+
+  .solver-button-cancel {
+    cursor: pointer;
+
+    justify-content: center;
+    align-content: center;
+
+    width: 62px;
+    height: 25px;
+    margin-left: 10px;
+    margin-right: 15px;
+    margin-top: 10px;
+    font-size: 15px;
+    color: #000000;
+
+    background: radial-gradient(
+      65.33% 561.23% at 50% 50%,
+      #d4d4d4 0%,
+      #959595 100%
+    );
+
+    border: none;
+    border-radius: 5px;
   }
 }
 
@@ -1017,13 +1039,67 @@
     border: none;
     border-radius: 15px;
   }
+
+  /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+
+  .solver > h1 {
+    margin-top: 15px;
+    margin-bottom: 0px;
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: 0.03em;
+  }
+
+  .solver-button {
+    width: 60px;
+    height: 23px;
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    font-size: 13px;
+
+    border-radius: 5px;
+  }
+
+  .solver-button-cancel {
+    cursor: pointer;
+
+    justify-content: center;
+    align-content: center;
+
+    width: 60px;
+    height: 23px;
+    margin-left: 10px;
+    margin-right: 15px;
+    margin-top: 10px;
+    font-size: 13px;
+
+    border-radius: 5px;
+  }
+
+  .input-solver {
+    font-size: 18px;
+
+    width: 30px;
+    height: 25px;
+    margin: 0px;
+  }
+
+  .msg-paid-notice > h1,
+  .email-notice > h1 {
+    font-size: 14px;
+    line-height: 23px;
+
+    padding: 5px 5px 5px 5px;
+  }
 }
 
 @media (max-width: 361px) {
   #scroll-landing-payasyoulike {
     width: 10px;
     height: 10px;
-    margin-top: -20px;
+    margin-top: -100px;
     margin-bottom: 0px;
 
     /* border: 1px solid red; */
@@ -1035,48 +1111,48 @@
   }
 
   .you-like-text {
-    margin-left: -6px;
+    margin-left: -5px;
   }
 
   .underline-heading-payasyoulike {
-    width: 167px;
+    width: 138px;
     margin-left: 2px;
     margin-top: -35px;
     margin-bottom: 10px;
   }
 
   .main-text {
-    width: 300px;
-    height: 570px;
+    width: 280px;
+    height: 505px;
 
-    font-size: 12px;
-    line-height: 19px;
+    font-size: 10px;
+    line-height: 17px;
     margin-bottom: 50px;
   }
 
   .thanks {
     font-weight: 250;
-    font-size: 12px;
+    font-size: 11px;
     letter-spacing: 0em;
     margin-bottom: 20px;
   }
 
   .division-description {
-    width: 302px;
-    margin-top: -15px;
+    width: 276px;
+    margin-top: -17px;
     margin-bottom: 15px;
     border: 0.5px solid #ffffff;
   }
 
   .contribution-chart {
-    width: 300px;
+    width: 280px;
     height: 40px;
   }
 
   .budget-box {
     height: 25px;
     width: fit-content;
-    margin-left: 120px;
+    margin-left: 100px;
   }
 
   .contri-box {
@@ -1097,20 +1173,20 @@
 
   .password-instructions {
     font-weight: 300;
-    font-size: 11px;
-    line-height: 17px;
+    font-size: 10px;
+    line-height: 15px;
     margin-bottom: -1px;
   }
 
   .user-details {
-    font-size: 13px;
-    padding: 10px;
+    font-size: 12px;
+    padding: 8px;
     padding-top: 6px;
     padding-bottom: 6px;
 
     letter-spacing: 0.01em;
 
-    border-width: 3px 10px 3px 10px;
+    border-width: 3px 8px 3px 8px;
     border-style: solid;
     border-color: #ff7b00;
     box-shadow: 0px 0px 30px 5px rgba(255, 122, 0, 0.5);
@@ -1118,51 +1194,51 @@
   }
 
   .name-email-amount {
-    margin-top: -11px;
+    margin-top: 5px;
   }
 
   .name-text {
-    margin-top: -8px;
+    margin-top: -18px;
   }
 
   .optional-text {
     margin-top: -11px;
-    font-size: 10px;
+    font-size: 8px;
   }
 
   .email-text {
-    margin-top: 3px;
+    margin-top: 8px;
   }
 
   .amount-text {
-    margin-top: 11px;
+    margin-top: 9px;
   }
 
   .contribution-zero {
-    font-size: 10px;
-    width: 200px;
-    line-height: 14px;
+    font-size: 9px;
+    width: 180px;
+    line-height: 12px;
     margin-left: 9px;
-    margin-top: 0px;
+    margin-top: -3px;
   }
 
   .input-format {
-    width: 200px;
-    height: 17px;
+    width: 180px;
+    height: 15px;
     margin: 10px;
     margin-top: 8px;
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .input-amount {
-    width: 157px;
+    width: 138px;
     margin-left: 53px;
   }
 
   .currency-selector {
     position: absolute;
     width: 37px;
-    margin-left: 57px;
+    margin-left: 53px;
     margin-top: 39px;
     padding-top: 2px;
     font-size: 8px;
@@ -1173,14 +1249,14 @@
   }
 
   .oswald {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .get-password-button {
-    width: 130px;
-    height: 28px;
-    margin-top: 20px;
-    margin-bottom: -10px;
+    width: 120px;
+    height: 25px;
+    margin-top: 18px;
+    margin-bottom: -12px;
 
     background: radial-gradient(
       65.33% 561.23% at 50% 50%,
@@ -1190,5 +1266,59 @@
     box-shadow: 0px 0px 20px 10px rgba(72, 72, 72, 0.5);
     border: none;
     border-radius: 15px;
+  }
+
+  /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+
+  .solver > h1 {
+    margin-top: 15px;
+    margin-bottom: 0px;
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: 0.03em;
+  }
+
+  .solver-button {
+    width: 60px;
+    height: 23px;
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    font-size: 13px;
+
+    border-radius: 5px;
+  }
+
+  .solver-button-cancel {
+    cursor: pointer;
+
+    justify-content: center;
+    align-content: center;
+
+    width: 60px;
+    height: 23px;
+    margin-left: 10px;
+    margin-right: 15px;
+    margin-top: 10px;
+    font-size: 13px;
+
+    border-radius: 5px;
+  }
+
+  .input-solver {
+    font-size: 18px;
+
+    width: 30px;
+    height: 25px;
+    margin: 0px;
+  }
+
+  .msg-paid-notice > h1,
+  .email-notice > h1 {
+    font-size: 13px;
+    line-height: 20px;
+
+    padding: 5px 5px 5px 5px;
   }
 }

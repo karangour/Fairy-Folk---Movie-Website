@@ -350,16 +350,16 @@ button:disabled {
 
   .poster2 {
     padding: 6px;
-    height: 33%;
+    height: 70%;
     border-radius: 25px;
-    top: 4.5%;
+    top: 8%;
   }
 
   .heading-thin {
-    font-size: 14px;
+    font-size: 18px;
   }
 
   .heading-thick {
-    font-size: 14px;
+    font-size: 18px;
   }
 }

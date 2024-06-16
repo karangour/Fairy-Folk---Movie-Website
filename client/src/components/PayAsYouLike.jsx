@@ -16,7 +16,7 @@ export default function PayAsYouLike() {
   const [razorpayKey, setRazorpayKey] = useState("");
   const [usdToInr, setUsdToInr] = useState(1);
   const [contriFillWidth, setContriFillWidth] = useState(0);
-  const [paid, setPaid] = useState(false);
+  const [paid, setPaid] = useState(true);
   const [showSolver, setShowSolver] = useState(false);
   const [arithmeticProblem, setArithmeticProblem] = useState("");
   const [userAnswer, setUserAnswer] = useState("");
@@ -96,6 +96,7 @@ export default function PayAsYouLike() {
         setTimeout(() => {
           setPaid(false);
         }, 4000);
+        setUserExists(false);
       })
       .catch((error) => console.log("Error:", error.message));
   }
@@ -388,7 +389,8 @@ export default function PayAsYouLike() {
         onClick={() => setPaid(false)}
       >
         <h1>
-          {userInfo.amount > 0 && "THANK YOU FOR YOUR CONTRIBUTION!<br />"}
+          {userInfo.amount > 0 && "THANK YOU!<br />"}
+        THANK YOU!<br />
           You'll find your password in your email.
         </h1>
       </div>
