@@ -1,34 +1,26 @@
 import React, { useState, useMemo } from "react";
 import cast from "./../assets/Cast.png";
-import poster from "./../assets/FairyFolkWebsitePoster.png"
+import poster from "./../assets/FairyFolkWebsitePoster.png";
 import VideoPlayer from "./VideoPlayer";
-import "./css/WatchFilm.css"
+import "./css/WatchFilm.css";
 
 export default function WatchFilm() {
-  const [noYoutubeApp, setNoYouTubeApp] = useState(false);
+  // const [noYoutubeApp, setNoYouTubeApp] = useState(false);
   const [password, setPassword] = useState("");
   const [passValid, setPassValid] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [showErrorWindow, setShowErrorWindow] = useState(false);
-  
 
   function handleCast() {
     const videoUrl = "https://www.youtube.com/watch?v=lfOxA7NPJDg";
     const appScheme = `vnd.youtube://${videoUrl.split("watch?v=")[1]}`;
-
-    let iframe = document.createElement("iframe");
-    iframe.style.display = "none";
-    iframe.src = appScheme;
-    document.body.appendChild(iframe);
-
-    setTimeout(() => {
-      document.body.removeChild(iframe);
-      // Check if the page is still visible after the attempt
-      if (document.visibilityState === "visible") {
-        setNoYouTubeApp(true);
-      }
-    }, 1000); // Timeout can be adjusted based on expected behavior
+  
+    const start = Date.now();
+    const timeout = 2000;
+  
+    window.location = appScheme;
   }
+  
 
   function playMovie() {}
 
@@ -90,26 +82,25 @@ export default function WatchFilm() {
 
   return (
     <div className="fairyfolkthefilm">
-     
-      <div className='all-page-headings'>
+      <div className="all-page-headings">
         <h1 className="heading-thin">WATCH THE </h1>{" "}
         <h1 className="heading-thick folk-text">FILM</h1>
         <hr className="underline-heading-fairyfolk" />
       </div>
-      <div
+      {/* <div
         className="no-app-notice"
         style={{ display: noYoutubeApp ? "flex" : "none" }}
       >
         <h1 onClick={toggleNoYouTubeApp}>Please install the YouTube app.</h1>
-      </div>
+      </div> */}
       <div className={`casting ${passValid ? "casting-show" : ""}`}>
         <p
           className="cast-instruct"
-          style={{ filter: noYoutubeApp ? "blur(3px)" : "" }}
+          // style={{ filter: noYoutubeApp ? "blur(3px)" : "" }}
         >
           Click this 'CAST' icon -
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- to watch the film on
-          your TV screen. Once the YouTube app launches automatically on your
+          your TV screen. Once the YouTube app launches on your
           phone, click the CAST icon found on the top-right of the YouTube
           video. Ensure your phone and your TV have the YouTube app installed,
           and are on the same WiFi network.
@@ -118,13 +109,19 @@ export default function WatchFilm() {
           src={cast}
           className={`cast-icon ${passValid && "cast-icon-active"}`}
           style={{
-            filter: noYoutubeApp ? "blur(3px)" : "",
+            // filter: noYoutubeApp ? "blur(3px)" : "",
             cursor: passValid ? "pointer" : "none",
           }}
           onClick={passValid ? handleCast : ""}
         />
       </div>
-      {passValid && <VideoPlayer options={videoJsOptions} activeThumbnail={poster} firstTime={true} />}
+      {passValid && (
+        <VideoPlayer
+          options={videoJsOptions}
+          // activeThumbnail={poster}
+          firstTime={true}
+        />
+      )}
       <div
         className="video-window-fairyfolk"
         style={{ display: passValid ? "none" : "flex" }}
@@ -138,6 +135,7 @@ export default function WatchFilm() {
           onClick={toggleShowErrorWindow}
         >
           <h1>{errorMessage}</h1>
+         
         </div>
         <div
           className="enter-pass"

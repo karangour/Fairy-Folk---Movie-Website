@@ -12,7 +12,7 @@ import green_copy_logo from "./../assets/GreenCopy.png";
 import menu from "./../assets/Menu.png";
 import share from "./../assets/Share.png";
 
-export default function MenuElements() {
+export default function MenuElements(props) {
   const [isShareOpen, setIsShareOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [copySuccess, setCopySuccess] = useState(false);
@@ -57,6 +57,8 @@ export default function MenuElements() {
   function handleMouseOut() {
     setHoveredIcon("");
   }
+
+  console.log("Inside MenuElements tracking fullScreen:", props.fullScreen)
 
   return (
     <div className="menu-elements">
@@ -143,6 +145,7 @@ export default function MenuElements() {
           toggleMenu();
           isShareOpen && toggleShare();
         }}
+        style={{ display: props.fullScreen ? "none" : "block"}}
       />
 
       <div className={`menu ${isOpen ? "open" : ""}`}>

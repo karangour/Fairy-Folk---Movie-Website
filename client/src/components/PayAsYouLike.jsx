@@ -16,7 +16,7 @@ export default function PayAsYouLike() {
   const [razorpayKey, setRazorpayKey] = useState("");
   const [usdToInr, setUsdToInr] = useState(1);
   const [contriFillWidth, setContriFillWidth] = useState(0);
-  const [paid, setPaid] = useState(true);
+  const [paid, setPaid] = useState(false);
   const [showSolver, setShowSolver] = useState(false);
   const [arithmeticProblem, setArithmeticProblem] = useState("");
   const [userAnswer, setUserAnswer] = useState("");
@@ -390,7 +390,6 @@ export default function PayAsYouLike() {
       >
         <h1>
           {userInfo.amount > 0 && "THANK YOU!<br />"}
-        THANK YOU!<br />
           You'll find your password in your email.
         </h1>
       </div>
@@ -407,8 +406,7 @@ export default function PayAsYouLike() {
           transition: "filter 1s ease",
         }}
       >
-        
-        <div className='all-page-headings'>
+        <div className="all-page-headings">
           <h1 className="heading-thin ">PAY-AS-</h1>{" "}
           <h1 className="heading-thick you-like-text">YOU-LIKE</h1>
           <hr className="underline-heading-payasyoulike" />

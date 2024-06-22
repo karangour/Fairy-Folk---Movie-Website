@@ -49,13 +49,13 @@ export default function App() {
       <div className="parent-container">
       <div id="scroll-landing-payasyoulike" />
         <PayAsYouLike />
-        {/* <div id="scroll-landing-watchfilm" />
-        <WatchFilm />
+        <div id="scroll-landing-watchfilm" />
+        <WatchFilm  />
         <div id="scroll-landing-about" />
         <About />
         <div id="scroll-landing-videos" />
         <Videos />
-        <div id="scroll-landing-gallery" />
+        {/* <div id="scroll-landing-gallery" />
         <Gallery />
         <div id="scroll-landing-getintouch" />
         <GetInTouch /> */}

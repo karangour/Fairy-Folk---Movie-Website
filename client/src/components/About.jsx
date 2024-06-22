@@ -44,7 +44,7 @@ export default function About() {
           empatheia films bala wala cinema awe studios timbuktu triforce cinema
           & entertainment accord equips{" "}
         </p>{" "}
-        <br />
+  
         <p className="credits-small">a film by </p>{" "}
         <p className="credits-large">karan gour </p>{" "}
         <p className="credits-small">produced by </p>
@@ -53,23 +53,23 @@ export default function About() {
         </p>
         <p className="credits-small">director of photography </p>{" "}
         <p className="credits-large">
-          abhinay khoparzi <br />
+          abhinay khoparzi 
           mukul chadda rasika dugal nikhil desai asmit pathare chandrachoor rai{" "}
         </p>{" "}
         <p className="credits-small">casting by </p>
         <p className="credits-large">annukampa harsh </p>
         <p className="credits-small">executive producers </p>{" "}
         <p className="credits-large">
-          amit sharma quasar hamirani <br />
+          amit sharma quasar hamirani 
           alekh sangal nakuul mehta ajay singh gaurav monga tanuj bhramar karan
-          singh manisha panwar mukul chadda rasika dugal <br /> isha mohindar
+          singh manisha panwar mukul chadda rasika dugal isha mohindar
           madhu sharma radhika sinha ram krishna sinha aarti sinha{" "}
         </p>
         <p className="credits-small">art director </p>{" "}
         <p className="credits-large">mohini nirmal </p>
         <p className="credits-small">vfx </p>
         <p className="credits-large">pix elation studios karan gour </p>
-        <br />
+      
         <p className="credits-small">make up </p>
         <p className="credits-large">sheetal sohoni </p>
         <p className="credits-small">prosthetics </p>
@@ -80,7 +80,7 @@ export default function About() {
         <p className="credits-large">kaushal bhadkamkar </p>
         <p className="credits-small">chief assistant cinematographer </p>
         <p className="credits-large">vrushab sansgiri </p>
-        <br />
+    
         <p className="credits-small">chief assistant director </p>{" "}
         <p className="credits-large">himanshu sharma </p>{" "}
         <p className="credits-small">on-location recordist </p>

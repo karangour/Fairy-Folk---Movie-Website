@@ -126,6 +126,9 @@ app.get("/conversionrate", (req, res) => {
 });
 
 // This is to start the server when the run dev is started
-app.listen(port, () => {
+// app.listen(port, () => {
+//   console.log(`Server is running on port ${port}`);
+// });
+app.listen(port, "0.0.0.0", () => {
   console.log(`Server is running on port ${port}`);
 });
