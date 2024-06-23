@@ -86,7 +86,7 @@ export default function Videos() {
             : activeTitle
           : "Loading videos..."}
       </h1>
-      <VideoPlayer options={videoJsOptions} activeThumbnail={activeThumbnail} firstTime={firstTime} />
+      <VideoPlayer options={videoJsOptions} firstTime={firstTime} />
       <div className="video-thumbnails">{videoThumbnails}</div>
     </div>
   );
