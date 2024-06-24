@@ -10,15 +10,15 @@
 
   padding: 0px 50px 60px 50px;
   background: #000000;
-  box-shadow: 0px 0px 30px 5px rgba(255, 255, 255, 0.25);
+  box-shadow: 0px 0px 30px 5px rgba(255, 255, 255, 0.1);
   border-radius: 50px;
 }
 
 #scroll-landing-gallery {
   width: 10px;
   height: 10px;
-  margin-top: -20px;
-  margin-bottom: -30px;
+  margin-top: 10px;
+  margin-bottom: -60px;
   /* border: 1px solid red; */
 }
 
@@ -93,4 +93,330 @@
   object-fit: contain;
 }
 
+/* ********************************************************************************* */
 
+@media (max-width: 1620px) {
+  .gallery {
+    margin-top: 100px;
+    padding: 0px 50px 60px 50px;
+  }
+
+  #scroll-landing-gallery {
+    width: 10px;
+    height: 10px;
+    margin-top: -50px;
+    margin-bottom: 0px;
+    /* border: 1px solid red; */
+  }
+
+  .underline-heading-gallery {
+    width: 173px;
+    height: 0px;
+    margin-top: -35px;
+    margin-bottom: 50px;
+  }
+
+  .gallery-window {
+    margin-top: 0px;
+    margin-bottom: 10px;
+
+    width: 1000px;
+    height: 452px;
+
+    box-shadow: 0px 0px 30px 2px rgba(255, 192, 130, 0.4);
+  }
+
+  .arrow {
+    cursor: pointer;
+    position: relative;
+    width: 50px;
+    background: rgb(0, 0, 0);
+    padding: 20px 0px 20px 0px;
+    border-width: 0.5px;
+
+    border-style: double;
+    border-color: white;
+
+    z-index: 995;
+  }
+
+  .left-arrow {
+    border-radius: 0px 5px 5px 0px;
+    border-left: 0;
+  }
+
+  .right-arrow {
+    border-radius: 5px 0px 0px 5px;
+    border-right: 0;
+  }
+}
+
+@media (max-width: 1220px) {
+  .gallery {
+    margin-top: 100px;
+    padding: 0px 50px 60px 50px;
+  }
+
+  #scroll-landing-gallery {
+    width: 10px;
+    height: 10px;
+    margin-top: -20px;
+    margin-bottom: -30px;
+    /* border: 1px solid red; */
+  }
+
+  .underline-heading-gallery {
+    width: 153px;
+    height: 0px;
+    margin-top: -35px;
+    margin-bottom: 50px;
+  }
+
+  .gallery-window {
+    margin-top: -5px;
+    margin-bottom: 5px;
+
+    width: 850px;
+    height: 384px;
+
+    box-shadow: 0px 0px 30px 2px rgba(255, 192, 130, 0.4);
+  }
+
+  .arrow {
+    width: 40px;
+    background: rgb(0, 0, 0);
+    padding: 20px 0px 20px 0px;
+    border-width: 0.5px;
+
+    border-style: double;
+    border-color: white;
+
+    z-index: 995;
+  }
+
+  .left-arrow {
+    border-radius: 0px 5px 5px 0px;
+    border-left: 0;
+  }
+
+  .right-arrow {
+    border-radius: 5px 0px 0px 5px;
+    border-right: 0;
+  }
+}
+
+@media (max-width: 1025px) {
+  .gallery {
+    margin-top: 100px;
+    padding: 0px 50px 60px 50px;
+  }
+
+  #scroll-landing-gallery {
+    width: 10px;
+    height: 10px;
+    margin-top: -30px;
+    margin-bottom: -20px;
+    /* border: 1px solid red; */
+  }
+
+  .underline-heading-gallery {
+    width: 140px;
+    height: 0px;
+    margin-top: -35px;
+    margin-bottom: 50px;
+  }
+
+  .gallery-window {
+    margin-top: -15px;
+    margin-bottom: -5px;
+
+    width: 600px;
+    height: 271px;
+
+    box-shadow: 0px 0px 30px 2px rgba(255, 192, 130, 0.4);
+  }
+
+  .arrow {
+    width: 25px;
+    background: rgb(0, 0, 0);
+    padding: 20px 0px 20px 0px;
+    border-width: 0.5px;
+
+    border-style: double;
+    border-color: white;
+
+    z-index: 995;
+  }
+
+  .left-arrow {
+    border-radius: 0px 5px 5px 0px;
+    border-left: 0;
+  }
+
+  .right-arrow {
+    border-radius: 5px 0px 0px 5px;
+    border-right: 0;
+  }
+}
+
+@media (max-width: 769px) {
+  .gallery {
+    margin-top: 95px;
+    padding: 0px 30px 60px 30px;
+  }
+
+  #scroll-landing-gallery {
+    width: 10px;
+    height: 10px;
+    margin-top: -30px;
+    margin-bottom: -20px;
+    /* border: 1px solid red; */
+  }
+
+  .underline-heading-gallery {
+    width: 120px;
+    height: 0px;
+    margin-top: -35px;
+    margin-bottom: 50px;
+  }
+
+  .gallery-window {
+    margin-top: -20px;
+    margin-bottom: -20px;
+
+    width: 450px;
+    height: 203px;
+
+    box-shadow: 0px 0px 20px 2px rgba(255, 192, 130, 0.4);
+  }
+
+  .arrow {
+    width: 20px;
+    background: rgb(0, 0, 0);
+    padding: 20px 0px 20px 0px;
+    border-width: 0.5px;
+
+    border-style: double;
+    border-color: white;
+
+    z-index: 995;
+  }
+
+  .left-arrow {
+    border-radius: 0px 5px 5px 0px;
+    border-left: 0;
+  }
+
+  .right-arrow {
+    border-radius: 5px 0px 0px 5px;
+    border-right: 0;
+  }
+}
+
+@media (max-width: 481px) {
+  .gallery {
+    margin-top: 75px;
+    padding: 0px 30px 60px 30px;
+  }
+
+  #scroll-landing-gallery {
+    width: 10px;
+    height: 10px;
+    margin-top: -40px;
+    margin-bottom: -10px;
+    /* border: 1px solid red; */
+  }
+
+  .underline-heading-gallery {
+    width: 87px;
+    height: 0px;
+    margin-top: -35px;
+    margin-bottom: 50px;
+  }
+
+  .gallery-window {
+    margin-top: -25px;
+    margin-bottom: -30px;
+
+    width: 300px;
+    height: 135px;
+
+    box-shadow: 0px 0px 20px 2px rgba(255, 192, 130, 0.4);
+  }
+
+  .arrow {
+    width: 15px;
+    background: rgb(0, 0, 0);
+    padding: 10px 0px 10px 0px;
+    border-width: 0.5px;
+
+    border-style: double;
+    border-color: white;
+
+    z-index: 995;
+  }
+
+  .left-arrow {
+    border-radius: 0px 5px 5px 0px;
+    border-left: 0;
+  }
+
+  .right-arrow {
+    border-radius: 5px 0px 0px 5px;
+    border-right: 0;
+  }
+}
+
+@media (max-width: 361px) {
+  .gallery {
+    margin-top: 75px;
+    padding: 0px 20px 60px 20px;
+  }
+
+  #scroll-landing-gallery {
+    width: 10px;
+    height: 10px;
+    margin-top: -40px;
+    margin-bottom: -10px;
+    /* border: 1px solid red; */
+  }
+
+  .underline-heading-gallery {
+    width: 73px;
+    height: 0px;
+    margin-top: -35px;
+    margin-bottom: 50px;
+  }
+
+  .gallery-window {
+    margin-top: -32px;
+    margin-bottom: -35px;
+
+    width: 280px;
+    height: 126px;
+
+    box-shadow: 0px 0px 10px 2px rgba(255, 192, 130, 0.4);
+  }
+
+  .arrow {
+    width: 12px;
+    background: rgb(0, 0, 0);
+    padding: 8px 0px 8px 0px;
+    border-width: 0.5px;
+
+    border-style: double;
+    border-color: white;
+
+    z-index: 995;
+  }
+
+  .left-arrow {
+    border-radius: 0px 5px 5px 0px;
+    border-left: 0;
+  }
+
+  .right-arrow {
+    border-radius: 5px 0px 0px 5px;
+    border-right: 0;
+  }
+}

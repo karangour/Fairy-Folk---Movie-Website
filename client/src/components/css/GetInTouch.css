@@ -6,17 +6,17 @@
   flex-direction: column;
   width: fit-content;
 
-  margin-top: 100px;
+  margin-top: 50px;
 
   padding: 0px 50px 60px 50px;
   background: #000000;
-  box-shadow: 0px 0px 30px 5px rgba(255, 255, 255, 0.25);
+  box-shadow: 0px 0px 30px 5px rgba(255, 255, 255, 0.1);
   border-radius: 50px;
 }
 
 #scroll-landing-getintouch {
-  margin-top: -50px;
-  margin-bottom: 50px;
+  margin-top: 0px;
+  margin-bottom: 10px;
   /* border: 1px solid red; */
 }
 
@@ -148,6 +148,8 @@
   border: none;
   border-radius: 15px;
   opacity: 0.3;
+
+  color: black;
 }
 
 .getintouch-submit-button-show {
@@ -203,4 +205,493 @@
   border-radius: 5px 5px 5px 5px;
   padding: 20px 10px 20px 10px;
   text-align: center;
+}
+
+.placeholder {
+  padding: 35px;
+  height: 200px;
+}
+
+/* *********************************************************************** */
+
+@media (max-width: 1620px) {
+  .underline-heading-getintouch {
+    width: 301px;
+    height: 0px;
+    margin-top: -35px;
+    margin-left: 5px;
+
+    border: 0.5px solid #ffffff;
+  }
+}
+
+@media (max-width: 1220px) {
+  .underline-heading-getintouch {
+    width: 261px;
+    height: 0px;
+    margin-top: -35px;
+    margin-left: 5px;
+
+    border: 0.5px solid #ffffff;
+  }
+}
+
+@media (max-width: 1025px) {
+  .getintouch {
+    margin-top: 50px;
+
+    padding: 0px 50px 45px 50px;
+    box-shadow: 0px 0px 30px 5px rgba(255, 255, 255, 0.1);
+  }
+
+  #scroll-landing-getintouch {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    /* border: 1px solid red; */
+  }
+
+  .underline-heading-getintouch {
+    width: 234px;
+    height: 0px;
+    margin-top: -35px;
+    margin-left: 4px;
+  }
+
+  .getintouch-description {
+    width: 600px;
+    margin-top: 20px;
+
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 35px;
+  }
+
+  .getintouch-form {
+    margin-top: 15px;
+    line-height: 10px;
+  }
+
+  .message-box {
+    width: 500px;
+
+    font-weight: 400;
+    font-size: 24px;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    letter-spacing: 0.05em;
+
+    border-width: 5px 30px 5px 30px;
+
+    box-shadow: 0px 0px 30px 5px rgba(255, 122, 0, 0.5);
+    border-radius: 20px;
+  }
+
+  .label {
+    margin-top: 34px;
+  }
+
+  .subject-getintouch {
+    margin-left: -20px;
+  }
+
+  .message-body {
+    width: 500px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }
+
+  .message-getintouch {
+    position: absolute;
+    z-index: 10;
+    color: rgb(255, 255, 255);
+    align-content: center;
+  }
+
+  .message-input {
+    height: 200px;
+
+    border-radius: 10px;
+    padding: 5px;
+
+    font-weight: 300;
+    font-size: 18px;
+  }
+
+  .getintouch-submit-button {
+    width: 130px;
+    font-size: 20px;
+    margin-top: 25px;
+
+    font-weight: 400;
+
+    letter-spacing: 0.05em;
+
+    box-shadow: 0px 0px 20px 10px rgba(72, 72, 72, 0.5);
+
+    border-radius: 15px;
+  }
+  .loading {
+    height: 37.5%;
+    width: auto;
+
+    border-radius: 5px;
+  }
+
+  .msg-sent-notice > h1 {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 20px;
+
+    border-radius: 5px 5px 5px 5px;
+    padding: 20px 10px 20px 10px;
+  }
+
+  .placeholder {
+    padding: 35px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 769px) {
+  .getintouch {
+    width: 450px;
+    margin-top: 40px;
+
+    padding: 0px 30px 40px 30px;
+    box-shadow: 0px 0px 30px 5px rgba(255, 255, 255, 0.1);
+  }
+
+  #scroll-landing-getintouch {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    /* border: 1px solid red; */
+  }
+
+  .underline-heading-getintouch {
+    width: 202px;
+    height: 0px;
+    margin-top: -35px;
+    margin-left: 3px;
+  }
+
+  .getintouch-description {
+    width: 450px;
+    margin-top: 20px;
+
+    font-size: 14px;
+    line-height: 35px;
+  }
+
+  .getintouch-form {
+    margin-top: 15px;
+    line-height: 10px;
+  }
+
+  .message-box {
+    width: 400px;
+
+    font-weight: 400;
+    font-size: 18px;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    letter-spacing: 0.05em;
+
+    border-width: 5px 20px 5px 20px;
+
+    box-shadow: 0px 0px 30px 5px rgba(255, 122, 0, 0.5);
+    border-radius: 20px;
+  }
+
+  .label {
+    margin-top: 26px;
+  }
+
+  .subject-getintouch {
+    margin-left: -20px;
+  }
+
+  .message-body {
+    width: 400px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }
+
+  .message-input {
+    height: 160px;
+
+    border-radius: 10px;
+    padding: 5px;
+
+    font-weight: 300;
+    font-size: 15px;
+  }
+
+  .getintouch-submit-button {
+    width: 120px;
+    font-size: 18px;
+    margin-top: 25px;
+
+    font-weight: 400;
+
+    letter-spacing: 0.05em;
+
+    box-shadow: 0px 0px 20px 10px rgba(72, 72, 72, 0.5);
+
+    border-radius: 15px;
+  }
+
+  .loading {
+    height: 37.5%;
+    width: auto;
+
+    border-radius: 5px;
+  }
+
+  .msg-sent-notice > h1 {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 20px;
+
+    border-radius: 5px 5px 5px 5px;
+    padding: 20px 10px 20px 10px;
+  }
+
+  .placeholder {
+    padding: 35px;
+    height: 400px;
+  }
+}
+
+@media (max-width: 481px) {
+  .getintouch {
+    width: 300px;
+    margin-top: 30px;
+
+    padding: 0px 30px 30px 30px;
+    box-shadow: 0px 0px 30px 5px rgba(255, 255, 255, 0.1);
+  }
+
+  #scroll-landing-getintouch {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    /* border: 1px solid red; */
+  }
+
+  .underline-heading-getintouch {
+    width: 147px;
+    height: 0px;
+    margin-top: -35px;
+    margin-left: 2px;
+  }
+
+  .getintouch-description {
+    width: 350px;
+    margin-top: 10px;
+
+    font-size: 10px;
+    line-height: 30px;
+    margin-bottom: 0px;
+  }
+
+  .getintouch-form {
+    margin-top: 15px;
+    line-height: 10px;
+  }
+
+  .message-box {
+    width: 300px;
+
+    font-size: 12px;
+
+    padding-top: 7px;
+    padding-bottom: 7px;
+
+    letter-spacing: 0em;
+
+    border-width: 5px 5px 5px 5px;
+
+    box-shadow: 0px 0px 20px 2px rgba(255, 122, 0, 0.5);
+    border-radius: 15px;
+  }
+
+  .label {
+    margin-top: 18px;
+  }
+
+  .subject-getintouch {
+    margin-left: -10px;
+  }
+
+  .message-body {
+    width: 270px;
+    margin-top: 25px;
+    margin-bottom: 15px;
+  }
+
+  .message-input {
+    height: 130px;
+
+    border-radius: 10px;
+    padding: 5px;
+
+    font-weight: 300;
+    font-size: 12px;
+  }
+
+  .getintouch-submit-button {
+    width: 90px;
+    font-size: 15px;
+    margin-top: 25px;
+
+    font-weight: 400;
+
+    letter-spacing: 0.05em;
+
+    box-shadow: 0px 0px 20px 10px rgba(72, 72, 72, 0.5);
+
+    border-radius: 15px;
+    margin-bottom: 5px;
+
+
+   
+  }
+
+  .loading {
+    height: 37.5%;
+    width: auto;
+
+    border-radius: 5px;
+  }
+
+  .msg-sent-notice > h1 {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 20px;
+
+    border-radius: 5px 5px 5px 5px;
+    padding: 20px 10px 20px 10px;
+  }
+
+  .placeholder {
+    padding: 35px;
+    height: 400px;
+  }
+}
+
+@media (max-width: 361px) {
+  .getintouch {
+    width: 280px;
+    margin-top: 30px;
+
+    padding: 0px 20px 30px 20px;
+    box-shadow: 0px 0px 30px 5px rgba(255, 255, 255, 0.1);
+  }
+
+  #scroll-landing-getintouch {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    /* border: 1px solid red; */
+  }
+
+  .underline-heading-getintouch {
+    width: 121px;
+    height: 0px;
+    margin-top: -35px;
+    margin-left: 2px;
+  }
+
+  .getintouch-description {
+    width: 300px;
+    margin-top: 0px;
+
+    font-size: 9px;
+    line-height: 30px;
+    margin-bottom: 0px;
+  }
+
+  .getintouch-form {
+    margin-top: 10px;
+    line-height: 10px;
+  }
+
+  .message-box {
+    width: 280px;
+
+    font-size: 11px;
+
+    padding-top: 7px;
+    padding-bottom: 7px;
+
+    letter-spacing: 0em;
+
+    border-width: 5px 5px 5px 5px;
+
+    box-shadow: 0px 0px 10px 2px rgba(255, 122, 0, 0.5);
+    border-radius: 15px;
+  }
+
+  .label {
+    margin-top: 16px;
+  }
+
+  .subject-getintouch {
+    margin-left: -10px;
+  }
+
+  .message-body {
+    width: 270px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+  }
+
+  .message-input {
+    height: 130px;
+
+    border-radius: 10px;
+    padding: 5px;
+
+    font-weight: 300;
+    font-size: 9px;
+  }
+
+  .getintouch-submit-button {
+    width: 80px;
+    font-size: 13px;
+    margin-top: 20px;
+
+    font-weight: 400;
+
+    letter-spacing: 0.05em;
+
+    box-shadow: 0px 0px 20px 10px rgba(72, 72, 72, 0.5);
+
+    border-radius: 15px;
+    margin-bottom: -5px;
+
+  }
+
+  .loading {
+    height: 37.5%;
+    width: auto;
+
+    border-radius: 5px;
+  }
+
+  .msg-sent-notice > h1 {
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 20px;
+
+    border-radius: 5px 5px 5px 5px;
+    padding: 20px 10px 20px 10px;
+  }
+
+  .placeholder {
+    padding: 35px;
+    height: 400px;
+  }
 }

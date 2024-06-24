@@ -55,10 +55,10 @@ export default function App() {
         <About />
         <div id="scroll-landing-videos" />
         <Videos />
-        {/* <div id="scroll-landing-gallery" />
+        <div id="scroll-landing-gallery" />
         <Gallery />
         <div id="scroll-landing-getintouch" />
-        <GetInTouch /> */}
+        <GetInTouch />
         <div className="placeholder" />
       </div>
     </div>
