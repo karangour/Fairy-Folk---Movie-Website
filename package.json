@@ -4,9 +4,6 @@
     "version": "0.1.0",
     "scripts": {
       "deploy": "cd client && npm run deploy"
-    },
-    "dependencies": {
-      "gh-pages": "^6.1.1"
     }
   }
   
