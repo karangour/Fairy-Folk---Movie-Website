@@ -125,6 +125,14 @@ app.get("/conversionrate", (req, res) => {
   }
 });
 
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, '../client/dist')));
+
+// Catch-all handler to serve the React app
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
+});
+
 // This is to start the server when the run dev is started
 // app.listen(port, () => {
 //   console.log(`Server is running on port ${port}`);
