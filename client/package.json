@@ -3,7 +3,7 @@
   "private": false,
   "version": "0.1.0",
   "type": "module",
-  "homepage": "http://www.fairyfolkthefilm.com",
+  "homepage": "https://www.fairyfolkthefilm.com",
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
