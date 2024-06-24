@@ -3,7 +3,7 @@
   "private": false,
   "version": "0.1.0",
   "type": "module",
-  "homepage": "https://karangour.github.io/fairy-folk---movie-website",
+  "homepage": "https://karangour.github.io/Fairy-Folk---Movie-Website",
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
