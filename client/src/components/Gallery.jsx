@@ -33,7 +33,7 @@ export default function Gallery() {
 
   useEffect(() => {
     if (images.length > 0) {
-      console.log(images[imageTrack].img);
+      console.log("I don't know what this is:", images[imageTrack].img);
     }
   }, [images, imageTrack]);
 
