@@ -12,6 +12,7 @@ export default function Gallery() {
 
   useEffect(() => {
     const backendUrl = "https://fairy-folk-movie-website.onrender.com";
+    console.log("The value of backendUrl inside of Gallery is:", backendUrl);
 
     fetch(`${backendUrl}/assets/gallery`)
       .then((response) => {
