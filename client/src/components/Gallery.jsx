@@ -12,12 +12,7 @@ export default function Gallery() {
 
   useEffect(() => {
     const backendUrl =
-      process.env.REACT_APP_BACKEND_URL || "http://localhost:4000";
-    console.log(
-      "The value of REACT_APP_BACKEND_URL in the ENV is:",
-      process.env.REACT_APP_BACKEND_URL
-    );
-    console.log("The value of backendUrl inside of Gallery is:", backendUrl);
+    "https://fairy-folk-movie-website.onrender.com" || "http://localhost:4000";
 
     fetch(`${backendUrl}/assets/gallery`)
       .then((response) => {
