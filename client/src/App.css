@@ -18,7 +18,6 @@ h1 {
 .everything {
   display: flex;
   flex-direction: column;
-  width: 90%;
 }
 
 .all-page-headings {
@@ -148,8 +147,6 @@ button:disabled {
 }
 
 /* ---------------- */
-
-
 
 .ruler {
   width: 300px;
