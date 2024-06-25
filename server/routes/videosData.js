@@ -6,31 +6,36 @@ const vid_thumbnails = [
     id: 1,
     title: "OFFICIAL TRAILER 1",
     location: "https://www.youtube.com/watch?v=lfOxA7NPJDg",
-    thumbnail: "http://localhost:4000/assets/vid_thumbnails/1.jpg",
+    thumbnail:
+      "https://fairy-folk-movie-website.onrender.com/assets/vid_thumbnails/1.jpg",
   },
   {
     id: 2,
     title: "OFFICIAL TRAILER 2",
     location: "https://www.youtube.com/watch?v=igLSVvzRYTU",
-    thumbnail: "http://localhost:4000/assets/vid_thumbnails/2.jpg",
+    thumbnail:
+      "https://fairy-folk-movie-website.onrender.com/assets/vid_thumbnails/2.jpg",
   },
   {
     id: 3,
     title: "AN IMPROV GAME",
     location: "https://www.youtube.com/watch?v=sStyEntLkW8",
-    thumbnail: "http://localhost:4000/assets/vid_thumbnails/3.jpg",
+    thumbnail:
+      "https://fairy-folk-movie-website.onrender.com/assets/vid_thumbnails/3.jpg",
   },
   {
     id: 4,
     title: "EMERGENCY",
     location: "https://www.youtube.com/watch?v=rkEm7rBzApY",
-    thumbnail: "http://localhost:4000/assets/vid_thumbnails/4.jpg",
+    thumbnail:
+      "https://fairy-folk-movie-website.onrender.com/assets/vid_thumbnails/4.jpg",
   },
   {
     id: 5,
     title: "DRINK UP!",
     location: "https://www.youtube.com/watch?v=SYAOAwXyUvA",
-    thumbnail: "http://localhost:4000/assets/vid_thumbnails/5.jpg",
+    thumbnail:
+      "https://fairy-folk-movie-website.onrender.com/assets/vid_thumbnails/5.jpg",
   },
 ];
 
