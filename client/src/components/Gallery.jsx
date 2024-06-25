@@ -12,6 +12,7 @@ export default function Gallery() {
 
   useEffect(() => {
     const backendUrl = process.env.BACKEND_URL || "http://localhost:4000";
+    console.log("The value of backendUrl inside of Gallery is:", backendUrl);
 
     fetch(`${backendUrl}/assets/gallery`)
       .then((response) => {
