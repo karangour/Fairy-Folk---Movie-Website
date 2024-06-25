@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: fairy-folk-backend
+    env: node
+    buildCommand: cd server && npm install
+    startCommand: cd server && node server.js
+    envVars:
+      - key: PORT
+        value: 4001
+
+  - type: web
+    name: fairy-folk-frontend
+    env: node
+    buildCommand: cd client && npm install && npm run build
+    startCommand: cd client && npm start
+    envVars:
+      - key: PORT
+        value: 3000
