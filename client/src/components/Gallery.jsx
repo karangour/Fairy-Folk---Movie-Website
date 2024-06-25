@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import right from "./../assets/RightArrow.png";
 import left from "./../assets/LeftArrow.png";
-import "./css/Gallery.css"
+import "./css/Gallery.css";
 
 export default function Gallery() {
   const [images, setImages] = useState([]);
@@ -11,7 +11,9 @@ export default function Gallery() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:4000/assets/gallery")
+    const backendUrl = process.env.BACKEND_URL || "http://localhost:4000";
+
+    fetch(`${backendUrl}/assets/gallery`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -54,10 +56,10 @@ export default function Gallery() {
 
   return (
     <div className="gallery">
-      <div className='all-page-headings'>
-      <h1 className="heading-thin">GALLERY</h1>
+      <div className="all-page-headings">
+        <h1 className="heading-thin">GALLERY</h1>
         <hr className="underline-heading-gallery" />
-        </div>
+      </div>
       <div
         className="gallery-window"
         onMouseOver={handleArrowShowing}
