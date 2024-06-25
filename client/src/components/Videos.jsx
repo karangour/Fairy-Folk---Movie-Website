@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import VideoPlayer from "./VideoPlayer";
 import VidThumbnail from "./VidThumbnail";
-import "./css/Videos.css"
+import "./css/Videos.css";
 
 export default function Videos() {
-  
   const [videoFiles, setVideoFiles] = useState([]);
   const [activeTitle, setActiveTitle] = useState("");
   const [activeSrc, setActiveSrc] = useState(
@@ -15,8 +14,10 @@ export default function Videos() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const backendUrl = "https://fairy-folk-movie-website.onrender.com";
+
   useEffect(() => {
-    fetch("http://localhost:4000/assets/vid_thumbnails")
+    fetch(`${backendUrl}/assets/vid_thumbnails`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -75,7 +76,6 @@ export default function Videos() {
   return (
     <div className="videos">
       <div className="all-page-headings">
-       
         <h1 className="heading-thin">VIDEOS</h1>
         <hr className="underline-heading-videos" />
       </div>

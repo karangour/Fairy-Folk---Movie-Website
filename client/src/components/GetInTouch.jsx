@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./css/GetInTouch.css"
+import "./css/GetInTouch.css";
 import load_animation from "./../assets/loading.gif";
 
 export default function GetInTouch() {
@@ -17,7 +17,7 @@ export default function GetInTouch() {
   function handleSubmit(event) {
     event.preventDefault();
 
-    fetch("http://localhost:4000/email", {
+    fetch("https://fairy-folk-movie-website.onrender.com/email", {
       method: "POST",
       body: JSON.stringify(form),
       headers: { "Content-Type": "application/json" },
@@ -58,8 +58,7 @@ export default function GetInTouch() {
   return (
     <div className="getintouch">
       {/* <hr className="ruler" /> */}
-      <div className='all-page-headings'>
-        
+      <div className="all-page-headings">
         <h1 className="heading-thin">GET IN</h1>
         <h1 className="heading-thick">&nbsp;TOUCH</h1>
         <hr className="underline-heading-getintouch" />
@@ -72,7 +71,10 @@ export default function GetInTouch() {
         className="getintouch-form"
         onSubmit={(event) => messageExists && handleSubmit(event)}
       >
-        <img className={`loading ${loading ? "loading-show" : ""}`} src={load_animation} />
+        <img
+          className={`loading ${loading ? "loading-show" : ""}`}
+          src={load_animation}
+        />
         <div
           className={`msg-sent-notice ${sent ? "msg-sent-notice-show" : ""}`}
         >
@@ -81,7 +83,7 @@ export default function GetInTouch() {
         <div
           className="message-box"
           style={{
-            filter: (sent || loading) ? "blur(3px)" : "",
+            filter: sent || loading ? "blur(3px)" : "",
             transition: "filter 1s ease",
           }}
         >
@@ -136,7 +138,7 @@ export default function GetInTouch() {
           }`}
           disabled={!messageExists}
           style={{
-            filter: (sent || loading) ? "blur(3px)" : "",
+            filter: sent || loading ? "blur(3px)" : "",
             transition: "filter 1s ease",
           }}
           onClick={() => setLoading(true)}

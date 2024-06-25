@@ -14,13 +14,12 @@ export default function WatchFilm() {
   function handleCast() {
     const videoUrl = "https://www.youtube.com/watch?v=lfOxA7NPJDg";
     const appScheme = `vnd.youtube://${videoUrl.split("watch?v=")[1]}`;
-  
+
     const start = Date.now();
     const timeout = 2000;
-  
+
     window.location = appScheme;
   }
-  
 
   function playMovie() {}
 
@@ -29,7 +28,7 @@ export default function WatchFilm() {
     console.log("inside handleSubmit");
     const data = { password }; //this creates an object called 'data' that holds a key called 'password' with what is stored in password as its value. Important for server things.
 
-    fetch("http://localhost:4000/passwords/verify", {
+    fetch("https://fairy-folk-movie-website.onrender.com/passwords/verify", {
       method: "POST", // Because we're handling sensitive passwords, POST is preferred over GET
       headers: {
         "Content-Type": "application/json",
@@ -100,10 +99,10 @@ export default function WatchFilm() {
         >
           Click this 'CAST' icon -
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- to watch the film on
-          your TV screen. Once the YouTube app launches on your
-          phone, click the CAST icon found on the top-right of the YouTube
-          video. Ensure your phone and your TV have the YouTube app installed,
-          and are on the same WiFi network.
+          your TV screen. Once the YouTube app launches on your phone, click the
+          CAST icon found on the top-right of the YouTube video. Ensure your
+          phone and your TV have the YouTube app installed, and are on the same
+          WiFi network.
         </p>
         <img
           src={cast}
@@ -135,7 +134,6 @@ export default function WatchFilm() {
           onClick={toggleShowErrorWindow}
         >
           <h1>{errorMessage}</h1>
-         
         </div>
         <div
           className="enter-pass"
@@ -157,6 +155,3 @@ export default function WatchFilm() {
     </div>
   );
 }
-
-// make VideoPlayer work for this module with the film running
-// test 5.1/stereo of youtube

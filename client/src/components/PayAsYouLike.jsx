@@ -76,7 +76,7 @@ export default function PayAsYouLike() {
       "Inside PayAsYouLike -> sendMail for form:",
       updatedUserInfoRef.current
     );
-    fetch("http://localhost:4000/email", {
+    fetch("https://fairy-folk-movie-website.onrender.com/email", {
       method: "POST",
       body: JSON.stringify(updatedUserInfoRef.current),
       headers: { "Content-Type": "application/json" },
@@ -104,7 +104,7 @@ export default function PayAsYouLike() {
   useEffect(() => {
     // Fetch Razorpay key from server
     axios
-      .get("http://localhost:4000/razorpay/key")
+      .get("https://fairy-folk-movie-website.onrender.com/razorpay/key")
       .then((response) => {
         setRazorpayKey(response.data.key);
       })
@@ -114,7 +114,7 @@ export default function PayAsYouLike() {
 
     // Fetch totalContributions from the json file
 
-    fetch("http://localhost:4000/contribution")
+    fetch("https://fairy-folk-movie-website.onrender.com/contribution")
       .then((response) => {
         if (!response.ok) {
           return response.json().then((error) => {
@@ -133,7 +133,7 @@ export default function PayAsYouLike() {
 
   useEffect(() => {
     // Fetch USD/INR rate from server file usdConversion.json, update budget USD and contribution USD, all for an update on contribution chart
-    fetch("http://localhost:4000/conversionrate")
+    fetch("https://fairy-folk-movie-website.onrender.com/conversionrate")
       .then((response) => {
         if (!response.ok) {
           return response.json().then((err) => {
@@ -176,7 +176,7 @@ export default function PayAsYouLike() {
 
   function storeContributionTotal(newTotal) {
     console.log(newTotal);
-    fetch("http://localhost:4000/contribution", {
+    fetch("https://fairy-folk-movie-website.onrender.com/contribution", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -202,7 +202,8 @@ export default function PayAsYouLike() {
   async function handlePayment() {
     // Send order to Razorpay, verify payment, store payment, update contribution chart
 
-    const orderUrl = "http://localhost:4000/razorpay/create-order";
+    const orderUrl =
+      "https://fairy-folk-movie-website.onrender.com/razorpay/create-order";
     const { amount, currency } = userInfo;
 
     try {
@@ -220,7 +221,8 @@ export default function PayAsYouLike() {
         image: "",
         order_id: order.data.id,
         handler: async function (response) {
-          const verifyUrl = "http://localhost:4000/razorpay/verify-payment";
+          const verifyUrl =
+            "https://fairy-folk-movie-website.onrender.com/razorpay/verify-payment";
           const paymentVerification = await axios.post(verifyUrl, {
             razorpay_order_id: response.razorpay_order_id,
             razorpay_payment_id: response.razorpay_payment_id,
@@ -250,13 +252,16 @@ export default function PayAsYouLike() {
             storeContributionTotal(newTotal); // Send a POST call for updating contributionTotal.json as well.
 
             // Send payment details to server for storage
-            await axios.post("http://localhost:4000/razorpay/payment-details", {
-              userInfo,
-              ...options,
-              razorpay_payment_id: response.razorpay_payment_id,
-              razorpay_order_id: response.razorpay_order_id,
-              razorpay_signature: response.razorpay_signature,
-            });
+            await axios.post(
+              "https://fairy-folk-movie-website.onrender.com/razorpay/payment-details",
+              {
+                userInfo,
+                ...options,
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_order_id: response.razorpay_order_id,
+                razorpay_signature: response.razorpay_signature,
+              }
+            );
           } else {
             alert("Payment Verification Failed!");
           }
@@ -302,7 +307,7 @@ export default function PayAsYouLike() {
       }
 
       // Send a POST call to server to store just user info like password and all, generate a password, time, etc.
-      fetch("http://localhost:4000/passwords/create", {
+      fetch("https://fairy-folk-movie-website.onrender.com/passwords/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
