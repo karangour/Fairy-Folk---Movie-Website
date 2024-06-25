@@ -18,7 +18,7 @@ h1 {
 .everything {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 90%;
 }
 
 .all-page-headings {
