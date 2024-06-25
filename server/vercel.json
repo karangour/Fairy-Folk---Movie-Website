@@ -19,6 +19,5 @@
     { "src": "/razorpay/(.*)", "dest": "server/server.js" },
     { "src": "/conversionrate", "dest": "server/server.js" },
     { "src": "/(.*)", "dest": "/index.html" }
-  ],
-  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
+  ]
 }
