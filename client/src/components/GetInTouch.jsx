@@ -17,7 +17,7 @@ export default function GetInTouch() {
   function handleSubmit(event) {
     event.preventDefault();
 
-    fetch("https://fairy-folk-movie-website.onrender.com/email", {
+    fetch("https://api.fairyfolkthefilm.com/email", {
       method: "POST",
       body: JSON.stringify(form),
       headers: { "Content-Type": "application/json" },

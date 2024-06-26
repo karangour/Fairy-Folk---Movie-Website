@@ -11,7 +11,7 @@ export default function Gallery() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const backendUrl = "https://fairy-folk-movie-website.onrender.com";
+    const backendUrl = "https://api.fairyfolkthefilm.com";
    
 
     fetch(`${backendUrl}/assets/gallery`)

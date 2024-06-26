@@ -76,7 +76,7 @@ export default function PayAsYouLike() {
       "Inside PayAsYouLike -> sendMail for form:",
       updatedUserInfoRef.current
     );
-    fetch("https://fairy-folk-movie-website.onrender.com/email", {
+    fetch("https://api.fairyfolkthefilm.com/email", {
       method: "POST",
       body: JSON.stringify(updatedUserInfoRef.current),
       headers: { "Content-Type": "application/json" },
@@ -104,7 +104,7 @@ export default function PayAsYouLike() {
   useEffect(() => {
     // Fetch Razorpay key from server
     axios
-      .get("https://fairy-folk-movie-website.onrender.com/razorpay/key")
+      .get("https://api.fairyfolkthefilm.com/razorpay/key")
       .then((response) => {
         setRazorpayKey(response.data.key);
       })
@@ -114,7 +114,7 @@ export default function PayAsYouLike() {
 
     // Fetch totalContributions from the json file
 
-    fetch("https://fairy-folk-movie-website.onrender.com/contribution")
+    fetch("https://api.fairyfolkthefilm.com/contribution")
       .then((response) => {
         if (!response.ok) {
           return response.json().then((error) => {
@@ -133,7 +133,7 @@ export default function PayAsYouLike() {
 
   useEffect(() => {
     // Fetch USD/INR rate from server file usdConversion.json, update budget USD and contribution USD, all for an update on contribution chart
-    fetch("https://fairy-folk-movie-website.onrender.com/conversionrate")
+    fetch("https://api.fairyfolkthefilm.com/conversionrate")
       .then((response) => {
         if (!response.ok) {
           return response.json().then((err) => {
@@ -176,7 +176,7 @@ export default function PayAsYouLike() {
 
   function storeContributionTotal(newTotal) {
     console.log(newTotal);
-    fetch("https://fairy-folk-movie-website.onrender.com/contribution", {
+    fetch("https://api.fairyfolkthefilm.com/contribution", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -307,7 +307,7 @@ export default function PayAsYouLike() {
       }
 
       // Send a POST call to server to store just user info like password and all, generate a password, time, etc.
-      fetch("https://fairy-folk-movie-website.onrender.com/passwords/create", {
+      fetch("https://api.fairyfolkthefilm.com/passwords/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

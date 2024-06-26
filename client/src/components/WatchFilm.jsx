@@ -28,7 +28,7 @@ export default function WatchFilm() {
     console.log("inside handleSubmit");
     const data = { password }; //this creates an object called 'data' that holds a key called 'password' with what is stored in password as its value. Important for server things.
 
-    fetch("https://fairy-folk-movie-website.onrender.com/passwords/verify", {
+    fetch("https://api.fairyfolkthefilm.com/passwords/verify", {
       method: "POST", // Because we're handling sensitive passwords, POST is preferred over GET
       headers: {
         "Content-Type": "application/json",

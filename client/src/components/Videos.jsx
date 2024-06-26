@@ -14,7 +14,7 @@ export default function Videos() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const backendUrl = "https://fairy-folk-movie-website.onrender.com";
+  const backendUrl = "https://api.fairyfolkthefilm.com";
 
   useEffect(() => {
     fetch(`${backendUrl}/assets/vid_thumbnails`)
