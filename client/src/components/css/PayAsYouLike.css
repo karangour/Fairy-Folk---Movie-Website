@@ -121,7 +121,7 @@
   border-width: 5px 30px 5px 30px;
   border-style: solid;
   border-color: #ff7b00;
-  box-shadow: 0px 0px 30px 5px rgba(255, 122, 0, 0.5);
+  box-shadow: 0px 0px 30px 5px rgba(255, 122, 0, 0.2);
   border-radius: 20px;
 }
 
@@ -227,7 +227,7 @@
     #ffffff 0%,
     #000000 100%
   );
-  box-shadow: 0px 0px 20px 10px rgba(72, 72, 72, 0.5);
+  box-shadow: 0px 0px 20px 10px rgba(72, 72, 72, 0.2);
   border: none;
   border-radius: 15px;
 
@@ -277,7 +277,7 @@
   flex-basis: 100%;
 
   background: #000000;
-  box-shadow: 0px 0px 25px 15px rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 0px 25px 15px rgba(255, 255, 255, 0.1);
 }
 
 .tube-curve-top,
@@ -745,7 +745,7 @@
     border-width: 3px 20px 3px 20px;
     border-style: solid;
     border-color: #ff7b00;
-    box-shadow: 0px 0px 30px 5px rgba(255, 122, 0, 0.5);
+    box-shadow: 0px 0px 30px 5px rgba(255, 122, 0, 0.2);
     border-radius: 20px;
   }
 
@@ -817,7 +817,7 @@
       #ffffff 0%,
       #000000 100%
     );
-    box-shadow: 0px 0px 20px 10px rgba(72, 72, 72, 0.5);
+    box-shadow: 0px 0px 20px 10px rgba(72, 72, 72, 0.2);
     border: none;
     border-radius: 15px;
   }
@@ -963,7 +963,7 @@
     border-width: 3px 10px 3px 10px;
     border-style: solid;
     border-color: #ff7b00;
-    box-shadow: 0px 0px 30px 5px rgba(255, 122, 0, 0.5);
+    box-shadow: 0px 0px 30px 5px rgba(255, 122, 0, 0.2);
     border-radius: 15px;
   }
 
@@ -1037,7 +1037,7 @@
       #ffffff 0%,
       #000000 100%
     );
-    box-shadow: 0px 0px 20px 10px rgba(72, 72, 72, 0.5);
+    box-shadow: 0px 0px 20px 10px rgba(72, 72, 72, 0.2);
     border: none;
     border-radius: 15px;
   }
@@ -1191,7 +1191,7 @@
     border-width: 3px 8px 3px 8px;
     border-style: solid;
     border-color: #ff7b00;
-    box-shadow: 0px 0px 30px 5px rgba(255, 122, 0, 0.5);
+    box-shadow: 0px 0px 30px 5px rgba(255, 122, 0, 0.2);
     border-radius: 15px;
   }
 
@@ -1265,7 +1265,7 @@
       #ffffff 0%,
       #000000 100%
     );
-    box-shadow: 0px 0px 20px 10px rgba(72, 72, 72, 0.5);
+    box-shadow: 0px 0px 20px 10px rgba(72, 72, 72, 0.2);
     border: none;
     border-radius: 15px;
   }

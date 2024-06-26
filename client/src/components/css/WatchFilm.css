@@ -110,7 +110,7 @@
 
   background: #000000;
 
-  box-shadow: 0px 0px 30px 2px rgba(255, 192, 130, 0.4);
+  box-shadow: 0px 0px 30px 2px rgba(255, 192, 130, 0.2);
 }
 
 .enter-pass {
@@ -133,7 +133,7 @@
   border-width: 5px 5px 5px 5px;
   border-style: solid;
   border-color: #ff7b00;
-  box-shadow: 0px 0px 30px 5px rgba(255, 122, 0, 0.5);
+  box-shadow: 0px 0px 30px 5px rgba(255, 122, 0, 0.2);
   border-radius: 20px;
 }
 
@@ -167,7 +167,7 @@
     #ffffff 0%,
     #000000 100%
   );
-  box-shadow: 0px 0px 20px 10px rgba(72, 72, 72, 0.5);
+  box-shadow: 0px 0px 20px 10px rgba(72, 72, 72, 0.2);
   border: none;
   border-radius: 5px;
 }
@@ -247,7 +247,7 @@
 
     background: #000000;
 
-    box-shadow: 0px 0px 30px 2px rgba(255, 192, 130, 0.4);
+    box-shadow: 0px 0px 30px 2px rgba(255, 192, 130, 0.2);
   }
 
   .enter-pass {
@@ -349,7 +349,7 @@
 
     background: #000000;
 
-    box-shadow: 0px 0px 30px 2px rgba(255, 192, 130, 0.4);
+    box-shadow: 0px 0px 30px 2px rgba(255, 192, 130, 0.2);
   }
 
   .enter-pass {
@@ -451,7 +451,7 @@
 
     background: #000000;
 
-    box-shadow: 0px 0px 30px 2px rgba(255, 192, 130, 0.4);
+    box-shadow: 0px 0px 30px 2px rgba(255, 192, 130, 0.2);
   }
 
   .enter-pass {
@@ -551,7 +551,7 @@
 
     background: #000000;
 
-    box-shadow: 0px 0px 30px 2px rgba(255, 192, 130, 0.4);
+    box-shadow: 0px 0px 30px 2px rgba(255, 192, 130, 0.2);
   }
 
   .enter-pass {
@@ -652,7 +652,7 @@
 
     background: #000000;
 
-    box-shadow: 0px 0px 30px 2px rgba(255, 192, 130, 0.4);
+    box-shadow: 0px 0px 30px 2px rgba(255, 192, 130, 0.2);
   }
 
   .enter-pass {
@@ -730,7 +730,6 @@
     width: 15px;
     margin-top: -97px;
     margin-left: 100px;
-    
   }
 
   .no-app-notice {
@@ -754,7 +753,7 @@
 
     background: #000000;
 
-    box-shadow: 0px 0px 30px 2px rgba(255, 192, 130, 0.4);
+    box-shadow: 0px 0px 30px 2px rgba(255, 192, 130, 0.2);
   }
 
   .enter-pass {

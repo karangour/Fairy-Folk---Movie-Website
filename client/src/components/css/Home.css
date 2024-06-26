@@ -6,7 +6,7 @@
   flex-direction: column;
 
   background: #000000;
-  box-shadow: 0px 0px 30px 5px rgba(255, 255, 255, 0.25);
+  box-shadow: 0px 0px 30px 5px rgba(255, 255, 255, 0.1);
 
   border-radius: 50px;
   z-index: 1;
@@ -20,7 +20,6 @@
   line-height: 66px;
 
   color: #ffffff;
-
 }
 
 .heading-thick-home {
@@ -48,6 +47,7 @@
   flex-direction: row;
   width: 800px;
   justify-content: space-evenly;
+  /* border: 1px solid red; */
 }
 
 /* need-button */
@@ -75,7 +75,7 @@
     #ffffff 0%,
     #000000 100%
   );
-  box-shadow: 0px 0px 20px 10px rgba(72, 72, 72, 0.5);
+  box-shadow: 0px 0px 20px 10px rgba(72, 72, 72, 0.2);
   border: none;
   border-radius: 15px;
   position: relative;
@@ -107,7 +107,7 @@
     #000000 100%
   );
   border: none;
-  box-shadow: 0px 0px 20px 10px rgba(72, 72, 72, 0.5);
+  box-shadow: 0px 0px 20px 10px rgba(72, 72, 72, 0.2);
   border-radius: 15px;
 }
 
@@ -127,10 +127,8 @@
   .home {
     border-radius: 40px;
     padding: 0px;
-    box-shadow: 0px 0px 30px 5px rgba(255, 255, 255, 0.25);
+    box-shadow: 0px 0px 30px 5px rgba(255, 255, 255, 0.1);
   }
-
-
 
   .watchfilm-title {
     margin-top: -10px;
@@ -158,7 +156,7 @@
     width: 550px;
     height: 150px;
     border: 3px solid #ff7a00;
-    box-shadow: 0px 0px 30px 6px rgba(255, 149, 0, 0.391);
+    box-shadow: 0px 0px 30px 6px rgba(255, 149, 0, 0.1);
   }
 
   .heading-thin-home {
@@ -211,7 +209,7 @@
     height: 130px;
     width: 480px;
     border: 3px solid #ff7a00;
-    box-shadow: 0px 0px 30px 6px rgba(255, 149, 0, 0.391);
+    box-shadow: 0px 0px 30px 6px rgba(255, 149, 0, 0.1);
   }
 
   .heading-thin-home {
@@ -267,7 +265,7 @@
     height: 115px;
     width: 450px;
     border: 3px solid #ff7a00;
-    box-shadow: 0px 0px 30px 6px rgba(255, 149, 0, 0.391);
+    box-shadow: 0px 0px 30px 6px rgba(255, 149, 0, 0.1);
   }
 
   .heading-thin-home {
@@ -323,7 +321,7 @@
     width: 320px;
     border: 3px solid #ff7a00;
     border-radius: 30px;
-    box-shadow: 0px 0px 20px 4px rgba(255, 149, 0, 0.391);
+    box-shadow: 0px 0px 20px 4px rgba(255, 149, 0, 0.1);
   }
 
   .heading-thin-home {
@@ -400,26 +398,36 @@
   }
 
   .home-buttons {
-    width: 220px;
-    justify-content: space-around;
+    width: 250px;
 
-    margin-left: 189px;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    /* border: 1px solid red; */
   }
 
   .need-text,
   .have-text {
-    width: fit-content;
-    height: 26px;
-    margin-top: 2px;
-    margin-left: -208px;
+    width: 70px;
+    height: fit-content;
+    margin: 0px;
     font-size: 8px;
+
+    position: absolute;
+    top: 2px;
+    /* border: 1px solid green; */
+  }
+  .need-text {
+    left: 28px;
+  }
+  .have-text {
+    right: 26px;
   }
 
   .need-button,
   .have-button {
     width: 80px;
     height: 17px;
-
     border-radius: 7px;
   }
 }
@@ -453,27 +461,36 @@
   }
 
   .home-buttons {
-    width: 160px;
-    justify-content: space-around;
+    width: 180px;
 
-    margin-left: 215px;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    /* border: 1px solid red; */
   }
 
   .need-text,
   .have-text {
-    width: fit-content;
-    height: 26px;
-    margin-top: 1.8px;
-    margin-left: -239px;
+    width: 70px;
+    height: fit-content;
+    margin: 0px;
     font-size: 7px;
-    letter-spacing: 0em;
+
+    position: absolute;
+    top: 2px;
+    /* border: 1px solid green; */
+  }
+  .need-text {
+    left: 10px;
+  }
+  .have-text {
+    right: 10px;
   }
 
   .need-button,
   .have-button {
-    width: 66px;
+    width: 70px;
     height: 14px;
-
-    border-radius: 7px;
+    border-radius: 5px;
   }
 }

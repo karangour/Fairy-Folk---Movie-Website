@@ -1,6 +1,5 @@
 /* MenuElements */
 
-
 .share-button {
   cursor: pointer;
   position: fixed;
@@ -24,7 +23,7 @@
   background: rgb(0, 0, 0);
   padding: 60px 10px 10px 10px;
   background: #000000;
-  box-shadow: 0px 0px 30px 10px rgba(255, 255, 255, 0.25);
+  box-shadow: 0px 0px 30px 10px rgba(255, 255, 255, 0.2);
   border-radius: 5px;
   z-index: 998;
 
@@ -69,7 +68,7 @@
 
   padding: 70px 0px 10px 0px;
   background: #000000;
-  box-shadow: 0px 0px 30px 10px rgba(255, 255, 255, 0.25);
+  box-shadow: 0px 0px 30px 10px rgba(255, 255, 255, 0.2);
   border-radius: 5px;
   z-index: 999;
 }
@@ -140,11 +139,8 @@
 
   background: rgb(0, 0, 0);
   display: none;
-  box-shadow: 0px 0px 5px 2px rgba(255, 255, 255, 0.15);
+  box-shadow: 0px 0px 5px 2px rgba(255, 255, 255, 0.2);
 }
-
-
-
 
 /* ---------------------------------------------------------------------------------- */
 
@@ -153,14 +149,12 @@
     width: 25px;
     right: 82px;
     top: 30px;
-  
   }
 
   .menu-button {
     width: 25px;
     right: 30px;
     top: 30px;
-
   }
 }
 
@@ -205,14 +199,12 @@
     width: 22px;
     right: 90px;
     top: 40px;
-
   }
 
   .menu-button {
     width: 22px;
     right: 45px;
     top: 40px;
-  
   }
 
   .share-options-menu {
@@ -258,14 +250,12 @@
     width: 20px;
     right: 65px;
     top: 19px;
- 
   }
 
   .menu-button {
     width: 20px;
     right: 20px;
     top: 19px;
-   
   }
 
   .share-options-menu {
@@ -313,14 +303,12 @@
     width: 16px;
     right: 51px;
     top: 17px;
-  
   }
 
   .menu-button {
     width: 16px;
     right: 20px;
     top: 17px;
-   
   }
 
   .share-options-menu {
