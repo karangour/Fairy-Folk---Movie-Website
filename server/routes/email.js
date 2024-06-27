@@ -4,6 +4,7 @@ require("dotenv").config();
 const nodeMailer = require("nodemailer");
 
 router.route("/").post((req, res) => {
+  const myEmail = "empatheiafilms@gmail.com";
   const form = req.body;
   let mailOptions = {};
 
@@ -15,7 +16,7 @@ router.route("/").post((req, res) => {
     port: 587,
     secure: false,
     auth: {
-      user: process.env.USER,
+      user: myEmail,
       pass: process.env.APP_PASSWORD,
     },
   });
@@ -23,29 +24,32 @@ router.route("/").post((req, res) => {
   if ("password" in form) {
     const passwordDate = new Date(form.date);
     const passwordValidity = new Date(passwordDate.getTime() + 172800000);
-    const options = { 
-      year: 'numeric', 
-      month: 'long', 
-      day: 'numeric', 
-      hour: 'numeric', 
-      minute: 'numeric', 
-      second: 'numeric',
-      hour12: true 
+    const options = {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      second: "numeric",
+      hour12: true,
     };
 
     mailOptions = {
-      from: process.env.USER,
+      from: myEmail,
       to: form.email,
       subject: "Your Fairy Folk PASSWORD is here!",
       html: `Dear ${
         form.name || form.email
       }, <br><br>Your PASSWORD: <h3 style="display:inline;">${
         form.password
-      }</h3><br><i>Expiry:</i> <h4 style="display:inline;">${passwordValidity.toLocaleDateString('en-US', options)}</h4><br><br> Thanks again for making the time for our film. We hope you enjoy watching it as much as we enjoyed making it! <br><br><b>P.S. It would mean a lot if you could share the film, leave a review, or just shout about it from your balcony...anything to spread the word. We're counting on you!</b> `,
+      }</h3><br><i>Expiry:</i> <h4 style="display:inline;">${passwordValidity.toLocaleDateString(
+        "en-US",
+        options
+      )}</h4><br><br> Thanks again for making the time for our film. We hope you enjoy watching it as much as we enjoyed making it! <br><br><b>P.S. It would mean a lot if you could share the film, leave a review, or just shout about it from your balcony...anything to spread the word. We're counting on you!</b> `,
     };
   } else {
     mailOptions = {
-      from: process.env.USER,
+      from: myEmail,
       to: "karangour@gmail.com",
       subject: "GetInTouch from fairyfolkthefilm.com",
       html: `FROM: ${form.name}<br>EMAIL: ${form.email}<br>SUBJECT: ${form.subject}<br>MESSAGE: ${form.message}`,
@@ -55,7 +59,8 @@ router.route("/").post((req, res) => {
 
   const sendMail = async (transporter, mailOptions) => {
     try {
-      console.log('Inside sendMail, but before transporter.sendMail call!')
+      console.log("Inside sendMail, but before transporter.sendMail call!");
+      console.log(`Password is ${process.env.APP_PASSWORD}`);
       await transporter.sendMail(mailOptions);
       console.log("Email has been sent successfully!!");
       res.json({

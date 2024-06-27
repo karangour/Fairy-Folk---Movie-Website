@@ -202,8 +202,7 @@ export default function PayAsYouLike() {
   async function handlePayment() {
     // Send order to Razorpay, verify payment, store payment, update contribution chart
 
-    const orderUrl =
-      "https://fairy-folk-movie-website.onrender.com/razorpay/create-order";
+    const orderUrl = "https://api.fairyfolkthefilm.com/razorpay/create-order";
     const { amount, currency } = userInfo;
 
     try {
@@ -222,7 +221,7 @@ export default function PayAsYouLike() {
         order_id: order.data.id,
         handler: async function (response) {
           const verifyUrl =
-            "https://fairy-folk-movie-website.onrender.com/razorpay/verify-payment";
+            "https://api.fairyfolkthefilm.com/razorpay/verify-payment";
           const paymentVerification = await axios.post(verifyUrl, {
             razorpay_order_id: response.razorpay_order_id,
             razorpay_payment_id: response.razorpay_payment_id,
@@ -253,7 +252,7 @@ export default function PayAsYouLike() {
 
             // Send payment details to server for storage
             await axios.post(
-              "https://fairy-folk-movie-website.onrender.com/razorpay/payment-details",
+              "https://api.fairyfolkthefilm.com/razorpay/payment-details",
               {
                 userInfo,
                 ...options,
