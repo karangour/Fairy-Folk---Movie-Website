@@ -139,10 +139,17 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/dist", "index.html"));
 });
 
+// Create the HTTP server
+const server = require("http").createServer(app);
+
+// Set keep-alive and headers timeout
+server.keepAliveTimeout = 60000; // 60 seconds
+server.headersTimeout = 65000; // 65 seconds
+
 // This is to start the server when the run dev is started
 // app.listen(port, () => {
 //   console.log(`Server is running on port ${port}`);
 // });
-app.listen(port, "0.0.0.0", () => {
+server.listen(port, "0.0.0.0", () => {
   console.log(`Server is running on port ${port}`);
 });

@@ -286,7 +286,6 @@ export default function PayAsYouLike() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log("Amount is: ", userInfo.amount);
 
     if (userInfo.email === "") {
       setEmailExists(false);
