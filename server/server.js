@@ -3,7 +3,7 @@ const cors = require("cors");
 const dotenv = require("dotenv").config(); // To access environment variables
 const Razorpay = require("razorpay");
 const bodyParser = require("body-parser");
-const fetch = require("node-fetch");
+const fetch = require("./fetch");
 
 const fs = require("fs");
 const path = require("path");
