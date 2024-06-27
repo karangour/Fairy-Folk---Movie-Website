@@ -286,6 +286,7 @@ export default function PayAsYouLike() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    console.log("Amount is: ", userInfo.amount);
 
     if (userInfo.email === "") {
       setEmailExists(false);
@@ -302,6 +303,7 @@ export default function PayAsYouLike() {
       }, 2000);
     } else {
       if (userInfo.amount > 0) {
+        console.log("Inside userInfo.amount > 0!!");
         handlePayment();
       }
 
