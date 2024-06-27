@@ -201,7 +201,7 @@ export default function PayAsYouLike() {
 
   async function handlePayment() {
     // Send order to Razorpay, verify payment, store payment, update contribution chart
-
+    console.log("Inside handlePayment!");
     const orderUrl = "https://api.fairyfolkthefilm.com/razorpay/create-order";
     const { amount, currency } = userInfo;
 
