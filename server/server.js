@@ -3,6 +3,7 @@ const cors = require("cors");
 const dotenv = require("dotenv").config(); // To access environment variables
 const Razorpay = require("razorpay");
 const bodyParser = require("body-parser");
+const fetch = require("node-fetch");
 
 const fs = require("fs");
 const path = require("path");
@@ -12,12 +13,18 @@ const port = process.env.PORT || 4001;
 
 app.use(bodyParser.json());
 
-app.use(cors({
-  origin: ['https://www.fairyfolkthefilm.com', 'https://karangour.github.io', 'http://localhost:3000'],
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true,
-})); //security feature and is critical
+app.use(
+  cors({
+    origin: [
+      "https://www.fairyfolkthefilm.com",
+      "https://karangour.github.io",
+      "http://localhost:3000",
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+  })
+); //security feature and is critical
 
 app.use((req, res, next) => {
   res.set("Cache-Control", "no-cache, no-store, must-revalidate"); //Cache-control middleware to force browser not to cache the page and recall browser each time
@@ -125,11 +132,11 @@ app.get("/conversionrate", (req, res) => {
 });
 
 // Serve static files from the React app
-app.use(express.static(path.join(__dirname, '../client/dist')));
+app.use(express.static(path.join(__dirname, "../client/dist")));
 
 // Catch-all handler to serve the React app
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/dist", "index.html"));
 });
 
 // This is to start the server when the run dev is started
