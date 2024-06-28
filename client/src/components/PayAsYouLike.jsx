@@ -199,6 +199,39 @@ export default function PayAsYouLike() {
       });
   }
 
+  function passwordCreation() {
+    // Send a POST call to server to store just user info like password and all, generate a password, time, etc.
+    fetch("https://api.fairyfolkthefilm.com/passwords/create", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userInfo),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          return response.json().then((err) => {
+            throw new Error(err.message || "Could not reach the server!");
+          });
+        }
+        return response.json();
+      })
+      .then((data) => {
+        updatedUserInfoRef.current = data;
+
+        console.log(
+          "We are inside /passwords/create and updatedUserInfo is:",
+          updatedUserInfoRef.current
+        );
+        // Send password to their email using getInTouch because email isn't working otherwise.
+        setShowSolver(true);
+        generateArithmeticProblem();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   async function handlePayment() {
     // Send order to Razorpay, verify payment, store payment, update contribution chart
     console.log("Inside handlePayment!");
@@ -229,17 +262,18 @@ export default function PayAsYouLike() {
           });
 
           if (paymentVerification.data.status === "success") {
-            setPaid(true);
-            setTimeout(() => {
-              setPaid(false);
-              setPasswordReadyForEmail(false);
-              setUserInfo({
-                name: "",
-                email: "",
-                currency: "INR",
-                amount: "",
-              });
-            }, 3500);
+            // setPaid(true);
+            // setTimeout(() => {
+            //   setPaid(false);
+            //   setPasswordReadyForEmail(false);
+            //   setUserInfo({
+            //     name: "",
+            //     email: "",
+            //     currency: "INR",
+            //     amount: "",
+            //   });
+            // }, 3500);
+            passwordCreation();
             if (currency === "USD") {
               const inrAmount = amount * usdToInr;
               newTotal = totalContributions + parseInt(inrAmount);
@@ -304,38 +338,9 @@ export default function PayAsYouLike() {
       if (userInfo.amount > 0) {
         console.log("Inside userInfo.amount > 0!!");
         handlePayment();
+      } else {
+        passwordCreation();
       }
-
-      // Send a POST call to server to store just user info like password and all, generate a password, time, etc.
-      fetch("https://api.fairyfolkthefilm.com/passwords/create", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userInfo),
-      })
-        .then((response) => {
-          if (!response.ok) {
-            return response.json().then((err) => {
-              throw new Error(err.message || "Could not reach the server!");
-            });
-          }
-          return response.json();
-        })
-        .then((data) => {
-          updatedUserInfoRef.current = data;
-
-          console.log(
-            "We are inside /passwords/create and updatedUserInfo is:",
-            updatedUserInfoRef.current
-          );
-          // Send password to their email using getInTouch because email isn't working otherwise.
-          setShowSolver(true);
-          generateArithmeticProblem();
-        })
-        .catch((error) => {
-          console.log(error);
-        });
     }
   }
 
