@@ -97,12 +97,11 @@ export default function WatchFilm() {
           className="cast-instruct"
           // style={{ filter: noYoutubeApp ? "blur(3px)" : "" }}
         >
-          Click this 'CAST' icon -
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- to watch the film on
-          your TV screen. Once the YouTube app launches on your phone, click the
-          CAST icon found on the top-right of the YouTube video. Ensure your
-          phone and your TV have the YouTube app installed, and are on the same
-          WiFi network.
+          Click here - &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- to
+          watch the film on your TV screen. Once the YouTube app launches,
+          you'll find the same icon on the top-right of the YouTube video -
+          click it. If it doesn't work, ensure your phone and your TV have the
+          YouTube app installed, and are on the same WiFi network.
         </p>
         <img
           src={cast}
