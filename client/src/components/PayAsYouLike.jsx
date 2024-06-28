@@ -339,7 +339,9 @@ export default function PayAsYouLike() {
         console.log("Inside userInfo.amount > 0!!");
         handlePayment();
       } else {
-        passwordCreation();
+        if (userInfo.amount > -1) {
+          passwordCreation();
+        }
       }
     }
   }
