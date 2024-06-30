@@ -12,6 +12,7 @@
   background: #000000;
   box-shadow: 0px 0px 30px 5px rgba(255, 255, 255, 0.1);
   border-radius: 50px;
+  position: relative;
 }
 
 #scroll-landing-videos {
@@ -80,6 +81,7 @@
 
   display: flex;
   justify-content: space-between;
+  position: relative;
 }
 
 .thumbnail-container {
@@ -123,6 +125,10 @@
   position: absolute;
   width: 100%;
   height: auto;
+}
+
+.arrows-container {
+  display: none;
 }
 
 /* ********************************************************************************* */
@@ -268,13 +274,13 @@
     font-weight: 300;
     font-size: 15px;
 
-    margin-top: 79px;
+    margin-top: 62px;
   }
 
   .title-bg {
     width: 150px;
     height: 17px;
-    margin-top: 70px;
+    margin-top: 55px;
   }
 }
 
@@ -290,7 +296,7 @@
   .videos {
     margin-top: 50px;
 
-    padding: 0px 50px 50px 50px;
+    padding: 0px 50px 20px 50px;
   }
 
   #scroll-landing-videos {
@@ -326,27 +332,85 @@
   }
 
   .video-thumbnails {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap; /* Prevents wrapping of child elements */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    scroll-behavior: smooth; /* Smooth scrolling on all modern browsers */
+    /* Hide scrollbar for Chrome, Safari, and Opera */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    /* Hide scrollbar for IE, Edge, and Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    /* border: 1px solid rgb(0, 255, 174); */
+  }
+
+  .video-thumbnails,
+  .arrows-container {
     width: 600px;
     height: 80px;
+    margin-top: 20px;
+  }
+
+  .arrows-container {
+    position: absolute;
+    bottom: 40px;
+    /* border: 1px solid red; */
+    display: block;
   }
 
   .thumbnail-container {
-    width: 110px;
-    height: 50px;
-    margin-top: 32px;
+    width: 130px;
+    height: 55px;
+    margin-top: 0px;
+    margin-left: 20px;
   }
 
   .thumbnail-title {
     font-weight: 300;
-    font-size: 11px;
-
-    margin-top: 47px;
+    font-size: 13px;
+    margin-top: 54px;
   }
 
   .title-bg {
-    width: 110px;
-    height: 12px;
-    margin-top: 40px;
+    width: 130px;
+    height: 14px;
+    margin-top: 45px;
+    /* background-color: red; */
+  }
+
+  .scroll-arrow {
+    cursor: pointer;
+    position: absolute;
+    width: 13px;
+    height: 25px;
+    background: rgb(0, 0, 0);
+    padding: 7px 0px 0px 0px;
+    border-width: 0.5px;
+    color: white;
+
+    border-style: double;
+    border-color: white;
+
+    z-index: 995;
+    top: 30px;
+    font-size: 13px;
+  }
+
+  .left-arrow {
+    border-radius: 0px 5px 5px 0px;
+    border-left: 0;
+    left: 0px;
+    text-align: left;
+  }
+
+  .right-arrow {
+    border-radius: 5px 0px 0px 5px;
+    border-right: 0;
+    text-align: right;
+    right: 0px;
   }
 }
 
@@ -363,7 +427,7 @@
   .videos {
     margin-top: 40px;
 
-    padding: 0px 30px 10px 30px;
+    padding: 0px 30px 20px 30px;
   }
 
   #scroll-landing-videos {
@@ -398,29 +462,36 @@
     height: 252px;
   }
 
-  .video-thumbnails {
+  .video-thumbnails,
+  .arrows-container {
     width: 450px;
     height: 85px;
+    margin-top: 5px;
+  }
+
+  .arrows-container {
+    bottom: 27px;
   }
 
   .thumbnail-container {
-    width: 80px;
+    width: 120px;
     height: 36.2px;
     margin-top: 24px;
+    margin-left: 20px;
     box-shadow: 0px 0px 10px 2px rgba(255, 255, 255, 0.2);
   }
 
   .thumbnail-title {
     font-weight: 300;
-    font-size: 8px;
+    font-size: 12px;
 
-    margin-top: 34px;
+    margin-top: 48px;
   }
 
   .title-bg {
-    width: 80px;
-    height: 9px;
-    margin-top: 30px;
+    width: 120px;
+    height: 15px;
+    margin-top: 39px;
   }
 }
 
@@ -471,29 +542,35 @@
     height: 168px;
   }
 
-  .video-thumbnails {
+  .video-thumbnails,
+  .arrows-container {
     width: 300px;
     height: 80px;
+    margin-top: 0px;
+  }
+
+  .arrows-container {
+    bottom: 5px;
   }
 
   .thumbnail-container {
-    width: 55px;
-    height: 25px;
-    margin-top: 22px;
-    box-shadow: 0px 0px 5px 1px rgba(255, 255, 255, 0.2);
+    width: 95px;
+    height: 36.2px;
+    margin-top: 24px;
+    margin-left: 15px;
   }
 
   .thumbnail-title {
     font-weight: 300;
-    font-size: 5px;
+    font-size: 10px;
 
-    margin-top: 23px;
+    margin-top: 39px;
   }
 
   .title-bg {
-    width: 55px;
-    height: 6px;
-    margin-top: 20px;
+    width: 120px;
+    height: 12px;
+    margin-top: 31px;
   }
 }
 
@@ -510,7 +587,8 @@
   .videos {
     margin-top: 40px;
 
-    padding: 0px 20px 0px 20px;
+    padding: 0px 20px 20px 20px;
+    border: 1px solid red;
   }
 
   #scroll-landing-videos {
@@ -545,11 +623,6 @@
     height: 157px;
   }
 
-  .video-thumbnails {
-    width: 280px;
-    height: 65px;
-  }
-
   .thumbnail-container {
     width: 49px;
     height: 22.17px;
@@ -557,16 +630,40 @@
     box-shadow: 0px 0px 3px 1px rgba(255, 255, 255, 0.2);
   }
 
+  .video-thumbnails,
+  .arrows-container {
+    width: 280px;
+    height: 65px;
+    margin-top: -5px;
+  }
+
+  .arrows-container {
+    bottom: 23px;
+  }
+
+  .scroll-arrow {
+    font-size: 10px;
+    padding-top: 6px;
+    height: 19px;
+  }
+
+  .thumbnail-container {
+    width: 95px;
+    height: 36.2px;
+    margin-top: 24px;
+    margin-left: 15px;
+  }
+
   .thumbnail-title {
     font-weight: 300;
-    font-size: 5px;
+    font-size: 10px;
 
-    margin-top: 23px;
+    margin-top: 39px;
   }
 
   .title-bg {
-    width: 55px;
-    height: 6px;
-    margin-top: 20px;
+    width: 120px;
+    height: 12px;
+    margin-top: 31px;
   }
 }

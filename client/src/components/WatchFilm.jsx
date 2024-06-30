@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import cast from "./../assets/Cast.png";
 import poster from "./../assets/FairyFolkWebsitePoster.png";
 import VideoPlayer from "./VideoPlayer";
@@ -10,6 +10,25 @@ export default function WatchFilm() {
   const [passValid, setPassValid] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [showErrorWindow, setShowErrorWindow] = useState(false);
+
+  useEffect(() => {
+    // Add viewport meta tag if it doesn't exist
+    let viewportMetaTag = document.querySelector('meta[name="viewport"]');
+    if (!viewportMetaTag) {
+      viewportMetaTag = document.createElement("meta");
+      viewportMetaTag.name = "viewport";
+      viewportMetaTag.content = "width=device-width, initial-scale=1.0";
+      document.head.appendChild(viewportMetaTag);
+    }
+
+    // Check for iPhone and set maximum-scale if true
+    if (navigator.userAgent.indexOf("iPhone") > -1) {
+      viewportMetaTag.setAttribute(
+        "content",
+        "width=device-width, initial-scale=1, maximum-scale=1"
+      );
+    }
+  }, []);
 
   function handleCast() {
     const videoUrl = "https://www.youtube.com/watch?v=lfOxA7NPJDg";

@@ -71,7 +71,14 @@ export default function Videos() {
     );
   });
 
-  console.log("active thumbnail:" + activeThumbnail);
+  const scrollThumbnails = (direction) => {
+    const container = document.querySelector(".video-thumbnails");
+    const scrollAmount = 250; // Adjust this value as needed
+    container.scrollBy({
+      left: direction === "left" ? -scrollAmount : scrollAmount,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <div className="videos">
@@ -87,6 +94,20 @@ export default function Videos() {
           : "Loading videos..."}
       </h1>
       <VideoPlayer options={videoJsOptions} firstTime={firstTime} />
+      <div className="arrows-container">
+        <div
+          className="scroll-arrow left-arrow"
+          onClick={() => scrollThumbnails("left")}
+        >
+          &lt;
+        </div>
+        <div
+          className="scroll-arrow right-arrow"
+          onClick={() => scrollThumbnails("right")}
+        >
+          &gt;
+        </div>
+      </div>
       <div className="video-thumbnails">{videoThumbnails}</div>
     </div>
   );
