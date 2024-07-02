@@ -45,7 +45,7 @@ router.route("/").post((req, res) => {
       }</h3><br><i>Expiry:</i> <h4 style="display:inline;">${passwordValidity.toLocaleString(
         "en-US",
         options
-      )}</h4><br><br> Thanks again for making the time for our film. We hope you enjoy watching it as much as we enjoyed making it! <br> It would mean a lot if you could share the film, leave a review on <a href="https://www.imdb.com/title/tt20202992/" target="_blank">IMDb</a> or <a href="https://letterboxd.com/film/fairy-folk/" target="_blank">Letterboxd</a>, and/or contribute if you haven't already. If you've already contributed (and are feeling extra generous), you could contribute again for a friend and gift them a password? We're counting on you!</b> `,
+      )} (GMT)</h4><br><br> Thanks again for making the time for our film. We hope you enjoy watching it as much as we enjoyed making it! <br> It would mean a lot if you could share the film, leave a review on <a href="https://www.imdb.com/title/tt20202992/" target="_blank">IMDb</a> or <a href="https://letterboxd.com/film/fairy-folk/" target="_blank">Letterboxd</a>, and/or contribute if you haven't already. If you've already contributed (and are feeling extra generous), you could contribute again for a friend and gift them a password? We're counting on you!</b> `,
     };
   } else {
     mailOptions = {

@@ -85,17 +85,17 @@ export default function PayAsYouLike() {
       .then((response) => response.json())
       .then((data) => {
         console.log(data.message);
-        setUserInfo({
-          name: "",
-          email: "",
-          amount: "",
-          date: "",
-        });
         setUserAnswer("");
         setLoading(false);
         setShowSolver(false);
         setPaid(true);
         setTimeout(() => {
+          setUserInfo({
+            name: "",
+            email: "",
+            amount: "",
+            date: "",
+          });
           setPaid(false);
         }, 4000);
         setUserExists(false);
