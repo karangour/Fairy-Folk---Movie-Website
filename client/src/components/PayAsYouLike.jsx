@@ -9,6 +9,7 @@ export default function PayAsYouLike() {
     email: "",
     currency: "INR", //default currency
     amount: "",
+    date: "",
   });
   const [totalContributions, setTotalContributions] = useState(1);
   const [contriInrUsd, setContriInrUsd] = useState("₹1 / $1");
@@ -88,6 +89,7 @@ export default function PayAsYouLike() {
           name: "",
           email: "",
           amount: "",
+          date: "",
         });
         setUserAnswer("");
         setLoading(false);
@@ -201,12 +203,18 @@ export default function PayAsYouLike() {
 
   function passwordCreation() {
     // Send a POST call to server to store just user info like password and all, generate a password, time, etc.
+    const userInfoAddedDate = {
+      ...userInfo,
+      date: new Date().toISOString(),
+    };
+    setUserInfo(userInfoAddedDate);
+
     fetch("https://api.fairyfolkthefilm.com/passwords/create", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(userInfo),
+      body: JSON.stringify(userInfoAddedDate),
     })
       .then((response) => {
         if (!response.ok) {
@@ -218,12 +226,6 @@ export default function PayAsYouLike() {
       })
       .then((data) => {
         updatedUserInfoRef.current = data;
-
-        console.log(
-          "We are inside /passwords/create and updatedUserInfo is:",
-          updatedUserInfoRef.current
-        );
-        // Send password to their email using getInTouch because email isn't working otherwise.
         setShowSolver(true);
         generateArithmeticProblem();
       })
@@ -262,17 +264,6 @@ export default function PayAsYouLike() {
           });
 
           if (paymentVerification.data.status === "success") {
-            // setPaid(true);
-            // setTimeout(() => {
-            //   setPaid(false);
-            //   setPasswordReadyForEmail(false);
-            //   setUserInfo({
-            //     name: "",
-            //     email: "",
-            //     currency: "INR",
-            //     amount: "",
-            //   });
-            // }, 3500);
             passwordCreation();
             if (currency === "USD") {
               const inrAmount = amount * usdToInr;
@@ -462,6 +453,7 @@ export default function PayAsYouLike() {
                 value={userInfo.name}
                 onChange={handleChange}
                 className="input-name input-format"
+                autocomplete="name"
               />
               <input
                 type="email"
@@ -469,6 +461,7 @@ export default function PayAsYouLike() {
                 value={userInfo.email}
                 onChange={handleChange}
                 className="input-email input-format"
+                autocomplete="email"
               />
               <input
                 type="number"
@@ -476,6 +469,7 @@ export default function PayAsYouLike() {
                 value={userInfo.amount}
                 onChange={handleChange}
                 className="input-amount input-format"
+                autocomplete="off"
               />
               <p className="contribution-zero">
                 (you can enter '0' if you don't feel like contributing at this

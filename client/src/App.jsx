@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import MenuElements from "./components/MenuElements";
 import Home from "./components/Home";
-import poster from "./assets/FairyFolkWebsitePoster.png";
+import poster from "./assets/FairyFolkWebsitePoster.jpg";
 import poster2 from "./assets/FairyFolkIntegratedPoster.jpg"
 import PayAsYouLike from "./components/PayAsYouLike";
 import WatchFilm from "./components/WatchFilm";

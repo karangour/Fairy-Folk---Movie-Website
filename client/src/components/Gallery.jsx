@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useSwipeable } from "react-swipeable";
 import right from "./../assets/RightArrow.png";
 import left from "./../assets/LeftArrow.png";
 import "./css/Gallery.css";
@@ -12,7 +13,6 @@ export default function Gallery() {
 
   useEffect(() => {
     const backendUrl = "https://api.fairyfolkthefilm.com";
-   
 
     fetch(`${backendUrl}/assets/gallery`)
       .then((response) => {
@@ -32,11 +32,11 @@ export default function Gallery() {
       });
   }, []);
 
-  useEffect(() => {
-    if (images.length > 0) {
-      console.log("I don't know what this is:", images[imageTrack].img);
-    }
-  }, [images, imageTrack]);
+  // useEffect(() => {
+  //   if (images.length > 0) {
+  //     console.log(images[imageTrack].img);
+  //   }
+  // }, [images, imageTrack]);
 
   function handleArrowShowing() {
     return setArrowShowing((prevState) => !prevState);
@@ -47,13 +47,23 @@ export default function Gallery() {
   }
 
   function handleLeftArrow() {
-    if (imageTrack != 0) return setImageTrack((prev) => prev - 1);
+    if (imageTrack != 0) {
+      return setImageTrack((prev) => prev - 1);
+    } else setImageTrack(images.length - 1);
   }
 
   function handleRightArrow() {
-    if (imageTrack != images.length - 1)
+    if (imageTrack != images.length - 1) {
       return setImageTrack((prev) => prev + 1);
+    } else return setImageTrack(0);
   }
+
+  const handlers = useSwipeable({
+    onSwipedLeft: () => handleRightArrow(),
+    onSwipedRight: () => handleLeftArrow(),
+    preventDefaultTouchmoveEvent: true,
+    trackMouse: true,
+  });
 
   return (
     <div className="gallery">
@@ -65,6 +75,7 @@ export default function Gallery() {
         className="gallery-window"
         onMouseOver={handleArrowShowing}
         onMouseOut={handleMouseOut}
+        {...handlers}
       >
         <div className={`arrow-div ${arrowShowing ? "show-arrows" : ""}`}>
           <img

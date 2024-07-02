@@ -31,7 +31,7 @@ export default function WatchFilm() {
   }, []);
 
   function handleCast() {
-    const videoUrl = "https://www.youtube.com/watch?v=lfOxA7NPJDg";
+    const videoUrl = "https://www.youtube.com/watch?v=YU3eik57lSg";
     const appScheme = `vnd.youtube://${videoUrl.split("watch?v=")[1]}`;
 
     const start = Date.now();
@@ -45,7 +45,12 @@ export default function WatchFilm() {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("inside handleSubmit");
-    const data = { password }; //this creates an object called 'data' that holds a key called 'password' with what is stored in password as its value. Important for server things.
+    const data = {
+      password,
+      date: new Date().toISOString(),
+    };
+    
+    // const data = { password }; //this creates an object called 'data' that holds a key called 'password' with what is stored in password as its value. Important for server things.
 
     fetch("https://api.fairyfolkthefilm.com/passwords/verify", {
       method: "POST", // Because we're handling sensitive passwords, POST is preferred over GET
@@ -90,7 +95,7 @@ export default function WatchFilm() {
       controls: true,
       sources: [
         {
-          src: "https://www.youtube.com/watch?v=lfOxA7NPJDg",
+          src: "https://www.youtube.com/watch?v=YU3eik57lSg",
           type: "video/youtube",
         },
       ],

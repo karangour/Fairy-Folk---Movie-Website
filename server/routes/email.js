@@ -35,21 +35,21 @@ router.route("/").post((req, res) => {
     };
 
     mailOptions = {
-      from: myEmail,
+      from: `"Empatheia Films" <${myEmail}>`,
       to: form.email,
       subject: "Your Fairy Folk PASSWORD is here!",
       html: `Dear ${
         form.name || form.email
       }, <br><br>Your PASSWORD: <h3 style="display:inline;">${
         form.password
-      }</h3><br><i>Expiry:</i> <h4 style="display:inline;">${passwordValidity.toLocaleDateString(
+      }</h3><br><i>Expiry:</i> <h4 style="display:inline;">${passwordValidity.toLocaleString(
         "en-US",
         options
-      )}</h4><br><br> Thanks again for making the time for our film. We hope you enjoy watching it as much as we enjoyed making it! <br><br><b>P.S. It would mean a lot if you could share the film, leave a review, or just shout about it from your balcony...anything to spread the word. We're counting on you!</b> `,
+      )}</h4><br><br> Thanks again for making the time for our film. We hope you enjoy watching it as much as we enjoyed making it! <br> It would mean a lot if you could share the film, leave a review on <a href="https://www.imdb.com/title/tt20202992/" target="_blank">IMDb</a> or <a href="https://letterboxd.com/film/fairy-folk/" target="_blank">Letterboxd</a>, and/or contribute if you haven't already. If you've already contributed (and are feeling extra generous), you could contribute again for a friend and gift them a password? We're counting on you!</b> `,
     };
   } else {
     mailOptions = {
-      from: myEmail,
+      from: `"Empatheia Films" <${myEmail}>`,
       to: "karangour@gmail.com",
       subject: "GetInTouch from fairyfolkthefilm.com",
       html: `FROM: ${form.name}<br>EMAIL: ${form.email}<br>SUBJECT: ${form.subject}<br>MESSAGE: ${form.message}`,

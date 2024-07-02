@@ -4,7 +4,7 @@ const { getPasswords, setPassword } = require("./passwords");
 
 router.route("/verify").post((req, res) => {
   console.log(req.body);
-  const { password } = req.body; //save the password gotten from the request from the client
+  const { password, date: currentDate } = req.body; //save the password gotten from the request from the client
   const passwords = getPasswords(); //to GET the passwords array from the file in JSON object format
   let isValid = false;
   let hasExpired = false;
@@ -15,7 +15,7 @@ router.route("/verify").post((req, res) => {
       if (p.expired) {
         hasExpired = true;
       } else if (!p.expired) {
-        const currentDate = new Date();
+        const currentDate = new Date(currentDate);
         const passwordDate = new Date(p.date);
 
         if (currentDate - passwordDate > 172800000) {

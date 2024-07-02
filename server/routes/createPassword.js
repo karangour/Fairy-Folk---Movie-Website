@@ -18,7 +18,7 @@ router.route("/create").post((req, res) => {
   function createPassword(user) {
     user.name = userInfo.name;
     user.password = crypto.randomBytes(7).toString("hex").slice(0, 7);
-    user.date = new Date();
+    user.date = userInfo.date;
     user.expired = false;
     user.amount = Number(userInfo.amount) + Number(user.amount);
 
