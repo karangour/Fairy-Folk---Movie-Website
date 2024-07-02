@@ -392,7 +392,7 @@ export default function PayAsYouLike() {
         onClick={() => setPaid(false)}
       >
         <h1>
-          {userInfo.amount > 0 && "THANK YOU!<br />"}
+          {userInfo.amount > 0 && "THANK YOU! "}
           You'll find your password in your email.
         </h1>
       </div>
