@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import cast from "./../assets/Cast.png";
-import poster from "./../assets/FairyFolkWebsitePoster.png";
 import VideoPlayer from "./VideoPlayer";
 import "./css/WatchFilm.css";
 
@@ -49,7 +48,7 @@ export default function WatchFilm() {
       password,
       date: new Date().toISOString(),
     };
-    
+
     // const data = { password }; //this creates an object called 'data' that holds a key called 'password' with what is stored in password as its value. Important for server things.
 
     fetch("https://api.fairyfolkthefilm.com/passwords/verify", {
