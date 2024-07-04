@@ -375,7 +375,7 @@
     height: 67px;
     width: 230px;
     border: 2px solid #ff7a00;
-    border-radius: 20px;
+    border-radius: 18px;
   }
 
   .heading-thin-home {
@@ -398,23 +398,24 @@
   }
 
   .home-buttons {
-    width: 250px;
+    width: 235px;
 
     margin: 0px;
     padding: 0px;
     position: relative;
+
     /* border: 1px solid red; */
   }
 
   .need-text,
   .have-text {
-    width: 70px;
+    width: 63px;
     height: fit-content;
     margin: 0px;
     font-size: 8px;
 
     position: absolute;
-    top: 2px;
+    top: 2.5px;
     /* border: 1px solid green; */
   }
   .need-text {
@@ -428,7 +429,7 @@
   .have-button {
     width: 80px;
     height: 17px;
-    border-radius: 7px;
+    border-radius: 5px;
   }
 }
 
@@ -438,7 +439,7 @@
     height: 55px;
     width: 180px;
     border: 2px solid #ff7a00;
-    border-radius: 18px;
+    border-radius: 15px;
   }
 
   .heading-thin-home {

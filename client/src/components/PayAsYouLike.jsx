@@ -7,7 +7,7 @@ export default function PayAsYouLike() {
   const [userInfo, setUserInfo] = useState({
     name: "",
     email: "",
-    currency: "INR", //default currency
+    currency: "USD", //default currency
     amount: "",
     date: "",
   });
@@ -482,8 +482,8 @@ export default function PayAsYouLike() {
               value={userInfo.currency}
               onChange={handleChange}
             >
-              <option value="INR">INR</option>
               <option value="USD">USD</option>
+              <option value="INR">INR</option>
               <option value="EUR">EUR</option>
               <option value="JPY">JPY</option>
               <option value="GBP">GBP</option>
@@ -497,6 +497,9 @@ export default function PayAsYouLike() {
           </div>
           <div className="payasyoulike-button">
             {/* <h3 className="get-password-text oswald">GET PASSWORD</h3> */}
+            <h2 className="credit-card-notice">We are facing technical issues for International Credit/Debit cards at the moment.<br />
+            Please use the PayPal option while we sort it out. It's very easy to follow! 😊
+            </h2>
             <button
               className={`oswald get-password-button ${
                 userExists

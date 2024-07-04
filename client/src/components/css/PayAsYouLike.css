@@ -534,6 +534,22 @@
   text-align: center;
 }
 
+.credit-card-notice {
+  font-family: "Questrial";
+  font-style: normal;
+  font-weight: 400;
+  margin-top: 12px;
+  margin-bottom: -10px;
+
+  font-size: 14px;
+  text-align: center;
+
+  color: white;
+  padding: 4px 4px 4px 4px;
+  background-color: red;
+  border: 1px solid rgb(255, 255, 255);
+}
+
 /* --------------------------------------------------------------------- */
 
 @media (max-width: 1620px) {
@@ -656,6 +672,15 @@
     width: 281px;
 
     margin-left: 297px;
+  }
+
+  .credit-card-notice {
+    margin-top: 8px;
+    margin-bottom: -16px;
+
+    font-size: 13px;
+
+    padding: 4px 4px 4px 4px;
   }
 }
 
@@ -867,6 +892,15 @@
 
     border: none;
     border-radius: 5px;
+  }
+
+  .credit-card-notice {
+    margin-top: 8px;
+    margin-bottom: -16px;
+
+    font-size: 11px;
+
+    padding: 4px 4px 4px 4px;
   }
 }
 
@@ -1096,6 +1130,15 @@
 
     padding: 5px 5px 5px 5px;
   }
+
+  .credit-card-notice {
+    margin-top: 8px;
+    margin-bottom: -12px;
+
+    font-size: 8.2px;
+
+    padding: 2px 2px 2px 2px;
+  }
 }
 
 @media (max-width: 361px) {
@@ -1323,5 +1366,14 @@
     line-height: 20px;
 
     padding: 5px 5px 5px 5px;
+  }
+
+  .credit-card-notice {
+    margin-top: 8px;
+    margin-bottom: -11px;
+
+    font-size: 7.2px;
+
+    padding: 2px 2px 2px 2px;
   }
 }
