@@ -258,7 +258,7 @@ export default function PayAsYouLike() {
         amount: order.data.amount,
         currency: order.data.currency,
         name: "Empatheia Films",
-        description: "Test Transaction",
+        description: "Fairy Folk - The Film",
         image: "",
         order_id: order.data.id,
         handler: async function (response) {
