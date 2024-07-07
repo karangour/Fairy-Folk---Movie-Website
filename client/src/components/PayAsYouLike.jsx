@@ -491,7 +491,7 @@ export default function PayAsYouLike() {
             >
               <option value="INR">INR</option>
               <option value="USD">USD</option>
-              <option value="EUR">EUR</option>
+              {/* <option value="EUR">EUR</option>
               <option value="JPY">JPY</option>
               <option value="GBP">GBP</option>
               <option value="AUD">AUD</option>
@@ -499,14 +499,13 @@ export default function PayAsYouLike() {
               <option value="CHF">CHF</option>
               <option value="CNH">CNH</option>
               <option value="HKD">HKD</option>
-              <option value="NZD">NZD</option>
+              <option value="NZD">NZD</option> */}
             </select>
           </div>
           <div className="payasyoulike-button">
             {/* <h3 className="get-password-text oswald">GET PASSWORD</h3> */}
             <h2 className="credit-card-notice">
-              If you're outside India, please select your preferred currency,
-              then
+              VIEWERS OUTSIDE INDIA: Please select 'USD' as currency, then
               <br />
               choose 'PayPal' when the payment window opens. It's very easy 😊.
             </h2>
