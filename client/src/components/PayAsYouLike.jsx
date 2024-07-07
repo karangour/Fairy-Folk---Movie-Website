@@ -7,7 +7,7 @@ export default function PayAsYouLike() {
   const [userInfo, setUserInfo] = useState({
     name: "",
     email: "",
-    currency: "USD", //default currency
+    currency: "INR", //default currency
     amount: "",
     date: "",
   });
@@ -170,6 +170,13 @@ export default function PayAsYouLike() {
         [name]: value,
       };
     });
+
+    if (name === "currency") {
+      setUserInfo((prev) => ({
+        ...prev,
+        amount: "",
+      }));
+    }
 
     if (name === "amount" && value.trim().length > 0) {
       setUserExists(true);
@@ -482,8 +489,8 @@ export default function PayAsYouLike() {
               value={userInfo.currency}
               onChange={handleChange}
             >
-              <option value="USD">USD</option>
               <option value="INR">INR</option>
+              <option value="USD">USD</option>
               <option value="EUR">EUR</option>
               <option value="JPY">JPY</option>
               <option value="GBP">GBP</option>
@@ -498,11 +505,10 @@ export default function PayAsYouLike() {
           <div className="payasyoulike-button">
             {/* <h3 className="get-password-text oswald">GET PASSWORD</h3> */}
             <h2 className="credit-card-notice">
-              We are currently facing issues with International Credit/Debit
-              cards.
+              If you're outside India, please select your preferred currency,
+              then
               <br />
-              Please use the PayPal option in the meantime. It's easy to follow
-              😊.
+              choose 'PayPal' when the payment window opens. It's very easy 😊.
             </h2>
             <button
               className={`oswald get-password-button ${
