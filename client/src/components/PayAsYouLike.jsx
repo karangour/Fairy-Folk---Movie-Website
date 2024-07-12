@@ -403,12 +403,15 @@ export default function PayAsYouLike() {
           You'll find your password in your email.
         </h1>
       </div>
-      <div
-        className={`email-notice ${!emailExists ? "email-notice-show" : ""}`}
-        onClick={() => setEmailExists(true)}
-      >
-        <h1>Enter a valid email address.</h1>
-      </div>
+      {!emailExists && (
+        <div
+          className="email-notice email-notice-show"
+          onClick={() => setEmailExists(true)}
+        >
+          <h1>Enter a valid email address.</h1>
+        </div>
+      )}
+
       <div
         className="payasyoulike"
         style={{
