@@ -13,7 +13,7 @@ export default function PayAsYouLike() {
   });
   const [totalContributions, setTotalContributions] = useState(1);
   const [contriInrUsd, setContriInrUsd] = useState("₹1 / $1");
-  const [totalBudget, setTotalBudget] = useState(`₹2,10,00,000 / $1`);
+  const [totalBudget, setTotalBudget] = useState(`₹2,03,98,526 / $1`);
   const [razorpayKey, setRazorpayKey] = useState("");
   const [usdToInr, setUsdToInr] = useState(1);
   const [contriFillWidth, setContriFillWidth] = useState(0);
@@ -151,11 +151,11 @@ export default function PayAsYouLike() {
           totalContributions / data.conversion_rates.INR
         );
         const budgetUSD = formatUSD.format(
-          21000000 / data.conversion_rates.INR
+          20398526 / data.conversion_rates.INR
         );
         setContriInrUsd(`${contriINR} / ${contriUSD}`);
-        setTotalBudget(`₹2,01,24,526 / ${budgetUSD}`);
-        setContriFillWidth((totalContributions / 20124526) * 100);
+        setTotalBudget(`₹2,03,98,526 / ${budgetUSD}`);
+        setContriFillWidth((totalContributions / 20398526) * 100);
       })
       .catch((error) => {
         console.error(error.result);
