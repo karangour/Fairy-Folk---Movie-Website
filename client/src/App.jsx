@@ -33,10 +33,13 @@ function ScrollToSection() {
 }
 
 export default function App() {
+
+  const [isFirstLoad, setIsFirstLoad] = useState(true);
+
   return (
     <Router>
       <ScrollToSection />
-      <div className="everything" id="scroll-landing-home">
+      <div className={`everything ${isFirstLoad ? "fade-up-poster-elements" : ""}`} id="scroll-landing-home">
         <div className="footers">
           <div className="footer-width-control">
             <a
