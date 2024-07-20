@@ -33,13 +33,15 @@ function ScrollToSection() {
 }
 
 export default function App() {
-
   const [isFirstLoad, setIsFirstLoad] = useState(true);
 
   return (
     <Router>
       <ScrollToSection />
-      <div className={`everything ${isFirstLoad ? "fade-up-poster-elements" : ""}`} id="scroll-landing-home">
+      <div
+        className={`everything ${isFirstLoad ? "fade-up-poster-elements" : ""}`}
+        id="scroll-landing-home"
+      >
         <div className="footers">
           <div className="footer-width-control">
             <a
@@ -50,10 +52,19 @@ export default function App() {
             >
               -PRIVACY POLICY-
             </a>
+            <a
+              className="privacy-policy"
+              href="/cancellation-policy.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              -CANCELLATION POLICY-
+            </a>
 
+            {/* 
             <p className="rights-notice">
               © 2024 EMPATHEIA FILMS ALL RIGHTS RESERVED
-            </p>
+            </p> */}
             <a
               className="terms-of-use"
               href="/terms-of-use.pdf"
