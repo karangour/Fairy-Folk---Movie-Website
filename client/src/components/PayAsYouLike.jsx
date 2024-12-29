@@ -299,7 +299,7 @@ export default function PayAsYouLike() {
           });
 
           if (paymentVerification.data.status === "success") {
-            passwordCreation();
+            // passwordCreation();
             if (currency === "USD") {
               const inrAmount = amount * usdToInr;
               newTotal = totalContributions + parseInt(inrAmount);
@@ -365,7 +365,9 @@ export default function PayAsYouLike() {
         console.log("Inside userInfo.amount > 0!!");
         handlePayment();
       }
-      passwordCreation();
+      setTimeout(() => {
+        passwordCreation();
+      }, 3000);
       // else {
       //   if (userInfo.amount > -1) {
       //     passwordCreation();
@@ -385,16 +387,16 @@ export default function PayAsYouLike() {
             <img className="loading-animation" src={load_animation} />
           ) : emailError ? (
             <div
-                className="email-notice email-notice-show"
-                style={{ backgroundColor: "red"}}
+              className="email-notice email-notice-show"
+              style={{ backgroundColor: "red" }}
               onClick={() => setEmailError(false)}
             >
-              <h1 style={{backgroundColor: "transparent"}}>
+              <h1 style={{ backgroundColor: "transparent" }}>
                 Apologies, there was an email error.
                 <br />
-                  Please re-enter your name, email,
-                  <br />
-                  but this time type '0' for AMOUNT.
+                Please re-enter your name, email,
+                <br />
+                but this time type '0' for AMOUNT.
               </h1>
             </div>
           ) : (
