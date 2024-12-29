@@ -18,7 +18,7 @@ export default function PayAsYouLike() {
   const [usdToInr, setUsdToInr] = useState(1);
   const [contriFillWidth, setContriFillWidth] = useState(0);
   const [paid, setPaid] = useState(false);
-  const [showSolver, setShowSolver] = useState(false);
+  const [showSolver, setShowSolver] = useState(false); //<---
   const [arithmeticProblem, setArithmeticProblem] = useState("");
   const [userAnswer, setUserAnswer] = useState("");
   const [correctAnswer, setCorrectAnswer] = useState(null);
@@ -27,6 +27,7 @@ export default function PayAsYouLike() {
   const [userExists, setUserExists] = useState(false);
   const [emailExists, setEmailExists] = useState(true);
   const [amountExists, setAmountExists] = useState(false);
+  const [emailError, setEmailError] = useState(false); //<---
 
   const updatedUserInfoRef = useRef(null);
 
@@ -77,12 +78,24 @@ export default function PayAsYouLike() {
       "Inside PayAsYouLike -> sendMail for form:",
       updatedUserInfoRef.current
     );
-    fetch("https://api.fairyfolkthefilm.com/email", {
+
+    const emailTimeout = new Promise((_, reject) =>
+      setTimeout(() => {
+        reject(new Error("Email request timed out after 8 seconds."));
+      }, 8000)
+    );
+
+    const emailRequest = fetch("https://api.fairyfolkthefilm.com/email", {
       method: "POST",
       body: JSON.stringify(updatedUserInfoRef.current),
       headers: { "Content-Type": "application/json" },
     })
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to send email. Please try again later.");
+        }
+        return response.json();
+      })
       .then((data) => {
         console.log(data.message);
         setUserAnswer("");
@@ -99,8 +112,23 @@ export default function PayAsYouLike() {
           setPaid(false);
         }, 4000);
         setUserExists(false);
-      })
-      .catch((error) => console.log("Error:", error.message));
+      });
+
+    Promise.race([emailRequest, emailTimeout]).catch((error) => {
+      console.error("Error:", error.message);
+
+      // Reset loading and show error notice
+      setLoading(false);
+      setShowSolver(false);
+      setEmailError(true);
+      setUserInfo({
+        name: "",
+        email: "",
+        amount: "",
+        date: "",
+      });
+      setUserExists(false);
+    });
   }
 
   useEffect(() => {
@@ -353,6 +381,20 @@ export default function PayAsYouLike() {
         <div className="solver-overlay">
           {loading ? (
             <img className="loading-animation" src={load_animation} />
+          ) : emailError ? (
+            <div
+                className="email-notice email-notice-show"
+                style={{ backgroundColor: "red"}}
+              onClick={() => setEmailError(false)}
+            >
+              <h1 style={{backgroundColor: "transparent"}}>
+                Apologies, there was an email error.
+                <br />
+                  Please re-enter your name, email,
+                  <br />
+                  but this time type '0' for AMOUNT.
+              </h1>
+            </div>
           ) : (
             <div className={`solver ${showSolver ? "solver-show" : ""}`}>
               <h1>
