@@ -299,7 +299,17 @@ export default function PayAsYouLike() {
           });
 
           if (paymentVerification.data.status === "success") {
+            
             // passwordCreation();
+            setShowSolver(false);
+            setLoading(false);
+            setEmailError(true);
+            console.log("Sucessful payment. value of emailError is:", emailError);
+            setUserInfo({
+              name: userInfo.name,
+              email: userInfo.email,
+              amount: ""
+            })
             if (currency === "USD") {
               const inrAmount = amount * usdToInr;
               newTotal = totalContributions + parseInt(inrAmount);
@@ -364,15 +374,12 @@ export default function PayAsYouLike() {
       if (userInfo.amount > 0) {
         console.log("Inside userInfo.amount > 0!!");
         handlePayment();
+      } 
+      else {
+        if (userInfo.amount > -1) {
+          passwordCreation();
+        }
       }
-      setTimeout(() => {
-        passwordCreation();
-      }, 3000);
-      // else {
-      //   if (userInfo.amount > -1) {
-      //     passwordCreation();
-      //   }
-      // }
     }
   }
 
@@ -381,24 +388,23 @@ export default function PayAsYouLike() {
       className="payasyoulike-container"
       style={{ position: paid ? "relative" : "static" }}
     >
+      {emailError && (
+            <div
+              className="msg-paid-notice msg-paid-notice-show"
+              style={{ backgroundColor: "white" }}
+              onClick={() => setEmailError(false)}
+            >
+              <h1 style={{ backgroundColor: "transparent", color: "red" }}>
+                Apologies, there was an email error.
+                <br />
+                Please type '0' for Amount and click 'GET PASSWORD'.
+              </h1>
+            </div>
+          )}
       {showSolver && (
         <div className="solver-overlay">
           {loading ? (
             <img className="loading-animation" src={load_animation} />
-          ) : emailError ? (
-            <div
-              className="email-notice email-notice-show"
-              style={{ backgroundColor: "red" }}
-              onClick={() => setEmailError(false)}
-            >
-              <h1 style={{ backgroundColor: "transparent" }}>
-                Apologies, there was an email error.
-                <br />
-                Please re-enter your name, email,
-                <br />
-                but this time type '0' for AMOUNT.
-              </h1>
-            </div>
           ) : (
             <div className={`solver ${showSolver ? "solver-show" : ""}`}>
               <h1>
@@ -461,7 +467,7 @@ export default function PayAsYouLike() {
       <div
         className="payasyoulike"
         style={{
-          filter: paid || !emailExists ? "blur(3px)" : "",
+          filter: paid || emailError || !emailExists ? "blur(3px)" : "",
           transition: "filter 1s ease",
         }}
       >
