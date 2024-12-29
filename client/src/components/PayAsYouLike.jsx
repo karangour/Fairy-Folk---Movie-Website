@@ -364,11 +364,13 @@ export default function PayAsYouLike() {
       if (userInfo.amount > 0) {
         console.log("Inside userInfo.amount > 0!!");
         handlePayment();
-      } else {
-        if (userInfo.amount > -1) {
-          passwordCreation();
-        }
       }
+      passwordCreation();
+      // else {
+      //   if (userInfo.amount > -1) {
+      //     passwordCreation();
+      //   }
+      // }
     }
   }
 
