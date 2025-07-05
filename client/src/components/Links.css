@@ -1,0 +1,277 @@
+/* Links Component Styles */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@275;300;400;700&family=Oswald:wght@400;500&display=swap');
+
+/* Links Container */
+.links-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  height: 90vh;
+  width: 100%;
+  background-color: transparent;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* Trailer Container */
+.trailer-container {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.trailer-video {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  display: block;
+}
+
+/* Links Section */
+.links-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 40%;
+  width: 100%;
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Section Title */
+.section-title {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: #ffffff;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 10px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background-color: #e94560;
+}
+
+/* Watch Links Styles */
+.watch-section, .review-section {
+  width: 100%;
+}
+
+.watch-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.prime-video-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  width: 30%;
+}
+
+.prime-video-logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 15px;
+  background-color: white;
+  border-radius:8px;
+  padding: 5px 10px 5px 10px
+}
+
+.region-links {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+  
+}
+
+.region-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 400;
+  font-family: 'Outfit', sans-serif;
+  background-color: #232f3e;
+  padding: 5px 12px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.region-link:hover {
+  background-color: #00a8e1;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Review Links Styles */
+.review-links {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  width: 100%;
+}
+
+.review-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ 
+ 
+  
+  width: 100px;
+  height: 100px;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.review-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.review-logo {
+  max-width: 70%;
+  max-height: 80%;
+  object-fit: contain;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .links-container {
+    padding: 15px 20px;
+  }
+  
+  .watch-link {
+    width: 150px;
+  }
+  
+  .review-link {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .links-container {
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .trailer-container {
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    position: relative;
+  }
+  
+  .trailer-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .links-section {
+    height: auto;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .links-container {
+    padding: 15px;
+  }
+  
+  .section-title {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+  }
+  
+  .watch-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    justify-items: center;
+  }
+  
+  .watch-link {
+    width: 140px;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    margin-bottom: 0;
+  }
+  
+  .platform-icon {
+    margin-bottom: 8px;
+    height: 35px;
+  }
+  
+  .review-links {
+    gap: 20px;
+  }
+  
+  .review-link {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .links-container {
+    padding: 10px;
+  }
+  
+  .section-title {
+    font-size: 1.3rem;
+  }
+  
+  .watch-links {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .watch-link {
+    width: 120px;
+    padding: 8px;
+  }
+  
+  .platform-icon {
+    height: 30px;
+    margin-bottom: 6px;
+  }
+  
+  .region-tag {
+    font-size: 0.8rem;
+    padding: 2px 6px;
+  }
+  
+  .review-link {
+    width: 60px;
+    height: 60px;
+  }
+}
