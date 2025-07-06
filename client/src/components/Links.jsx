@@ -1,4 +1,5 @@
 // Links component
+import { useState } from 'react';
 import '../App.css';
 import './Links.css';
 // Commented out as review section is not currently in use
@@ -7,6 +8,23 @@ import './Links.css';
 import prime_video_logo from "./../assets/Prime Video.png";
 
 export default function Links() {
+  const [clickedLink, setClickedLink] = useState(null);
+  
+  // Handle link click to reset styles after a delay
+  const handleLinkClick = (index, url) => {
+    setClickedLink(index);
+    
+    // Open the link in a new tab
+    window.open(url, '_blank', 'noopener,noreferrer');
+    
+    // Reset the clicked state after 1 second
+    setTimeout(() => {
+      setClickedLink(null);
+    }, 1000);
+    
+    // Prevent default behavior
+    return false;
+  };
   // Amazon Prime Video links for different regions
   const regionLinks = [
     {
@@ -53,9 +71,11 @@ export default function Links() {
                   <a 
                     key={index} 
                     href={link.url} 
-                    className="region-link" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
+                    className={`region-link ${clickedLink === index ? 'clicked' : ''}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleLinkClick(index, link.url);
+                    }}
                   >
                     {link.name}
                   </a>
