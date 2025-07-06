@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import "./css/PayAsYouLike.css";
 import load_animation from "./../assets/loading.gif";
@@ -26,7 +26,8 @@ export default function PayAsYouLike() {
   const [loading, setLoading] = useState(false);
   const [userExists, setUserExists] = useState(false);
   const [emailExists, setEmailExists] = useState(true);
-  const [amountExists, setAmountExists] = useState(false);
+  // Commented out unused state variables
+  // const [amountExists, setAmountExists] = useState(false);
   const [emailError, setEmailError] = useState(false); //<---
 
   const updatedUserInfoRef = useRef(null);
@@ -397,7 +398,7 @@ export default function PayAsYouLike() {
               <h1 style={{ backgroundColor: "transparent", color: "red" }}>
                 Apologies, there was an email error.
                 <br />
-                Please type '0' for Amount and click 'GET PASSWORD'.
+                Please type &apos;0&apos; for Amount and click &apos;GET PASSWORD&apos;.
               </h1>
             </div>
           )}
@@ -515,7 +516,7 @@ export default function PayAsYouLike() {
                 value={userInfo.name}
                 onChange={handleChange}
                 className="input-name input-format"
-                autocomplete="name"
+                autoComplete="name"
               />
               <input
                 type="email"
@@ -523,7 +524,7 @@ export default function PayAsYouLike() {
                 value={userInfo.email}
                 onChange={handleChange}
                 className="input-email input-format"
-                autocomplete="email"
+                autoComplete="email"
               />
               <input
                 type="number"
@@ -531,10 +532,10 @@ export default function PayAsYouLike() {
                 value={userInfo.amount}
                 onChange={handleChange}
                 className="input-amount input-format"
-                autocomplete="off"
+                autoComplete="off"
               />
               <p className="contribution-zero">
-                (you can enter '0' if you don't feel like contributing at this
+                (you can enter &apos;0&apos; if you don&apos;t feel like contributing at this
                 stage)
               </p>
             </div>

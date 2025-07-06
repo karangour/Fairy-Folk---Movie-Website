@@ -1,8 +1,9 @@
 // Links component
 import '../App.css';
 import './Links.css';
-import letterboxd_logo from "./../assets/letterboxd.png";
-import imdb_logo from "./../assets/imdb.png";
+// Commented out as review section is not currently in use
+// import letterboxd_logo from "./../assets/letterboxd.png";
+// import imdb_logo from "./../assets/imdb.png";
 import prime_video_logo from "./../assets/Prime Video.png";
 
 export default function Links() {
@@ -26,36 +27,24 @@ export default function Links() {
     }
   ];
 
-  // Review platform links
-  const reviewLinks = [
-    { 
-      title: "Letterboxd", 
-      url: "https://letterboxd.com/film/fairy-folk/",
-      logo: letterboxd_logo
-    },
-    { 
-      title: "IMDb", 
-      url: "https://www.imdb.com/title/tt10333426/",
-      logo: imdb_logo
-    }
-  ];
+  // Review platform links - currently not in use
+  // const reviewLinks = [
+  //   { 
+  //     title: "Letterboxd", 
+  //     url: "https://letterboxd.com/film/fairy-folk/",
+  //     logo: letterboxd_logo
+  //   },
+  //   { 
+  //     title: "IMDb", 
+  //     url: "https://www.imdb.com/title/tt10333426/",
+  //     logo: imdb_logo
+  //   }
+  // ];
 
   return (
     <div className="links-container">
-      <div className="trailer-container">
-        <iframe 
-          className="trailer-video"
-          src="https://www.youtube.com/embed/igLSVvzRYTU?autoplay=1&mute=1" 
-          title="Fairy Folk Official Trailer"
-          frameBorder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowFullScreen
-        ></iframe>
-      </div>
-      
       <div className="links-section">
         <div className="watch-section">
-          {/* <h3 className="section-title">Watch Now</h3> */}
           <div className="watch-container">
             <div className="prime-video-container">
               <img src={prime_video_logo} alt="Amazon Prime Video" className="prime-video-logo" />
@@ -75,23 +64,23 @@ export default function Links() {
             </div>
           </div>
         </div>
-
-        {/* <div className="review-section">
-          <div className="review-links">
-            {reviewLinks.map((link, index) => (
-              <a 
-                key={index}
-                href={link.url}
-                className="review-link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img src={link.logo} alt={link.title} className="review-logo" />
-              </a>
-            ))}
-          </div>
-        </div> */}
       </div>
+
+      {/* <div className="review-section">
+        <div className="review-links">
+          {reviewLinks.map((link, index) => (
+            <a 
+              key={index}
+              href={link.url}
+              className="review-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={link.logo} alt={link.title} className="review-logo" />
+            </a>
+          ))}
+        </div>
+      </div> */}
     </div>
   );
 }

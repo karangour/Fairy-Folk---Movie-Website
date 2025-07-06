@@ -1,10 +1,11 @@
 import { useState } from "react";
 import "./App.css";
-import MenuElements from "./components/MenuElements";
-import Home from "./components/Home";
+// Commented out unused imports
+// import MenuElements from "./components/MenuElements";
+// import Home from "./components/Home";
 import Links from "./components/Links";
 import poster from "./assets/FairyFolkWebsitePoster.jpg";
-import poster2 from "./assets/FairyFolkIntegratedPoster.jpg";
+// import poster2 from "./assets/FairyFolkIntegratedPoster.jpg";
 
 export default function App() {
   const [isFirstLoad] = useState(true);
